@@ -74,7 +74,7 @@ header {
 
 hh1{
   letter-spacing: -1px;
-  font-size: 25px;
+  font-size: 35px;
   color: #fff;
   line-height: 1;
   margin-bottom: 0.2em;
@@ -83,11 +83,11 @@ hh1{
 }
 
  hh2 {
-  font-size: 16px;
+  font-size: 20px;
   color: #9ddcff;
   font-weight: normal;
   line-height: 1.3;
-  width:400px;
+  width:650px;
   letter-spacing: 0;
 }
 
@@ -103,12 +103,12 @@ hh1{
 }
 
 #main-content {
-  width: 720px;
+  width: 820px;
    margin:0 auto;
 }
 
 #head-content{
- width: 400px;
+ width: 450px;
    margin:0 auto;
 }
 
@@ -199,14 +199,6 @@ ul, ol, dl {
 
 /* COMMON STYLES */
 
-hr {
-  height: 1px;
-  line-height: 1px;
-  margin-top: 1em;
-  padding-bottom: 1em;
-  border: none;
-  background:#fff;
-}
 
 table {
   width: 100%;
@@ -271,7 +263,7 @@ form {
 } 
  
 #main-content h3:before {
-  content: "///";
+  content: "";
   color: #9ddcff;
   padding-right: 0.3em;
   margin-left: -2em;
@@ -285,8 +277,8 @@ form {
 } 
 
 h4:before {
-  content: "////";
-  color: #9ddcff;
+  content: "-";
+  color: #787878;
   padding-right: 0.3em;
   margin-left: -2.8em;
 }
