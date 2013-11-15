@@ -221,7 +221,9 @@ form {
   
 }
 
-
+pic {
+    margin: 0 auto;
+}
 /* GENERAL ELEMENT TYPE STYLES */
 
 #main-content h1 {
