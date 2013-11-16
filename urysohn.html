@@ -8,7 +8,12 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+      <script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -28,11 +33,17 @@
 
     <div id="content-wrapper">
       <div class="inner clearfix">
-        <section id="main-content-math">
-          <h3>A Metric Space</h3>
+        <section id="main-content">
+          <h3>Metric Space</h3>
  <br>
-            <p class="centerpic"> <img src="/images/metricdefinition.png" alt="Metric Space Defintion" width="601" height="190.5"></p><br>
-
+      A metric space $(X,d)$ is a set $X$ where $d:M \times M \to \mathbb{R}$ is a function called the metric such that for all $x,y,z \in X$, the following properties hold:<br>
+ 1. $d(x,y) \geq 0$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (non-negativity)<br>
+2. $d(x,y) = 0 \Leftrightarrow x=y$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (identity of indiscernibles)<br>
+3. $d(x,y)=d(y,x)$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (symmetry)<br>
+4. $d(x,z)\leq d(x,y)+d(y,z)$ &nbsp;&nbsp; (triangle inequality)
+            <br><br>
+<p>It is known that there are many universal metric spaces in the sense that they contain an isometric embedding of every metric space of a certain type.  In the case of Urysohn space, it contains an isometric property of every complete separable metric space.</p>
+            <p class="centerpic"> <img src="/images/urysohn.png" alt="Urysohn space" width="382.5" height="123"></p><br>
             </section>
 <aside id="sidebar">
     <p><a href="index.html">Back to Main Page</a></p>
