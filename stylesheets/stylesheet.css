@@ -107,6 +107,11 @@ hh1{
    margin:0 auto;
 }
 
+#main-content-math {
+  width: 820px;
+   margin:0 auto;
+}
+
 #head-content{
  width: 450px;
    margin:0 auto;
@@ -310,6 +315,71 @@ h6:before {
   padding-right: 0.3em;
   margin-left: -3.7em;
 }
+#main-content-math h1 {
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-size: 2.8em;
+  letter-spacing: -1px;
+  color: #474747;
+} 
+
+#main-content-math h1:before {
+  content: "/";
+  color: #9ddcff;
+  padding-right: 0.3em;
+  margin-left: -0.9em;
+}
+
+#main-content-math h2 {
+  font-family:  'Helvetica Neue', Helvetica, Arial, serif; 
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #474747;
+} 
+#main-content h2:before {
+  content: "//";
+  color: #9ddcff;
+  padding-right: 0.3em;
+  margin-left: -1.5em;
+}
+
+#main-content-math h3 {
+  font-family:  'Helvetica Neue', Helvetica, Arial, serif; 
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align:center;
+  margin-bottom: 8px;
+  color: #787878;
+} 
+ 
+#main-content-math h3:before {
+  content: "";
+  color: #9ddcff;
+  padding-right: 0.3em;
+  margin-left: -2em;
+}
+
+#main-content-math h4 {
+  font-family:  'Helvetica Neue', Helvetica, Arial, serif; 
+  font-size: 15px;
+  font-weight: bold;
+  color: #474747;
+} 
+
+
+#main-content-math h5 {
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-size: 14px;
+  color: #474747;
+} 
+
+#main-content-math h6 {
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-size: .8em;
+  color: #474747;
+} 
+
 
 p {
   margin-bottom: 20px;
