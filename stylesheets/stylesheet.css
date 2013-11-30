@@ -342,22 +342,17 @@ dl dd {
   font-weight: 100;
 }
 
-footer {
-  background: transparent url('../images/hr.png') 0 0 no-repeat;
-  margin-top: 40px;
+#footer {
+  width:500px;
+  margin:0 auto;
   padding-top: 20px;
-  padding-bottom: 30px;
-  padding-left:20px;
-  font-size: 13px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  align-content::bottom;
   color: #aaa;
 }
 
-footer a {
-  color: #666;
-}
-footer a:hover {
-  color: #444;
-}
+
 
 /* MISC */
 .clearfix:after {
