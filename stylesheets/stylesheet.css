@@ -329,6 +329,11 @@ blockquote {
   padding: 0 0 0 30px;
 }
 
+.inner {
+  position: relative;
+  width: 690px;
+  margin: 0 auto;
+}
 
 
 
