@@ -30,9 +30,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
+
 blockquote, q {
 	quotes: none;
 }
@@ -91,11 +89,7 @@ hh1{
   letter-spacing: 0;
 }
 
-.inner {
-  position: relative;
-  width: 690px;
-  margin: 0 auto;
-}
+
 
 #content-wrapper {
   border-top: solid 1px #fff;
@@ -103,12 +97,12 @@ hh1{
 }
 
 #main-content {
-  width: 820px;
+  width: 850px;
    margin:0 auto;
 }
 
 #main-content-math {
-  width: 820px;
+  width: 850px;
    margin:0 auto;
 }
 
@@ -335,10 +329,8 @@ blockquote {
   padding: 0 0 0 30px;
 }
 
-ul li {
-  list-style: disc inside;
-  padding-left: 20px;
-}
+
+
 
 ol li {
   list-style: decimal inside;
@@ -378,6 +370,37 @@ footer a:hover {
 .clearfix {display: inline-block;}
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
+
+/* Nav Bar*/
+#nav {
+   width: 700px;
+   margin:0 auto;
+}
+
+#nav li {
+float:left;
+}
+
+#nav ul {
+list-style-type:none;
+margin:5px;
+}
+
+#nav a:link,a:visited {
+display:block;
+width:130px;
+font-weight:bold;
+text-align:center;
+text-transform:uppercase;
+color:#FFFFFF;
+background-color:#2e7bcf;
+padding:0;
+margin:0;
+}
+
+#nav a:hover,a:active {
+background-color:#81BEF7;
+}
 
 /* #Media Queries
 ================================================== */
