@@ -386,7 +386,7 @@ list-style-type:none;
 margin:5px;
 }
 
-#nav a:link {
+#nav a:link,a:visited {
 display:block;
 width:130px;
 font-weight:bold;
