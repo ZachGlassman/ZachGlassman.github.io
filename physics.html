@@ -8,7 +8,12 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+      <script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -38,14 +43,20 @@
     <div id="content-wrapper">
         <section id="main-content">
           <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Overview</h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Overview</h3><hr>
 
      <p>My current focus is on data analysis techniques particularly on leveraging multi-isotope models to increase parameter sensitivity and finding breakdown in quantum chemical approximations. My current focus is on quanitfying the breakdown of the finite nuclear size approximation in heavy diatomics which should help understand parity violating effects.</p>
-            <p>The idea behind this research is understanding the energy structure of molecules.  This is the energy level structure of ThO, an interesting molecule for measurement of the eEDM, the electric dipole moment of the electron.</p>
-            <br>
-            <p class="centerpic"> <img src="/images/energylevels.png" alt="Energy Levels" width="437.5" height="300"></p><br>
-            <p>As part of my research I have written many programs, mostly in Python to aid in understanding and fitting spectra.  On my Spectroscopy programs page I have placed some of the code for this.  In addition, Herb Pickett from JPL has written a marvelous suite of programs SPCAT/SPFIT which are the standard fitting routines for microwave data.  However, due to their generality, they are notoriously difficult to use.  I have written several partial front ends that do things from creation of input files to visualiation of output from this program.  I also have an example program that one can use to understand at least the basic structure of the routines in SPFIT (although they are not nearly as sophisticated).  I also plan to write a guide to the program for the beginner as part of my senior thesis project.
+            <p>The idea behind this research is understanding the energy structure of molecules.  This has a broad range of applications, but what is special about these energy structures is they tell us essentially everything we could ever want to know about the molecules.
+           
+            <h3>$e$EDM</h3>
+            <hr>
+            <p>Another interesting current topic in physics is the idea of an electron electric dipole moment which could resolve the problem of the shape of the electron.  The standard model of particle physics predicts the electron as some sort of point mass which is essentially without shape and its $e$EDM less than $10^{-40}e\cdot$cm.  Other models such as string theory predict as much as 10 orders of magnitude greater.  Currently the upper limit is about $10^{-29}e\cdot$cm.
 </p>
+             <br>
+            <p class="centerpic"> <img src="/images/energylevels.png" alt="Energy Levels" width="437.5" height="300"></p><br>
+            <p>The above pictures shows the energy levels for ThO which is the molecule that currently holds the record in a fascinating experiment performed by a collaboration by Yale and Harvard.</p>
+            <p>The reason that ThO and other molecule such as YbF (the molecule I study) are useful in these sorts of experiments is that they have large electric fields inside the nucleus of the larger atom.  Relativistic quantum mechanics predicts that the free electron in these molecules has a probability of being inside the nucleus and like any dipole experiences a splitting of energy levels due to the two possible orientation of the electric dipole moment in this field.  Therefore, an important thing to know is the exact electric field, however, this is impossible to measure and must be calculated.</p>
+            <p>While we cannot measure the electric field, we can precisely measure certain aspects of the molecule.  Some of these are parameters that go into the calculation and others are values which can be verified by the calculation and thereby lend credence to it.  My research centers on establishing these parameters as accurately as possible with high resolution spectroscopy.</p>
             </section>
                
 
