@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaTeX Tutorial-Page Setup</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <script src="js/modernizr.js"></script>
+  </head>
+  <body>
+     <header>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><span style= "color:white"><b>LaTeX Tutorial</b></span></h1>
+      <h3><span style= "color:white">Basic Commands</span></h3>
+    </div>
+  </div>
+</header> 
+    <br>
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>How did we do it?</b></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-6 columns">
+			<p>Let us take a look at the code you wrote for last section which had the code on the right.  Here we want to look only at the first two lines and the last line.  Notice that these are <b>commands</b>.  In this section we will go over the basics of commands in general and learn how to setup a page so we can start writing. </p>
+		</div>
+		<div class="small-6 columns">
+		<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+This is my first <span class="k">\LaTeX</span> document!  
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+     a<span class="nb">^</span>2+b<span class="nb">^</span>2=c<span class="nb">^</span>2
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+I can write equations!
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+		</div>
+	</div>
+	<hr />
+    <div class="row">
+		<div class="small-6 columns">
+			<h3><b>Commands</b></h3>
+			<p>The general syntax for commands in LaTeX is <span style="color:green">\command</span><span style="color:blue">{</span><i>argument</i><span style="color:blue">}</span>.  In the example above, we have used four separate commands:
+			</p>
+			<ul>
+				<li>documentclass</li>
+				<li>LaTeX</li>
+				<li>begin</li>
+				<li>end</li>
+			</ul>
+		</div>
+		<div class="small-6 columns">
+			<img src="/img/command.png" alt="command example" />
+		</div>
+	</div>
+	<hr \>
+	<div class="row">
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latexone.html">&larr; Back</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button alert" href="latex-toc.html">Table of Contents</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latexthree.html">Next &rarr;</a>
+		</div>
+	</div>
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
