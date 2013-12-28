@@ -2588,7 +2588,7 @@ a.th {
       background: #efefef;
       color: #222222;
       padding-top: 1rem;
-      padding-right: 2rem;
+      padding-right: 8rem;
       padding-bottom: 1.0625rem;
       padding-left: 2rem;
       font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -2619,7 +2619,9 @@ a.th {
 
 .tabs-content {
   *zoom: 1;
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem; 
+  padding-left:7rem;
+  }
   .tabs-content:before, .tabs-content:after {
     content: " ";
     display: table; }
