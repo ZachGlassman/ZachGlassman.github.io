@@ -60,19 +60,85 @@ I can write equations!
 		</div>
 	</div>
 	<div class="row">
-		<div class="small-6 columns text">
-		<h4>documentclass</h4>
-		<p>The documentclass sets up what type of document you are working with, the default is article, but there is also book, letter and custom classes.</p>
+		<div class="small-12 columns">
+		<h5><b>documentclass</b></h5>
+		<p>The documentclass sets up what type of document you are working with, it loads many default styles and sets the overall look and feel of your document.  There are also class specific commands.  Some of the common classes and their uses are listed below.  There are many more standard classes and even more custom classes.  I usually use either the article class or the beamer class for pretty much everything unless there is a custom class required for homework preparation.  It is important to remember that all of these classes are flexible and there is no <i>right</i> way to use them.  However, every document must have class.</p>
+			<table>
+			<thead>
+				<tr>
+					<th width="100">documentclass</th>
+					<th>  Usage</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>article</td>
+					<td>For articles in scientific journals, presentations, short reports, program documentation, etc.  Possibly the most versatile class and the one I recommend beginners use almost elusively at first.</td>
+				</tr>
+				<tr>
+					<td>report</td>
+					<td>For longer report of several chapters, small book, thesis.</td>
+				</tr>
+				<tr>
+					<td>book</td>
+					<td>For typesetting a book</td>
+				</tr>
+				<tr>
+					<td>memoir</td>
+					<td>For books. Based on book class, but gives a bit more control over look and feel of document in a simpler manner.</td>
+				</tr>
+				<tr>
+					<td>letter</td>
+					<td>For writing letters, has many predefined commands to help correct letter style.</td>
+				</tr>
+				<tr>
+					<td>beamer</td>
+					<td>For writing presentations.  As article class is to Microsoft Word, beamer class is to Microsoft Powerpoint.</td>
+				</tr>
+			</tbody>
+			</table>
 		</div>
-		<div class="small-6 columns">
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+		<h5><b>begin and end</b></h5>
+		<p>The begin and end tags signify the beginning and ending of an <b>environment</b> in the scope of your text.  In the example above, they signify the end of the document environment, which is where the content to be shown is placed.  We are going to explore the difference, try compiling two codes given below and see the difference.</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="small-6 columns">
-		<h4>begin and end</h4>
+		<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\LaTeX</span>~ is awesome
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
 		</div>
 		<div class="small-6 columns">
-		
+		<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="k">\LaTeX</span>~ is awesome
+<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<a href="#" data-reveal-id="videoModal" class="radius button">Examples Together &rsaquo;&rsaquo;</a>
+			<div id="videoModal" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/ex1.pdf" type="application/pdf" width="100%" height="100%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/start.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<p>Note that these examples have the same input text, but different environments.  Much of the control one has with LaTeX is by using such environments.  I like to think of them as clothes, we can put certain input in multiple types and layers of clothes and the overall appearance will be determined by which clothes I use.  However, just as clothing only changes appearance, but not substance, environments are simply ornamentation.  This is why LaTeX is content driven, it allows the typesetter to focus on the content and not as much on how it appears..
+			</p>
 		</div>
 	</div>
 	<hr \>
