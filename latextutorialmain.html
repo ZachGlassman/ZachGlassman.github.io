@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LaTeX Tutorial-Intro</title>
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
     <script src="js/modernizr.js"></script>
   </head>
   <body>
-    
-    <div class="row">
-      <div class="small-12 columns">
-        <h1>An Introduction</h1>
-      </div>
+   <header>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><span style= "color:white">LaTeX Tutorial</span></h1>
+      <h3><span style= "color:white">An Introduction</span></h3>
     </div>
-    
+  </div>
+</header> 
+    <br>
     <div class="row">
       <div class="small-12 columns">
       	<div class="panel">
@@ -28,12 +31,42 @@
 
     <hr />
 <div class="row">
-    <div class="small-12 columns">
+    <div class="small-12 columns text-center">
         <ul class="small-block-grid-2">
             <li><img src="/img/whytex1.png" alt="slide 1" /></li>
             <li><img src="/img/whytex2.png" alt="slide 2" /></li>
         </ul>
     </div>
+    <div class="small-6 columns text-center">
+        <p>LaTeX</p>
+    </div>
+    <div class="small-6 columns text-center">
+        <p>Microsoft Word</p>
+    </div>
+    <div class="small-12 columns">
+        <p>You may recognize these as the statement of the fundamental theorem of calculus.  Although the LaTeX version does look better, the difference is really in the ease of creating such a document.  The code to create such an equation is given below, note that most of the commands are setting up the document itself and these will be explained later.</p>
+    </div>
+    <div class="small 12 columns">
+           <div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">    \int</span><span class="nb">_</span><span class="k">\alpha</span><span class="nb">^</span><span class="k">\beta</span> f&#39;(x) <span class="k">\,</span> dx=f(<span class="k">\beta</span>)-f(<span class="k">\alpha</span>)
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div> 
+    </div>
+</div>
+    <hr />
+<div class="row">
+     <div class="small-8 columns">
+        <p>This tutorial will teach the basics of LaTeX through examples of both input and output.  Remember that LaTeX is about the final product and the final rendering is ALL that matters.  However, there are ways to do things that are better than others which will improve compilation efficiency and generally make your life easier.</p>
+         <p>One of the main facets of this tutorial will be to reproduce examples.  It is imperative that you actually type <b>everything</b> yourself into the editor of your choice.  First off, we will learn how to install and use LaTeX on the operating system of your choice.</p>
+     </div> 
+     <div class="small-4 columns text-center">
+         <br><br><br><br>
+         <a class="button success" href="#">Start!</a>
+         <a class="button alert" href="#">Table of Contents</a>
+     </div>
 </div>
       
     <script src="js/jquery.js"></script>
