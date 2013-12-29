@@ -143,6 +143,30 @@ I can write equations!
 	</div>
 	<hr \>
 	<div class="row">
+		<div class="small-6 columns">
+			<h3><b>Packages</b></h3>
+			<p>Although with just the basic LaTeX package one could theoretically typeset any document, in practice this would be very difficult.  Luckily, there are <b>packages</b> which extend functionality of the language in ways such as improved design elements, graphic generation, etc.  The example code on the right uses many common packages.  Notice that the usepackage command is invoked before the begin{document} command.
+			</p>
+		</div>
+		<div class="small-6 columns">
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[english]</span><span class="nb">{</span>babel<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsfonts<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsthm<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[margin=1in]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+I used some packages.
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+		</div>
+	</div>
+	<div class="row">
 		<div class="small-4 columns text-center">
 			<a class="button success" href="latexone.html">&larr; Back</a>
 		</div>
