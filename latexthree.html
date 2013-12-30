@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaTeX Tutorial-Math Mode</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <script src="js/modernizr.js"></script>
+  </head>
+  <body>
+     <header>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><span style= "color:white"><b>LaTeX Tutorial</b></span></h1>
+      <h3><span style= "color:white">Math Mode</span></h3>
+    </div>
+  </div>
+</header> 
+    <br>
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>What is math mode?</b></h3>
+			<p>For many people the most useful part of LaTeX is the ability to typeset complex mathematical formulas.  However, LaTeX needs to be told to typeset math as opposed to normal text and so there are two operating modes, the default text entry mode and math mode.  There are a few ways to enter math mode, however the most common is <span style="color:red">$</span>....<span style="color:red">$</span>, where the text within the dollar signs is in the math mode environment.  You have already been using math mode unknowingly by using the <span style="color:green">\begin{equation}</span> and <span style="color:green">\end{equation}</span>.
+			</p>
+			<table>
+			<thead>
+				<tr>
+					<th width="100">Method</th>
+					<th>Special Characteristics</th>
+					<th>Usage><th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span style="color:red">$</span>....<span style="color:red">$</span></td>
+					<td>None</td>
+					<td>In-line math</td>
+				</tr>
+				<tr>
+					<td><span style="color:green">\begin{equation}</span> <span style="color:green">\end{equation}</span></td>
+					<td>Goes to a newline and centers with equation label</td>
+					<td>Equations</td>
+				</tr>
+				<tr>
+					<td>book</td>
+					<td>For typesetting a book</td>
+				</tr>
+				<tr>
+					<td>memoir</td>
+					<td>For books. Based on book class, but gives a bit more control over look and feel of document in a simpler manner.</td>
+				</tr>
+				<tr>
+					<td>letter</td>
+					<td>For writing letters, has many predefined commands to help correct letter style.</td>
+				</tr>
+				<tr>
+					<td>beamer</td>
+					<td>For writing presentations.  As article class is to Microsoft Word, beamer class is to Microsoft Powerpoint.</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+	<hr \>
+	<div class="row">
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latextwo.html">&larr; Back</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button alert" href="latex-toc.html">Table of Contents</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latexfour.html">Next &rarr;</a>
+		</div>
+	</div>
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

@@ -145,7 +145,7 @@ I can write equations!
 	<div class="row">
 		<div class="small-6 columns">
 			<h3><b>Packages</b></h3>
-			<p>Although with just the basic LaTeX package one could theoretically typeset any document, in practice this would be very difficult.  Luckily, there are <b>packages</b> which extend functionality of the language in ways such as improved design elements, graphic generation, etc.  The example code on the right uses many common packages.  Notice that the <i>usepackage</i> command is invoked before the <i>begin{document}</i> command.
+			<p>Although with just the basic LaTeX package one could theoretically typeset any document, in practice this would be very difficult.  Luckily, there are <b>packages</b> which extend functionality of the language in ways such as improved design elements, graphic generation, etc.  The example code on the right uses many common packages.  Notice that the <i>usepackage</i> command is invoked before the <i>begin{document}</i> command.  Also note that some packages have option arguments which go in the square brackets before the curly brackets.
 			</p>
 		</div>
 		<div class="small-6 columns">
@@ -166,6 +166,97 @@ I used some packages.
 </pre></div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<p>Below is a listing of some common packages and what they do.  Many will be explained in more detail in subsequent sections.
+			<table>
+			<thead>
+				<tr>
+					<th width="100">Package</th>
+					<th>  Usage</th>
+					<th>Documentation</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>amsmath</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>geometry</td>
+					<td>Set up page geometry such as margins.  Takes arguments in brackets.</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>float</td>
+					<td>Allows placement of figure and table environments to be fixed by user instead of by LaTeX</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>graphicx</td>
+					<td>Allows image import of many different formats</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>enumerate</td>
+					<td>Allows lists to be enumerated by more than just number</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>tikz</td>
+					<td>Vectorized drawing package producing high-quality images.</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>subcaption</td>
+					<td>Allows multiple in-line figures in a figure environment</td>
+					<td></td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<p>Often we have LaTeX commands that we use often and would rather not write out the entire command every time we need to use them.  Occasionally, we are better off defining a macro which saves us a bit of work.  The way in which this is done is by using the command <i>newcommand</i> and then defining our command.  Below we have defined a command <i>pder</i> which produces a partial derivative.  We then write out the full command in the first equation and use the macro in the second equation.  Make sure that they come out the same!
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-8 columns">
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\pder</span><span class="nb">}</span>[2]<span class="nb">{</span><span class="k">\frac</span><span class="nb">{</span><span class="k">\partial</span>#1<span class="nb">}{</span><span class="k">\partial</span>#2<span class="nb">}}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\frac</span><span class="nb">{</span><span class="k">\partial</span> x<span class="nb">}{</span><span class="k">\partial</span> y<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\pder</span><span class="nb">{</span>x<span class="nb">}{</span>y<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+		</div>
+		<div class="small-4 columns">
+			<br><br><br>
+			<a href="#" data-reveal-id="videoModal" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="videoModal" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/macros.pdf" type="application/pdf" width="100%" height="100%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/start.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="small-12 columns">
+			<p>In this case, our syntax is <span style="color:green">\newcommand</span><span style="color:blue">{</span><i>name</i><span style="color:blue">}</span>[# input arguments]<span style="color:blue">{</span><i>full command</i><span style="color:blue">}</span>.  Note that in the full command part we reference our input arguments as #1,#2, etc. In general, macros speed the writing of the document, but slow the actual typesetting as the compiler must reference the definition.  I tend to use them sparingly and usually for surprisingly simple tasks.  Also remember that a macro is only useful if you are going to be using it over and over again.
+			</p>
+		</div>
+	</div>
+	<hr />
 	<div class="row">
 		<div class="small-4 columns text-center">
 			<a class="button success" href="latexone.html">&larr; Back</a>
