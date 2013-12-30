@@ -49,8 +49,34 @@
 				</tr>
 				</tbody>
 			</table>
-		<br>
-		These are the basic math mode environment.  There are equivalent ways of using all of these, for example, <span style="color:red">$$</span>....<span style="color:red">$$</span> is equivalent to <span style="color:red">\[</span> ....<span style="color:red">\]</span>, however, the latter is now strongly preferred.  
+			<br>
+			These are the basic math mode environment.  There are equivalent ways of using all of these, for example, <span style="color:red">$$</span>....<span style="color:red">$$</span> is equivalent to <span style="color:red">\[</span> ....<span style="color:red">\]</span>, however, the latter is now strongly preferred.  Now try the following LaTeX code.
+			<br>
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+	<span class="k">\int</span><span class="nb">_</span><span class="k">\alpha</span><span class="nb">^</span><span class="k">\beta</span> f&#39;(x) <span class="k">\,</span> dx=f(<span class="k">\beta</span>)-f(<span class="k">\alpha</span>).
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+We can use the fundamental theorem of calculus to say that
+ <span class="s">$</span><span class="nv">\int</span><span class="nb">_</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb"> x^</span><span class="m">2</span><span class="nb"> </span><span class="nv">\,</span><span class="nb"> dx</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">3</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">19</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="s">$</span>.  
+Also note that <span class="s">$</span><span class="nv">\displaystyle</span><span class="nb"> </span><span class="nv">\int</span><span class="nb">_</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb"> x^</span><span class="m">2</span><span class="nb"> </span><span class="nv">\,</span><span class="nb"> dx</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">3</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">19</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="s">$</span>. 
+ We can also give this equation its own line 
+<span class="sb">\[</span><span class="nb"></span>
+<span class="nb">	</span><span class="nv">\int</span><span class="nb">_</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb"> x^</span><span class="m">2</span><span class="nb"> </span><span class="nv">\,</span><span class="nb"> dx</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">3</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">19</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}.</span>
+<span class="s">\]</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+			<br>
+			<a href="#" data-reveal-id="mathmodeone" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="mathmodeone" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/mathmodeone.pdf" type="application/pdf" width="100%" height="50%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/macros.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+			<p>Note that math mode ignores whitespace, in fact, this whole code could have been put on one line and still compiled correctly.  Another thing to notice is the effect of the <span style="color:teal">\displaystyle</span> command.  This command forces LaTeX to give an equation the full height it needs to display as if it were on its own line.  Be careful in using it as it can make a document look odd. 
+			</p>
+		
 		</div>
 	</div>
 	<hr \>
