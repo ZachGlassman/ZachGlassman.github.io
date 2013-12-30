@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
     <script src="js/modernizr.js"></script>
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['\$','\$']]}});
+</script>
+      <script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
   <body>
      <header>
@@ -28,7 +34,7 @@
 				<tr>
 					<th width="100">Method</th>
 					<th>Special Characteristics</th>
-					<th>Usage></th>
+					<th>Usage</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -112,14 +118,47 @@ Also note that <span class="s">$</span><span class="nv">\displaystyle</span><spa
 <span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
+		</div>
 	</div>
 	<div class="row">
 		<div class="small-12 columns">
-			<p>Observe that the equation enviornment does not even allow line breaks.
+			<p>Observe that the equation environment does not even allow line breaks.  If we use the gather environment, every equation is centered.  If we wish to align the equations, we use the align environment and insert a <span style="color:red">&amp;</span> on every line where we wish the equations to be aligned (usually at some sort of equality symbol).  Also note the use of the <span style="color:green">\notag</span> command which tells LaTeX not to number that specific line.
 			</p>
 		</div>
 	</div>
 	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<p>The following is a table of the most common LaTeX symbols.
+			</p>
+			<table>
+			<thead>
+				<tr>
+					<th width="100">Symbol Name</th>
+					<th>LaTeX Command</th>
+					<th>Output</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span style="color:red">$</span>....<span style="color:red">$</span></td>
+					<td>None</td>
+					<td>In-line math</td>
+				</tr>
+				<tr>
+					<td><span style="color:green">\begin{equation}</span> <span style="color:green">\end{equation}</span></td>
+					<td>Goes to a newline and center equation with label</td>
+					<td>Equations</td>
+				</tr>
+				<tr>
+					<td><span style="color:red">\[</span> ....<span style="color:red">\]</span></td>
+					<td>Goes to a newline and center equation</td>
+					<td>Equations with no label</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	<div class="row">
 		<div class="small-4 columns text-center">
 			<a class="button success" href="latextwo.html">&larr; Back</a>
