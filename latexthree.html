@@ -55,10 +55,18 @@
 </nav>
     <br>
 	<div class="row">
+		<div class="small 12 columns"></div>
+		<div class="panel">
+			<h3><b>Overview</b></h3>
+			<p> This section will cover how to typeset mathematics.  It will also cover how to handle complicated equations and multiple equation environments.</p>
+		</div>
+		</div>
 		<div class="small-12 columns">
 			<h3><b>What is math mode?</b></h3>
-			<p>For many people the most useful part of LaTeX is the ability to typeset complex mathematical formulas.  However, LaTeX needs to be told to typeset math as opposed to normal text and so there are two operating modes, the default text entry mode and math mode.  There are a few ways to enter math mode, however the most common is <span style="color:red">$</span>....<span style="color:red">$</span>, where the text within the dollar signs is in the math mode environment.  You have already been using math mode unknowingly by using the <span style="color:green">\begin{equation}</span> and <span style="color:green">\end{equation}</span>.
+			<p>For many people the most useful part of LaTeX is the ability to typeset complex mathematical formulas.  for the sake of simplicity, LaTeX separates the tasks of typesetting mathematics and typesetting normal text.  This is achieved by the use of two operating modes, paragraph and math mode.  There is also a third mode called LR mode, however, this is rarely used by beginners and furthermore, is usually implicitly entered with other commands.  It will not be covered here.  Paragraph mode is the default mode for the document environment and does not need to be called explicitly.</p>
+			<p>There are a few ways to enter math mode, however the most common is <span style="color:red">$</span>....<span style="color:red">$</span>, where the text within the dollar signs is in the math mode environment.  You have already been using math mode unknowingly by using the <span style="color:green">\begin{equation}</span> and <span style="color:green">\end{equation}</span> commands.
 			</p>
+			<p> The following table lists three methods and their usage of declaring math mode.</p>
 			<table>
 			<thead>
 				<tr>
@@ -86,8 +94,8 @@
 				</tbody>
 			</table>
 			<br>
-			These are the basic math mode environment.  There are equivalent ways of using all of these, for example, <span style="color:red">$$</span>....<span style="color:red">$$</span> is equivalent to <span style="color:red">\[</span> ....<span style="color:red">\]</span>, however, the latter is now strongly preferred.  Now try the following LaTeX code.
-			<br><br>
+			<p>There are equivalent ways of entering math mode for each of these methods, for example, <span style="color:red">$$</span>....<span style="color:red">$$</span> is equivalent to <span style="color:red">\[</span> ....<span style="color:red">\]</span>, however, the latter is now strongly preferred. I almost always use the first two methods for typesetting basic math.</p>
+			<p>Now try the following LaTeX code.</p>
 			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
@@ -110,7 +118,7 @@ Also note that <span class="s">$</span><span class="nv">\displaystyle</span><spa
 				</object>
 				<a class="close-reveal-modal">x</a>
 			</div>
-			<p>Note that math mode ignores whitespace, in fact, this whole code could have been put on one line and still compiled correctly.  Another thing to notice is the effect of the <span style="color:teal">\displaystyle</span> command.  This command forces LaTeX to give an equation the full height it needs to display as if it were on its own line.  Be careful in using it as it can make a document look odd. 
+			<p>Note that math mode ignores whitespace, in fact, this whole code could have been put on one line and still would have compiled correctly.  Another thing to notice is the effect of the <span style="color:teal">\displaystyle</span> command.  This command forces LaTeX to give an equation the full height it needs to display as if it were on its own line.  Be careful in using it as it can make a document due to variable line height. 
 			</p>
 		</div>
 	</div>
@@ -121,7 +129,7 @@ Also note that <span class="s">$</span><span class="nv">\displaystyle</span><spa
 		</div>
 		<div class="small-6 columns">
 			<p>
-			There are several ways to format multiple equations and the amsmath package adds several more.  In general the command <span style="color:blue">\\</a></span> signifies a line break and within the correct math mode, it can start a new equation line.  Try the example on the right which sets multiple equations in several ways. 
+			There are several ways to format multiple equations and the amsmath package adds several more.  In general, the command <span style="color:green">\\</a></span> signifies a line break and within the correct math mode environment, it can start a new equation line.  Try the example on the right which sets the same multiple equations in several ways. 
 			</p>
 			<br>
 			<a href="#" data-reveal-id="mathmodetwo" class="radius button">View PDF &rsaquo;&rsaquo;</a>
@@ -155,19 +163,27 @@ Also note that <span class="s">$</span><span class="nv">\displaystyle</span><spa
 	<div class="row">
 		<div class="small-12 columns">
 			<br>
-			<p>Observe that the equation environment does not even allow line breaks.  If we use the gather environment, every equation is centered.  If we wish to align the equations, we use the align environment and insert an <span style="color:red">&amp;</span> on every line where we wish the equations to be aligned (usually at some sort of equality symbol).  Also note the use of the <span style="color:green">\notag</span> command which tells LaTeX not to number that specific line.
+			<p>Observe that the equation environment does not even allow line breaks.  this is not the proper environment for multiple equations if we wish to have them formatted on separate lines.</p>
+			<p>  The <b>gather</b> and <b>align</b> environments both give us the result we want, albeit in slightly different manners.</p>
+			<ul>
+				<li>If we use the gather environment, every equation is centered.</li>
+				<li>If we use the align environment and insert an <span style="color:red">&amp;</span> on every line where we wish the equations to be aligned (usually at some sort of equality symbol), the equations will be aligned.</li>
+			</ul>
+			<div class="panel">
+			<p><span style="color:blue">Note:</span>  The <span style="color:green">\notag</span> command tells LaTeX not to number that specific line.
 			</p>
+			</div>
 		</div>
 	</div>
 	<hr />
 	<div class="row">
 		<div class="small-12 columns">
-			<p>The following is a table of the most common LaTeX symbols.
+			<p>The following is a table of some of the most common LaTeX mathematical symbols.
 			</p>
 			<table>
 			<thead>
 				<tr>
-					<th width="100">Symbol Name</th>
+					<th width="120">Symbol Name</th>
 					<th>LaTeX Command</th>
 					<th>Rendering</th>
 					<th>Notes</th>
