@@ -50,7 +50,81 @@
 	<div class="row">
 		<div class="small-12 columns">
 			<h3><b>Why labels?</b></h3>
-			
+			<p>Labels are a necessary part of typesetting as they are efficient pointers to information.  It is better to reference Table 2 rather than "that table where I list all of those things."  It is exceptionally important for equations.</p>
+			<p>One of the most useful (and occasionally underrated) properties of LaTeX is the easy and power of its labeling system.  This allows one to reference equations, figures, tables, etc with easy and flexibility.  Unlike word processing software, LaTeX will automatically number and reference and change the numbering based on additions and deletions with <b>no</b> extra input from the writer.</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>An example</b></h3>
+			<p>There are ways to label many of the examples we have already covered.  Try the following code.</p>
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>caption<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>subcaption<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+We can describe atoms through use of the Schr<span class="k">\&quot;</span><span class="nb">{</span>o<span class="nb">}</span>dinger 
+equation which is given as 
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\label</span><span class="nb">{</span>schro<span class="nb">}</span>
+E<span class="k">\Psi</span>=<span class="k">\textbf</span><span class="nb">{</span>H<span class="nb">}</span><span class="k">\Psi</span>.
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+If we carry out equation <span class="k">\ref</span><span class="nb">{</span>schro<span class="nb">}</span> to its fullest consequences,
+ we can describe figure <span class="k">\ref</span><span class="nb">{</span>fig:Atoms<span class="nb">}</span>.
+<span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+	<span class="k">\centering</span>
+	<span class="k">\begin</span><span class="nb">{</span>subfigure<span class="nb">}{</span>.45<span class="k">\textwidth</span><span class="nb">}</span>
+		<span class="k">\centering</span>
+		<span class="k">\includegraphics</span><span class="na">[width=\textwidth]</span><span class="nb">{</span>atom.png<span class="nb">}</span>
+		<span class="k">\caption</span><span class="nb">{</span>Big atoms<span class="nb">}</span>
+		<span class="k">\label</span><span class="nb">{</span>subfig:big<span class="nb">}</span>
+	<span class="k">\end</span><span class="nb">{</span>subfigure<span class="nb">}</span>
+<span class="c">%%%%%%%%%%%%%%</span>
+	<span class="k">\begin</span><span class="nb">{</span>subfigure<span class="nb">}{</span>.45<span class="k">\textwidth</span><span class="nb">}</span>
+		<span class="k">\centering</span>
+		<span class="k">\includegraphics</span><span class="na">[scale=.25]</span><span class="nb">{</span>atom.png<span class="nb">}</span>
+		<span class="k">\caption</span><span class="nb">{</span>Small atom<span class="nb">}</span>
+		<span class="k">\label</span><span class="nb">{</span>subfig:small<span class="nb">}</span>
+	<span class="k">\end</span><span class="nb">{</span>subfigure<span class="nb">}</span>
+	<span class="k">\caption</span><span class="nb">{</span>Atoms<span class="nb">}</span>
+	<span class="k">\label</span><span class="nb">{</span>fig:Atoms<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+We also can use this to describe the atomic masses of 
+elements from big, <span class="k">\ref</span><span class="nb">{</span>subfig:big<span class="nb">}</span>, to small, <span class="k">\ref</span><span class="nb">{</span>subfig:small<span class="nb">}</span>.  
+Some of these masses are given in table <span class="k">\ref</span><span class="nb">{</span>tab:atommass<span class="nb">}</span>.
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[H]
+<span class="k">\centering</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>c|c<span class="nb">}</span>
+Element<span class="nb">&amp;</span>Atomic Mass (amu)<span class="k">\\\hline</span>
+H<span class="nb">&amp;</span>1.007 825 032 07(10<span class="k">\\</span>
+He<span class="nb">&amp;</span>3.016 029 3191(26)<span class="k">\\</span>
+Li<span class="nb">&amp;</span>6.015 122 795(16)<span class="k">\\</span>
+Be<span class="nb">&amp;</span>9.012 182 2(4)<span class="k">\\</span>
+B<span class="nb">&amp;</span>10.012 937 0(4)<span class="k">\\</span>
+C<span class="nb">&amp;</span>12.000 000 0(0)
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\caption</span><span class="nb">{</span>Atomic Masses<span class="nb">}</span>
+<span class="k">\label</span><span class="nb">{</span>tab:atommass<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+We don&#39;t have a <span class="k">\ref</span><span class="nb">{</span>noref<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+			<br><br>
+			<a href="#" data-reveal-id="label1" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="label1" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/label1.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/label1.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+			<p>We can see that we never explicitly label any of the equation, tables, figures, or subfigures.  Try adding in more equations and change their order, you will find that LaTeX will handle all the labeling for you.</p>
+			<div class="panel">
+			<p><span style="color:red">Warning!</span> It matters where the <span style="color:green">\label</span> command is placed relative to the <span style="color:green">\caption</span> command.</p>
+			</div>
+			<p>In this example we have also used the <b>hyperref</b> package.  This is not necessary, however, it creates a linked page where we can click on the numbers and the the pdf will automatically take us to the location in the document.  For a short document like this, it is not necessary, however, for a longer document this can be very useful.  Also note the naming scheme used where I have labeled things by their type and by a name.  This is also not necessary, however, it is a good habit since it can help keep the labels disparate among different float types and , perhaps more importantly, organized in your own head.</p>
 		</div>
 	</div>
 	<hr />
