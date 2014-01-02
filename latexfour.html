@@ -1,0 +1,237 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaTeX Tutorial-Tables</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <script src="js/modernizr.js"></script>
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['\\(','\\)']]}});
+</script>
+      <script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+  <body>
+     <header>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><span style= "color:white"><b>LaTeX Tutorial</b></span></h1>
+      <h3><span style= "color:white">Tables</span></h3>
+    </div>
+  </div>
+</header> 
+    <br>
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>Why tables?</b></h3>
+			<p>Tables can be a very efficient way to present information, in fact, we use them often in this tutorial.  When writing scientific papers, there are almost always tables of some sort.  However, tables can get quite complicated in LaTeX due mostly to assumptions about what the compiler will do with the input.  Remember, <b>the compiler will do what you tell it, not what you want!</b></p>
+			<p>Our goal in this section is going to be an efficient organization of the following set of data presented here in list form:</p>
+			<ul>
+				<li>Mark works in a bank where he makes $250,000 per year.  He has three children named Amy, John, and Ray.  He likes windsurfing and jumping on trampolines.  He has always wanted to own a cheese shop.</li>
+				<li>Carly works at at boutique tattoo shop where she makes $80,000 per year.  She has a child named Tyra.  She likes heavy metal music, Paris, and dancing in the rain.  She has always wanted to tattoo a president of the United States.</li>
+				<li>Carter is in graduate school where he makes $25,000 per year.  He has no children.  He likes candy, fast cars that he cannot afford and Ramen.  He has always wanted to learn to play the Ukelele in addition to traveling the world.</li>
+				<li>Sam works at a non-profit where she makes $50,000 per year.  She has two children named Kyle and Sam Jr.  She likes painting, motorcycles, and Reddit.  She has always wanted to be in the circus.</li>
+			</ul>
+			<p>We will work up to organizing this information, starting with the basics</p>
+		</div>
+	</div>
+	</hr>
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>The tabular environment</b></h3>
+		</div>
+		<div class="small-8 columns">
+			<p>The <i>tabular</i> environment is the basic environment for creating a table.  We can think of a table as an array with separate cells and we need to individually define the cells.  On the right is the code for a basic table with some of the information above.  See how this looks and then we will through each component of it.</p>
+			<a href="#" data-reveal-id="tables1" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="tables1" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/tables1.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/tables1.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+		</div>
+		<div class="small-4 columns">
+		<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>l|c<span class="nb">}</span>
+Name<span class="nb">&amp;</span>Salary<span class="k">\\\hline</span>
+Mark<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">250</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="k">\\</span>
+Carly<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">80</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="k">\\</span>
+Carter<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">25</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="k">\\</span>
+Sam<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">50</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+		</div>
+		<div class="small-12 columns">
+			<ol>
+				<li>The argument <span style="color:blue">{</span> l | c <span style="color:blue">}</span> represents the number of columns their justification.  Since there are two arguments <b>l</b> and <b>c</b>, there are two columns, the first of which is left-justified and the second of which is center-justified.  One can also use an <b>r</b> for right-justified or define custom justifications the most useful of which is justify on a decimal point.  Every column in the table <b>must</b> be declared in this way.  The <b>|</b> in the center means put a line in between those columns.</li>
+				<li>The ampersand symbol, <span style="color:blue">&amp;</span>, is the horizontal cell delineation.  Since this table has two columns, every row must have one ampersand.  In general for an n column table, each row must have n-1 ampersands.</li>
+				<li>The <span style="color:green">\\</span> symbol tells the compiler to the end the current row and start at the left of the next row.  Unlike columns, one does not have to predefine the number of rows in the table.</li>
+				<li><span style="color:green">\hline</span> means put a horizontal line under the row that has just been completed.</li>
+			</ol>
+			<p>Remember that one still needs to use math mode inside a table,(<span style="color:teal">\&amp;</span> means print ampersand).  On a stylistic note, refrain from using too many lines in between cells.  Due perhaps to the ubiquity of Microsoft excel, people tend to put lines between all of their cells, however the typographical convention, (which is much better looking), is to only use horizontal lines at the beginning of a table to delineate labels from data.</p>
+			<p>On another note, it is general good to enclose a tabular environment inside a figure or table environment.  We will talk more about this next section, but it allows LaTeX to more efficiently place the table in the proper location.</p>
+			<p>We can now create most basic tables, however, there are a couple of subtleties that need to be discussed</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>Large amounts of data</b></h3>
+		</div>
+		<div class="small-12 columns">
+			<p>When dealing with large amounts of data, either in the form of a large table or tons of data to put in a cell, one must remember the following</p>
+			<ul>
+				<li>LaTeX does not automatically word wrap (end text at edge of a cell and start a new row.</li>
+				<li>LaTeX will not automatically fit the table on a page.</li>
+			</ul>
+			<p>Getting around these issues is not difficult as there are ways to deal with both issues.  On cautionary warning is that a table is supposed to be a concise representation of data, problems like these can sometimes occur because one is trying to fit too much data in the table.<p>
+			<h4>Word-wrap</h4>
+			<p>First we will tackle the automatic word wrap, notice the difference between the first and second tables in the code below.</p>
+		</div>
+		<div class="small-12 columns">
+		<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>c|lll<span class="nb">}</span>
+Name<span class="nb">&amp;</span>Salary<span class="nb">&amp;</span>Likes<span class="nb">&amp;</span>Children<span class="k">\\\hline</span>
+Mark<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">250</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>windsurfing and jumping on trampolines<span class="nb">&amp;</span>Amy, John, and Ray<span class="k">\\</span>
+Carly<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">80</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>heavy metal music, Paris, and dancing in the rain<span class="nb">&amp;</span>Tyra<span class="k">\\</span>
+Carter<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">25</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>candy, fast cars that he cannot afford and Ramen<span class="nb">&amp;</span>None<span class="k">\\</span>
+Sam<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">50</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>painting, motorcycles, and Reddit<span class="nb">&amp;</span>Kyle and Sam Jr.
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>c|lp<span class="nb">{</span>2in<span class="nb">}</span>p<span class="nb">{</span>1in<span class="nb">}}</span>
+Name<span class="nb">&amp;</span>Salary<span class="nb">&amp;</span>Likes<span class="nb">&amp;</span>Children<span class="k">\\\hline</span>
+Mark<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">250</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>windsurfing and jumping on trampolines<span class="nb">&amp;</span>Amy, John, and Ray<span class="k">\\</span>
+Carly<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">80</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>heavy metal music, Paris, and dancing in the rain<span class="nb">&amp;</span>Tyra<span class="k">\\</span>
+Carter<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">25</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>candy, fast cars that he cannot afford and Ramen<span class="nb">&amp;</span>None<span class="k">\\</span>
+Sam<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">50</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>painting, motorcycles, and Reddit<span class="nb">&amp;</span>Kyle and Sam Jr.
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+			<br><br>
+			<a href="#" data-reveal-id="tables2" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="tables2" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/tables2.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/tables2.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+			<div class="panel">
+			<p><span style="color:orange"><b>Note:</b></span> <span style="color=gray">%</span> signifies a comment.  Anything on a line after this character will be ignored by the compiler</p>
+			</div>
+			<p>We can see that this first table is not what we want since it overlaps the margins.  Since we have not even included all the data we eventually want in the table, we need a way to fix this.  We have one solution in the second table (which has the same information) where we force LaTeX to word wrap in individual cells by giving them a fixed with.  The syntax for this is to use the justification character <b>p</b> followed by <span style="color:blue">{</span><i>width</i><span style="color:blue">}</span> where width is in some unit of length (cm,pt,in,em,etc.)  This is a good solution to our problem in this case.</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<h4>Landscape</h4>
+		</div>
+		<div class="small-12 columns">
+			<p>Sometimes we have too many columns and defining a width would force columns to be too narrow, in this case, we can force the table to appear in landscape mode.  There are many ways to do this, relying on several packages, but on way is given in the code below.</p>
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>rotating<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>sidewaystable<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>c|lll<span class="nb">}</span>
+Name<span class="nb">&amp;</span>Salary<span class="nb">&amp;</span>Likes<span class="nb">&amp;</span>Children<span class="k">\\\hline</span>
+Mark<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">250</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>windsurfing and jumping on trampolines<span class="nb">&amp;</span>Amy, John, and Ray<span class="k">\\</span>
+Carly<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">80</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>heavy metal music, Paris, and dancing in the rain<span class="nb">&amp;</span>Tyra<span class="k">\\</span>
+Carter<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">25</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>candy, fast cars that he cannot afford and Ramen<span class="nb">&amp;</span>None<span class="k">\\</span>
+Sam<span class="nb">&amp;</span><span class="s">$</span><span class="nv">\$</span><span class="m">50</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">&amp;</span>painting, motorcycles, and Reddit<span class="nb">&amp;</span>Kyle and Sam Jr.
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>sidewaystable<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+			<br><br>
+			<a href="#" data-reveal-id="tables3" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="tables3" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/tables3.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/tables3.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+			<p>Here we have used the rotating package and enclosed our normal <i>tabular</i> environment in a <i>sidewaystable</i> environment.  While for this particular problem, I would probably use word-wrapping, this landscape fix can be useful for larger data sets</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>multirow and multicolumn</b></h3>
+			<p>We are now ready to make our full table, however we also will introduce a nice way to format cells that contain many disparate pieces of data such as several children's names, or several desires.  In this case we will be splitting rows into multiple rows using the multirow package.  Try the code below.
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>multirow<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>c|lp<span class="nb">{</span>1.4in<span class="nb">}</span>lp<span class="nb">{</span>1.1in<span class="nb">}}</span>
+Name<span class="nb">&amp;</span>Salary<span class="nb">&amp;</span>Likes<span class="nb">&amp;</span>Children<span class="nb">&amp;</span>Desires<span class="k">\\\hline</span>
+<span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span>Mark<span class="nb">}&amp;</span><span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span><span class="s">$</span><span class="nv">\$</span><span class="m">250</span><span class="nb">,</span><span class="m">000</span><span class="s">$</span><span class="nb">}&amp;</span>windsurfing<span class="nb">&amp;</span>Amy<span class="nb">&amp;</span><span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span>own
+	a cheese shop<span class="nb">}</span><span class="k">\\</span>
+~<span class="nb">&amp;</span>~<span class="nb">&amp;</span>jumping on<span class="nb">&amp;</span>John<span class="nb">&amp;</span>~<span class="k">\\</span>
+~<span class="nb">&amp;</span>~<span class="nb">&amp;</span>a trampoline<span class="nb">&amp;</span>Ray<span class="nb">&amp;</span>~<span class="k">\\\hline</span>
+<span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span>Carly<span class="nb">}&amp;</span><span class="s">$</span><span class="nv">\multirow</span><span class="nb">{</span><span class="m">3</span><span class="nb">}{</span><span class="o">*</span><span class="nb">}{</span><span class="nv">\$</span><span class="m">80</span><span class="nb">,</span><span class="m">000</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span>heavy metal music<span class="nb">&amp;</span><span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span>Tyra<span class="nb">}
+&amp;</span>tattoo a president<span class="k">\\</span>
+~<span class="nb">&amp;</span>~<span class="nb">&amp;</span>Paris<span class="nb">&amp;</span>~<span class="nb">&amp;</span><span class="k">\multirow</span><span class="nb">{</span>2<span class="nb">}{</span>*<span class="nb">}{</span>of the united states<span class="nb">}</span><span class="k">\\</span>
+~<span class="nb">&amp;</span>~<span class="nb">&amp;</span>dancing in the rain<span class="nb">&amp;</span>~<span class="nb">&amp;</span>~<span class="k">\\\hline</span>
+<span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span>Carter<span class="nb">}&amp;</span><span class="s">$</span><span class="nv">\multirow</span><span class="nb">{</span><span class="m">3</span><span class="nb">}{</span><span class="o">*</span><span class="nb">}{</span><span class="nv">\$</span><span class="m">25</span><span class="nb">,</span><span class="m">000</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span>candy<span class="nb">&amp;</span><span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span>None<span class="nb">}&amp;</span>play the
+	Ukelele<span class="k">\\</span>
+~<span class="nb">&amp;</span>~<span class="nb">&amp;</span>fast cars that he cannot afford<span class="nb">&amp;</span>~<span class="nb">&amp;</span><span class="k">\multirow</span><span class="nb">{</span>2<span class="nb">}{</span>*<span class="nb">}{</span> travel the world<span class="nb">}</span><span class="k">\\</span>
+~<span class="nb">&amp;</span>~<span class="nb">&amp;</span>Ramen<span class="nb">&amp;</span>~<span class="nb">&amp;</span>~<span class="k">\\\hline</span>
+<span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span>Sam<span class="nb">}&amp;</span><span class="s">$</span><span class="nv">\multirow</span><span class="nb">{</span><span class="m">3</span><span class="nb">}{</span><span class="o">*</span><span class="nb">}{</span><span class="nv">\$</span><span class="m">50</span><span class="nb">,</span><span class="m">000</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span>paintingit<span class="nb">&amp;</span>Kyle<span class="nb">&amp;</span><span class="k">\multirow</span><span class="nb">{</span>3<span class="nb">}{</span>*<span class="nb">}{</span>be in the
+	circus<span class="nb">}</span><span class="k">\\</span>
+~<span class="nb">&amp;</span>~<span class="nb">&amp;</span>motorcycles<span class="nb">&amp;</span><span class="k">\multirow</span><span class="nb">{</span>2<span class="nb">}{</span>*<span class="nb">}{</span>Sam Jr.<span class="nb">}&amp;</span>~<span class="k">\\</span>
+~<span class="nb">&amp;</span>~<span class="nb">&amp;</span>Reddit<span class="nb">&amp;</span>~<span class="nb">&amp;</span>~
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+			<br><br>
+			<a href="#" data-reveal-id="tables4" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="tables4" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/tables4.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/tables4.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+			<p>  Lets look at the first row.  In this row, Mark has three children so we want to effectively split the row up into three subrows.  However, there is only one Mark, so we want him to take up all three subrows.  So we use the command <span style="color:green">\multirow</span><span style="color:blue">{</span>3<span style="color:blue">}{</span>*<span style="color:blue">}{</span>Mark<span style="color:blue">}</span>.  This tells the compiler to have Mark take up all three subrows.  Note that for every subrow, we still need to leave a blank space, marked here by ~ where the column would be.  In this way we are able to make smaller cells out of larger cells.  For illustrative purposes, here is the table split into subwalls.
+		</div>
+		<div class="small-12 columns text-center">
+			<img src="/img/table.JPG" alt="Tables" />
+		</div>
+		<div class="small-12 columns">
+			<p>We can see that the multi-row allows us to place text in between the sub-rows which is why it is more powerful than just using a table with many more cells.
+			<p>
+			<div class="panel">
+				<p><span style="color:red"><b>Warning!</b></span>   Within a multirow environment, the column wrapping will <b>not</b> work with the syntax used in the example.</p>
+			</div>
+			<p>Remember that tables are finicky and it can take some work to get them looking exactly how you want them, but the end product is worth it. One useful thing to do is to learn how to get tables from excel to latex.  There are several programs one can download that do this however, I prefer to save the table as a .csv file and then it is a simple task to use python or some other language of your choice to parse the .csv file and output a latex table.  This can save a significant amount of time.</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latexthree.html">&larr; Back</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button alert" href="latex-toc.html">Table of Contents</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latexfive.html">Next &rarr;</a>
+		</div>
+	</div>
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
