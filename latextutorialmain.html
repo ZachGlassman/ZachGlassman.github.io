@@ -52,9 +52,11 @@
       <div class="small-12 columns">
       	<div class="panel">
 	        <h3><b>What is LaTeX?</b></h3>
-	       <p>LaTeX is a document preparation system that produces high-quality typeset documents.  It is a set of macro's over Donal Knuth's TeX typsetting language which effectively allows one actually write documents and leave design elements to the compiler (although these can be extensively customized as well).  LaTeX is the preffered typesetting system for most academic fields and most people know it as a good way to typeset mathematical formulas.  However, it can also can be used for posters, presentations, and many other useful applications.  According the official guide, it can be pronounced either Lah-tech or Lay-tech.</p> 
+	        <p>LaTeX is a document preparation system that produces high-quality typeset documents.  It is a set of macro's over Donald Knuth's TeX typesetting language which effectively allows one to focus on actually writing documents and leave design elements to the compiler (although these can be extensively customized).  LaTeX is the preferred typesetting system for most academic fields and most people know it as a good way to typeset mathematical formulas.  However, it can also can be used for posters, presentations, and many other useful applications.  According to the official guide, it can be pronounced either Lah-tech or Lay-tech.</p> 
             <h3><b>What LaTeX is not.</b></h3>
-            <p>LaTeX is not a word processor, and subsequently, not what you see is what you get (WYSWYG).  This switches the focus from design to content.</p>
+            <p>LaTeX is not a word processor, and subsequently, not what you see is what you get (WYSWYG).  This switches the focus from design to content.  LaTeX does not allow one to interactively edit the final appearance of a document.</p>
+			<h3><b>The advantages of LaTeX</b></h3>
+            <p>LaTeX compiles the entire document at once which allows it to adjust many small things such as word spacing, letter spacing, etc in response to the <b>entirety<b> of the document.  This produces much higher quality output and while they does not necessarily "pop" from the page, these small details are why people say things such as "I don't know why, but LaTeX just looks better."</p>
       	</div>
       </div>
     </div>
@@ -74,7 +76,7 @@
         <p>Microsoft Word</p>
     </div>
     <div class="small-12 columns">
-        <p>You may recognize these as the statement of the fundamental theorem of calculus.  Although the LaTeX version does look better, the difference is really in the ease of creating such a document.  The code to create such an equation is given below, note that most of the commands are setting up the document itself and these will be explained later.</p>
+        <p>You may recognize these as the statement of the fundamental theorem of calculus.  The code to create such an equation is given below, note that most of the commands are setting up the document itself the actual code the for the equation is quite simple.  Anyone familiar with word processors would know this would be a much more difficult task to typeset in such a program and as shown above, would produce the same quality output.</p>
     </div>
     <div class="small 12 columns">
            <div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
@@ -89,7 +91,7 @@
     <hr />
 <div class="row">
      <div class="small-8 columns">
-        <p>This tutorial will teach the basics of LaTeX through examples of both input and output.  Remember that LaTeX is about the final product and the final rendering is ALL that matters.  However, there are ways to do things that are better than others which will improve compilation efficiency and generally make your life easier.</p>
+        <p>This tutorial will teach the basics of LaTeX through examples of both input and output.  There is also a resources section with links and tables that will be useful after completion of the tutorial.  Remember that LaTeX is about the final product and the final rendering is ALL that matters.  However, there are ways to do things that are better than others.  This will improve compilation efficiency and generally make your life easier. </p>
          <p>One of the main facets of this tutorial will be to reproduce examples.  It is imperative that you actually type <b>everything</b> yourself into the editor of your choice.  First off, we will learn how to install and use LaTeX on the operating system of your choice.</p>
      </div> 
      <div class="small-4 columns text-center">
