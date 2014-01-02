@@ -104,13 +104,122 @@
 	</div>
 	<hr />
 	<div class="row">
-		<div class="small-6 columns">
+		<div class="small-12 columns">
 			<h3><b>Graphics</b></h3>
-			<p>Often it is useful, if not necessary, to include graphics inside a LaTeX document. For the remainder of this section, we are going to use the following image in our code.  You can of course use any image you wish, but in order to provide proper consistency, we will use this image of an atom (since I like atoms)
+		</div>
+		<div class="small-6 columns">
+			<p>Often it is useful, if not necessary, to include graphics inside a LaTeX document. For the remainder of this section, we are going to use the image to the right in our code.  You can of course use any image you wish, but in order to provide proper consistency, you can right click and download this picture of an atom from wikipedia.(since I like atoms)
 			</p>
 		</div>
 		<div class="small-6 columns text-center">
 			<img src="/img/atom.png" alt="Atom" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-6 columns">
+			<p>The code on the right imports a figure and places it into a document while scaling it by 1.5x.
+			</p>
+			<a href="#" data-reveal-id="figure2" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="figure2" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/figure2.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/figure2.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+		</div>
+		<div class="small-6 columns">
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[H]
+<span class="k">\centering</span>
+<span class="k">\includegraphics</span><span class="na">[scale=1.5]</span><span class="nb">{</span>atom.png<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+		</div>
+		<div class="small-12 columns">
+		<br><br>
+		<div class="panel">
+			<p><span style="color:red">Warning!</span> Notice that this picture looks pixelated, especially at this scale.  One must be careful to use high enough quality images.  Preferable are <b>vectorized</b> graphics which will scale without pixelation.</p>
+		</div>
+		<p>This syntax is fairly self-expanatory, one thing to note is the use of the <span style="color:green">\centering</span> command.  There are other ways to center a figure, but this is the correct way to do it inside a float environment.  You will almost always be using this command.  The <span style="color:green">\includegraphics</span> command is part of the <b>graphicx</b> package and can import all the usual file formats including pdf, jpeg, png, etc.  The package can also be fed other options instead of scaling such as rotation, height, width, bounding box, etc.</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>Captions</b></h3>
+		</div>
+		<div class="small-6 columns">
+			<p>Lets take the figure we had before and add a caption to it. Note where the caption goes in relation to the <span style="color:green">\includegraphics</span> command will determine where it is placed on the page.  Play with this to see what happens.</p>
+			<a href="#" data-reveal-id="figure3" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="figure3" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/figure3.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/figure3.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+		</div>
+		<div class="small-6 columns">
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[H]
+<span class="k">\centering</span>
+<span class="k">\includegraphics</span><span class="na">[scale=1.5]</span><span class="nb">{</span>atom.png<span class="nb">}</span>
+<span class="k">\caption</span><span class="nb">{</span>This is an atom<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>Subfigures</b></h3>
+		</div>
+		<div class="small-12 columns">
+			<p>When one wants to put multiple subfigures inside a subfigure, one must use two package <b>caption</b> and <b>subcaption</b>.  There are other packages such as subfigure and subfig, however, these are no longer considered correct.  Try the code below to see three subfigures within a figure, each with a separate caption in addition to a global caption.</p>
+		</div>
+		<div class="small-12 columns">
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>caption<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>subcaption<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[H]
+	<span class="k">\centering</span>
+	<span class="k">\begin</span><span class="nb">{</span>subfigure<span class="nb">}{</span>.3<span class="k">\textwidth</span><span class="nb">}</span>
+		<span class="k">\includegraphics</span><span class="na">[width=\textwidth]</span><span class="nb">{</span>atom.png<span class="nb">}</span>
+		<span class="k">\caption</span><span class="nb">{</span>Atom 1<span class="nb">}</span>
+	<span class="k">\end</span><span class="nb">{</span>subfigure<span class="nb">}</span>
+<span class="c">%%%%%%%%%%%%%%</span>
+	<span class="k">\begin</span><span class="nb">{</span>subfigure<span class="nb">}{</span>.3<span class="k">\textwidth</span><span class="nb">}</span>
+		<span class="k">\includegraphics</span><span class="na">[width=\textwidth]</span><span class="nb">{</span>atom.png<span class="nb">}</span>
+		<span class="k">\caption</span><span class="nb">{</span>Atom 2<span class="nb">}</span>
+	<span class="k">\end</span><span class="nb">{</span>subfigure<span class="nb">}</span>
+<span class="c">%%%%%%%%%%%%%%</span>
+	<span class="k">\begin</span><span class="nb">{</span>subfigure<span class="nb">}{</span>.3<span class="k">\textwidth</span><span class="nb">}</span>
+		<span class="k">\includegraphics</span><span class="na">[width=\textwidth]</span><span class="nb">{</span>atom.png<span class="nb">}</span>
+		<span class="k">\caption</span><span class="nb">{</span>Atom 3<span class="nb">}</span>
+	<span class="k">\end</span><span class="nb">{</span>subfigure<span class="nb">}</span>
+	<span class="k">\caption</span><span class="nb">{</span>Atoms are fun!<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+			<br><br>
+			<a href="#" data-reveal-id="figure4" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="figure4" class="reveal-modal xlarge" data-reveal>
+				<object data="/img/figure4.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/figure4.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+			<p>Each subfigure is treated like a normal figure.  Note that the <span style="color:green">\textwidth</span> simply tells the compiler to make the width of the subfigure .3 times the width of the allowed width of the text (the page width minus the margins).  However, notice that inside the <span style="color:green">\includegraphics</span> command, we set <span style="color:teal">width=\textwidth</span>. This is because inside the subfigure enviornment, the <span style="color:green">\textwidth</span> command has been redifined to the width of the subfigure.</p>
 		</div>
 	</div>
 	<hr />
