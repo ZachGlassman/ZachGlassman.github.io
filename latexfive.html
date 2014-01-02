@@ -45,8 +45,70 @@
 	<div class="row">
 		<div class="small-12 columns">
 			<h3><b>Floats</b></h3>
-			<p>We have already seen in the last section that often it is useful to enclose a <i>tabular</i> environment in a <i>table</i> environment.  The <i>table</i> environment is an exammple of a <b>float</b>.
+			<p>We have already seen in the last section that often it is useful to enclose a <i>tabular</i> environment in a <i>table</i> environment.  The <i>table</i> environment is an example of a <b>float</b>.  Floats are basically  blocks of content that "float" around the page in the sense that LaTeX chooses where to place them based on certain algorithms.  In general, it is a good idea to let LaTeX place the float where it wants, at least at first, when you have the entire document written you can then go back and change it if you wish.  If you use the <b>float</b> package, one can override the LaTeX placement with the following syntax and specifier.
 			</p>
+			<p>The code below right gives an example of a typical float environment with special placement.  Note the <b>float</b> package is not necessary if you wish to let LaTeX place the figure for you.  Here the specifier is <b>H</b>.  The following table lists some of the possible specifiers (you can of course define your own).</p>
+		</div>
+		<div class="small-8 columns">
+			<table>
+			<thead>
+				<tr>
+					<th width="100">Specifier</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>H</span></td>
+					<td>Place exactly at spot in source text</td>
+				</tr>
+				<tr>
+					<td>h</span></td>
+					<td>Place approximately at spot in source test</td>
+				</tr>
+				<tr>
+					<td>t</span></td>
+					<td>Place at top of page</td>
+				</tr>
+				<tr>
+					<td>b</span></td>
+					<td>Place at bottom of page</td>
+				</tr>
+				<tr>
+					<td>p</span></td>
+					<td>Place on page for floats only</td>
+				</tr>
+				<tr>
+					<td>!</span></td>
+					<td>Override internal LaTeX parameters for determining float position</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="small-4 columns">
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[H]
+<span class="c">%figure content goes here</span>
+<span class="c">%Can be:</span>
+<span class="c">%graphic</span>
+<span class="c">%table</span>
+<span class="c">%tikz drawing</span>
+<span class="c">%etc.</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>Graphics</b></h3>
+			<p>Often it is useful, if not necessary, to include graphics inside a LaTeX document. For the remainder of this section, we are going to use the following image in our code.  You can of course use any image you wish, but in order to provide proper consistency, we will use this image of an atom (since I like atoms)
+			</p>
+			<img src="/img/atom.png" alt="Atom" />
 		</div>
 	</div>
 	<hr />
