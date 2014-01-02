@@ -127,7 +127,11 @@ We don&#39;t have a <span class="k">\ref</span><span class="nb">{</span>noref<sp
 				</object>
 				<a class="close-reveal-modal">x</a>
 			</div>
-			<p>We can see that we never explicitly label any of the equation, tables, figures, or subfigures.  Try adding in more equations and change their order, you will find that LaTeX will handle all the labeling for you.</p>
+			<p>We can see that we never explicitly label any of the equation, tables, figures, or subfigures.  If LaTeX cannot find the proper label, you will see the <b>??</b> symbol.</p>
+			<p>One thing that is useful to know is that when run is pressed in the compiler, LaTeX is actually compiling multiple times.  There are several reasons for this, but one is the labeling.  The program first goes through the document and finds all the labels and writes them to an auxiliary file.  When run again, it can properly write and link to the labels.  Since the TeX program that does this is old, it was written for computer that had very little RAM and therefore LaTeX stores data between runs in output files of text such as the .log and .aux files.  Modern computers could easily store all of this data, but this is case where nobody wants to mess with something that works so well.
+			</p>
+			<p>
+			Try adding in more equations and change their order, you will find that LaTeX will handle all the labeling for you.</p>
 			<div class="panel">
 			<p><span style="color:red">Warning!</span> It matters where the <span style="color:green">\label</span> command is placed relative to the <span style="color:green">\caption</span> command.</p>
 			</div>
