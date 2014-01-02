@@ -49,15 +49,21 @@
 </nav>
     <br>
 	<div class="row">
+		<div class="small 12 columns"></div>
+		<div class="panel">
+			<h3><b>Overview</b></h3>
+			<p> This section will go over what a command is and some basic examples of how to start typesetting. It will also cover how to use packages to extend functionality.</p>
+		</div>
+		</div>
 		<div class="small-12 columns">
 			<h3><b>How did we do it?</b></h3>
 		</div>
 	</div>
 	<div class="row">
-		<div class="small-6 columns">
-			<p>Let us take a look at the code you wrote for last section which had the code on the right.  Here we want to look only at the first two lines and the last line.  Notice that these are <b>commands</b>.  In this section we will go over the basics of commands in general and learn how to setup a page so we can start writing. </p>
+		<div class="small-7 columns">
+			<p>Let us take a look at the code you wrote for last section which is given again to the right.  Here we want to look only at the first two lines and the last line.  These are what we will refer to as <b>commands</b>. They will be the basic foundation to typeset your content.  They interact with the compiler and tell it to perform tasks.  They are one of the main differences between LaTeX and WYSIWYG as they do <b>not</b> appear in the typeset document the same way as they do in the source code.</p>
 		</div>
-		<div class="small-6 columns">
+		<div class="small-5 columns">
 		<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 This is my first <span class="k">\LaTeX</span> document!  
@@ -71,9 +77,11 @@ I can write equations!
 	</div>
 	<hr />
     <div class="row">
-		<div class="small-6 columns">
+		<div class="small-12 columns">
 			<h3><b>Commands</b></h3>
-			<p>The general syntax for commands in LaTeX is <span style="color:green">\command</span><span style="color:blue">{</span><i>argument</i><span style="color:blue">}</span>.  In the example above, we have used four separate commands:
+		</div>
+		<div class="small-6 columns">
+			<p>The general syntax for commands in LaTeX is <span style="color:green">\command</span>[<span style="color:teal">options</span>]<span style="color:blue">{</span><i>argument</i><span style="color:blue">}</span>.  In the example above, we have used four separate commands:
 			</p>
 			<ul>
 				<li>documentclass</li>
@@ -92,7 +100,8 @@ I can write equations!
 	<div class="row">
 		<div class="small-12 columns">
 		<h5><b>documentclass</b></h5>
-		<p>The documentclass sets up what type of document you are working with, it loads many default styles and sets the overall look and feel of your document.  There are also class specific commands.  Some of the common classes and their uses are listed below.  There are many more standard classes and even more custom classes.  I usually use either the article class or the beamer class for pretty much everything unless there is a custom class required for homework preparation.  It is important to remember that all of these classes are flexible and there is no <i>right</i> way to use them.  However, every document must have class.</p>
+		<p>The <b>documentclass</b> sets up what type of document you are working with, loads many default styles and sets the overall look and feel of your document.  There are also class specific commands which have are only valid in certain document classes.</p>
+		<p>Some of the common classes and their uses are listed below, however, this list is far from comprehensive.  There are many more standard classes and even more custom classes usually used for extremely specific purposes.  I usually use either the article class or the beamer class for everything unless there is a custom class required for homework preparation.  It is important to remember that all of these classes are flexible and there is no <i>right</i> way to use them.  However,some classes more suited towards certain tasks.</p>
 			<table>
 			<thead>
 				<tr>
@@ -103,36 +112,39 @@ I can write equations!
 			<tbody>
 				<tr>
 					<td>article</td>
-					<td>For articles in scientific journals, presentations, short reports, program documentation, etc.  Possibly the most versatile class and the one I recommend beginners use almost elusively at first.</td>
+					<td>For articles in scientific journals, presentations, short reports, program documentation, etc.  Possibly the most versatile class and the one I recommend beginners use almost exclusively at first.</td>
 				</tr>
 				<tr>
 					<td>report</td>
-					<td>For longer report of several chapters, small book, thesis.</td>
+					<td>For longer reports of several chapters, small books, theses.</td>
 				</tr>
 				<tr>
 					<td>book</td>
-					<td>For typesetting a book</td>
+					<td>For books.</td>
 				</tr>
 				<tr>
 					<td>memoir</td>
-					<td>For books. Based on book class, but gives a bit more control over look and feel of document in a simpler manner.</td>
+					<td>For books. Based on book class, but gives a bit more control over look and feel of document in a simple way.</td>
 				</tr>
 				<tr>
 					<td>letter</td>
-					<td>For writing letters, has many predefined commands to help correct letter style.</td>
+					<td>For letters. Has many predefined commands to help correct letter style.</td>
 				</tr>
 				<tr>
 					<td>beamer</td>
-					<td>For writing presentations.  As article class is to Microsoft Word, beamer class is to Microsoft Powerpoint.</td>
+					<td>For presentations.  As article class is to Microsoft Word, beamer class is to Microsoft Powerpoint.</td>
 				</tr>
 			</tbody>
 			</table>
+			<div class="panel">
+				<p><span style="color:blue">Note:</span> Every document must have a class.  If you do not have one, the document will not compile</p>
+			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="small-12 columns">
 		<h5><b>begin and end</b></h5>
-		<p>The begin and end tags signify the beginning and ending of an <b>environment</b> in the scope of your text.  In the example above, they signify the end of the document environment, which is where the content to be shown is placed.  We are going to explore the difference, try compiling two codes given below and see the difference.</p>
+		<p>The begin and end tags signify the beginning and ending of an <b>environment</b> in the scope of your text.  In the example above, they signify the boundaries the document environment, which is where the content to be shown is placed.  We are going to explore the difference. try compiling two codes given below.</p>
 		</div>
 	</div>
 	<div class="row">
@@ -167,15 +179,17 @@ I can write equations!
 	</div>
 	<div class="row">
 		<div class="small-12 columns">
-			<p>Note that these examples have the same input text, but different environments.  Much of the control one has with LaTeX is by using such environments.  I like to think of them as clothes, we can put certain input in multiple types and layers of clothes and the overall appearance will be determined by which clothes I use.  However, just as clothing only changes appearance, but not substance, environments are simply ornamentation.  This is why LaTeX is content driven, it allows the typesetter to focus on the content and not as much on how it appears..
+			<p>Note that these examples have the same input text, but different environments.  Much of the control one has with LaTeX is by using such environments.  I like to think of them as clothes.  Clothes are necessary for certain tasks and can change how one appears and how one functions.  However, just as clothing only changes appearance, but not substance, environments are simply ornamentation.  This is why LaTeX is content driven, it allows the typesetter to focus on the content and not as much on how it appears beyond predefined environments.
 			</p>
 		</div>
 	</div>
 	<hr \>
 	<div class="row">
-		<div class="small-6 columns">
+		<div class="small-12 columns">
 			<h3><b>Packages</b></h3>
-			<p>Although with just the basic LaTeX package one could theoretically typeset any document, in practice this would be very difficult.  Luckily, there are <b>packages</b> which extend functionality of the language in ways such as improved design elements, graphic generation, etc.  The example code on the right uses many common packages.  Notice that the <i>usepackage</i> command is invoked before the <i>begin{document}</i> command.  Also note that some packages have option arguments which go in the square brackets before the curly brackets.
+		</div>
+		<div class="small-6 columns">
+			<p>Although with just the basic LaTeX package one could theoretically typeset any document, in practice this would be very difficult.  Luckily, there are <b>packages</b> which extend functionality of the language in ways such as improved design elements, graphic generation, etc.  The example code on the right uses many common packages.  Notice that the <span style="color:green">usepackage</span> command is invoked before the <span style="color:green">begin{document}</span> command.  Also note that some packages have option arguments which go in the square brackets before the curly brackets.
 			</p>
 		</div>
 		<div class="small-6 columns">
@@ -215,7 +229,7 @@ I used some packages.
 				</tr>
 				<tr>
 					<td>geometry</td>
-					<td>Set up page geometry such as margins.  Takes arguments in brackets.</td>
+					<td>Set up page geometry such as margins.</td>
 					<td><a href="ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/geometry/geometry.pdf">geometry documentation</a></td>
 				</tr>
 				<tr>
@@ -225,22 +239,22 @@ I used some packages.
 				</tr>
 				<tr>
 					<td>graphicx</td>
-					<td>Allows image import of many different formats</td>
+					<td>Allows external image importation of many different formats</td>
 					<td><a href="http://ctan.mirrors.hoobly.com/macros/latex/required/graphics/grfguide.pdf">graphicx documentation</a></td>
 				</tr>
 				<tr>
 					<td>enumerate</td>
-					<td>Allows lists to be enumerated by more than just number</td>
+					<td>Allows lists to be enumerated by many different types of characters.</td>
 					<td><a href="http://tug.ctan.org/tex-archive/macros/latex2e/required/tools/enumerate.pdf">enumerate documentation</a></td>
 				</tr>
 				<tr>
 					<td>TikZ/PGF</td>
-					<td>Vectorized drawing package producing high-quality images.</td>
+					<td>Vectorized drawing package that produces high-quality figures.</td>
 					<td><a href="http://paws.wcu.edu/tsfoguel/tikzpgfmanual.pdf">TikZ/PGF documentation</a></td>
 				</tr>
 				<tr>
 					<td>subcaption</td>
-					<td>Allows multiple in-line figures in a figure environment. Note: must be used with caption package.</td>
+					<td>Allows multiple in-line floats in a float environment. Note: must be used with caption package.</td>
 					<td><a href="ftp://ftp.dante.de/pub/tex/macros/latex/contrib/caption/subcaption.pdf">subcaption documentation</a></td>
 				</tr>
 			</tbody>
@@ -250,7 +264,8 @@ I used some packages.
 	<hr />
 	<div class="row">
 		<div class="small-12 columns">
-			<p>Often we have LaTeX commands that we use often and would rather not write out the entire command every time we need to use them.  Occasionally, we are better off defining a macro which saves us a bit of work.  The way in which this is done is by using the command <i>newcommand</i> and then defining our command.  Below we have defined a command <i>pder</i> which produces a partial derivative.  We then write out the full command in the first equation and use the macro in the second equation.  Make sure that they come out the same!
+			<p>Occasionally, we have LaTeX commands that we use often and would rather not write out the entire command every time we need to use it.  In this case, we are better off defining a macro to do the work for us.  We use the command <span style="color:green">newcommand</span> to define our new macro, which is really just a new command. </p>
+			<p>Below we have defined a command <span style="color:green">pder</span> which produces a partial derivative.  We then write out the full command in the first equation and use the macro in the second equation.  Make sure they come out the same!
 			</p>
 		</div>
 	</div>
@@ -282,7 +297,8 @@ I used some packages.
 	<br>
 	<div class="row">
 		<div class="small-12 columns">
-			<p>In this case, our syntax is <span style="color:green">\newcommand</span><span style="color:blue">{</span><i>name</i><span style="color:blue">}</span>[# input arguments]<span style="color:blue">{</span><i>full command</i><span style="color:blue">}</span>.  Note that in the full command part we reference our input arguments as #1,#2, etc. In general, macros speed the writing of the document, but slow the actual typesetting as the compiler must reference the definition.  I tend to use them sparingly and usually for surprisingly simple tasks.  Also remember that a macro is only useful if you are going to be using it over and over again.
+			<p>In this case, our syntax is <span style="color:green">\newcommand</span><span style="color:blue">{</span><i>name</i><span style="color:blue">}</span>[# input arguments]<span style="color:blue">{</span><i>input 1</i><span style="color:blue">}</span><span style="color:blue">{</span><i>input 2</i><span style="color:blue">}</span>.  Note that to define our command, we reference our input arguments as #1,#2, etc.   We then call each argument with a separate bracket.</p>
+			<p>In general, macros speed the writing of the document, but slow the actual typesetting as the compiler must reference the definition.  I tend to use them sparingly and usually for surprisingly simple, but very common tasks.  Remember that a macro is only useful if you are going to be using it over and over again.
 			</p>
 		</div>
 	</div>
