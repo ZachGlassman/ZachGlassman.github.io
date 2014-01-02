@@ -55,10 +55,16 @@
 </nav>
 <br>
 	<div class="row">
+		<div class="small 12 columns">
+		<div class="panel">
+			<h3><b>Overview</b></h3>
+			<p> This section will give an overview the labeling capabilities of LaTeX.  We will learn to label the float environments we have already covered.</p>
+		</div>
+		</div>
 		<div class="small-12 columns">
 			<h3><b>Why labels?</b></h3>
 			<p>Labels are a necessary part of typesetting as they are efficient pointers to information.  It is better to reference Table 2 rather than "that table where I list all of those things."  It is exceptionally important for equations.</p>
-			<p>One of the most useful (and occasionally underrated) properties of LaTeX is the easy and power of its labeling system.  This allows one to reference equations, figures, tables, etc with easy and flexibility.  Unlike word processing software, LaTeX will automatically number and reference and change the numbering based on additions and deletions with <b>no</b> extra input from the writer.</p>
+			<p>One of the most useful (and occasionally underrated) properties of LaTeX is the ease and power of its labeling system.  This allows one to reference equations, figures, tables, etc, with ease and flexibility.  Unlike word processing software, LaTeX will automatically number and reference and change the numbering based on additions and deletions with <b>no</b> extra input from the writer.</p>
 		</div>
 	</div>
 	<hr />
@@ -128,14 +134,18 @@ We don&#39;t have a <span class="k">\ref</span><span class="nb">{</span>noref<sp
 				<a class="close-reveal-modal">x</a>
 			</div>
 			<p>We can see that we never explicitly label any of the equation, tables, figures, or subfigures.  If LaTeX cannot find the proper label, you will see the <b>??</b> symbol.</p>
-			<p>One thing that is useful to know is that when run is pressed in the compiler, LaTeX is actually compiling multiple times.  There are several reasons for this, but one is the labeling.  The program first goes through the document and finds all the labels and writes them to an auxiliary file.  When run again, it can properly write and link to the labels.  Since the TeX program that does this is old, it was written for computer that had very little RAM and therefore LaTeX stores data between runs in output files of text such as the .log and .aux files.  Modern computers could easily store all of this data, but this is case where nobody wants to mess with something that works so well.
+			<p>When run is pressed in the environments you are most likely using (all of the ones in the installation section), LaTeX is actually compiling multiple times.  There are several reasons for this, but one is due to labeling.  The program first goes through the document and finds all the labels and writes them to an auxiliary file.  When run again, it can properly write and link to the labels.  </p>
+			<p>Since the TeX program that does the base compilation is old, it was written for computer that had very little RAM.  Consequently, LaTeX stores data between runs in output files of text such as the .log and .aux files. It then reads in these files in the next run.  Modern computers could easily store all of this data, but this is a case where nobody wants to change and debug something that works so well.
 			</p>
 			<p>
-			Try adding in more equations and change their order, you will find that LaTeX will handle all the labeling for you.</p>
+			Try adding in more equations and changing their order, you will find that LaTeX will handle all the labeling for you.</p>
 			<div class="panel">
 			<p><span style="color:red">Warning!</span> It matters where the <span style="color:green">\label</span> command is placed relative to the <span style="color:green">\caption</span> command.</p>
 			</div>
-			<p>In this example we have also used the <b>hyperref</b> package.  This is not necessary, however, it creates a linked page where we can click on the numbers and the the pdf will automatically take us to the location in the document.  For a short document like this, it is not necessary, however, for a longer document this can be very useful.  Also note the naming scheme used where I have labeled things by their type and by a name.  This is also not necessary, however, it is a good habit since it can help keep the labels disparate among different float types and , perhaps more importantly, organized in your own head.</p>
+			<p>In this example we have also used the <b>hyperref</b> package.  This is not necessary, however, it creates a linked page where we can click on the numbers and the the pdf will automatically take us to the location in the document.  For a short document like this, it is not necessary, however, for a longer document this can be very useful. </p>
+			<div class="panel">
+			<p><span style="color:orange">Note:</span> the naming scheme I have used as the argument for the <span style="color:green">\label</span> command is not necessary.  However, it is a good habit since it can help keep the labels disparate among different float types and ,perhaps more importantly, organized in your own head.  Furthermore, some packages require this sort of naming convention.</p>
+			</div>
 		</div>
 	</div>
 	<hr />
@@ -148,6 +158,12 @@ We don&#39;t have a <span class="k">\ref</span><span class="nb">{</span>noref<sp
 		</div>
 		<div class="small-4 columns text-center">
 			<a class="button success" href="resources.html">Next &rarr;</a>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns text-center">
+			<p>Created by Zachary Glassman.  Contact at zach.glassman@gmail.com</p>
 		</div>
 	</div>
     <script src="js/jquery.js"></script>

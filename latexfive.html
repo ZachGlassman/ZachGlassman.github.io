@@ -55,11 +55,18 @@
 </nav>
 <br>
 	<div class="row">
+		<div class="small 12 columns">
+		<div class="panel">
+			<h3><b>Overview</b></h3>
+			<p> This section will give an overview of floats and figures.  It will cover importing external graphics and positioning.  It will also cover sub-figures and captions.</p>
+		</div>
+		</div>
 		<div class="small-12 columns">
 			<h3><b>Floats</b></h3>
-			<p>We have already seen in the last section that often it is useful to enclose a <i>tabular</i> environment in a <i>table</i> environment.  The <i>table</i> environment is an example of a <b>float</b>.  Floats are basically  blocks of content that "float" around the page in the sense that LaTeX chooses where to place them based on certain algorithms.  In general, it is a good idea to let LaTeX place the float where it wants, at least at first, when you have the entire document written you can then go back and change it if you wish.  If you use the <b>float</b> package, one can override the LaTeX placement with the following syntax and specifier.
+			<p>We have already seen in the last section that it is often useful to enclose a <i>tabular</i> environment in a <i>table</i> environment.  The <i>table</i> environment is an example of a <b>float</b>.  Floats are blocks of content that "float" around the page in the sense that LaTeX chooses where to place them based on certain algorithms.</p>
+			<p>In general, it is a good idea to let LaTeX place the float where it wants, at least at first, when you have the entire document written you can then go back and change it if you wish.  If you use the <b>float</b> package, one can override the LaTeX placement with custom options.
 			</p>
-			<p>The code below right gives an example of a typical float environment with special placement.  Note the <b>float</b> package is not necessary if you wish to let LaTeX place the figure for you.  Here the specifier is <b>H</b>.  The following table lists some of the possible specifiers (you can of course define your own).</p>
+			<p>The code below on the right right gives an example of a typical float environment with special placement.  Here the specifier is <b>H</b>.  The table below on the left lists some of the possible specifiers (you can of course define your own).</p>
 		</div>
 		<div class="small-8 columns">
 			<table>
@@ -111,7 +118,11 @@
 <span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
-
+		</div>
+		<div class="small-12 columns">
+			<div class="panel">
+				<p><span style="color:orange">Note:</span> The <b>float</b> package is not necessary if you wish to let LaTeX place the figure for you.</p>
+			</div>
 		</div>
 	</div>
 	<hr />
@@ -120,7 +131,7 @@
 			<h3><b>Graphics</b></h3>
 		</div>
 		<div class="small-6 columns">
-			<p>Often it is useful, if not necessary, to include graphics inside a LaTeX document. For the remainder of this section, we are going to use the image to the right in our code.  You can of course use any image you wish, but in order to provide proper consistency, you can right click and download this picture of an atom from wikipedia.(since I like atoms)
+			<p>Often it is useful, if not necessary, to include graphics inside a LaTeX document. For the remainder of this section, we are going to use the image to the right in our code.  You can of course use any image you wish, but in order to provide proper consistency, you can right click and download this picture of an atom from wikipedia (I like atoms).
 			</p>
 		</div>
 		<div class="small-6 columns text-center">
@@ -156,7 +167,8 @@
 		<div class="panel">
 			<p><span style="color:red">Warning!</span> Notice that this picture looks pixelated, especially at this scale.  One must be careful to use high enough quality images.  Preferable are <b>vectorized</b> graphics which will scale without pixelation.</p>
 		</div>
-		<p>This syntax is fairly self-expanatory, one thing to note is the use of the <span style="color:green">\centering</span> command.  There are other ways to center a figure, but this is the correct way to do it inside a float environment.  You will almost always be using this command.  The <span style="color:green">\includegraphics</span> command is part of the <b>graphicx</b> package and can import all the usual file formats including pdf, jpeg, png, etc.  The package can also be fed other options instead of scaling such as rotation, height, width, bounding box, etc.</p>
+		<p>This syntax is fairly self-explanatory, however, one thing to note is the use of the <span style="color:green">\centering</span> command.  There are other ways to center a figure, but this is the correct way to do it inside a float environment.  You will almost always be using this command when using floats.</p>
+		<p>The <span style="color:green">\includegraphics</span> command is part of the <b>graphicx</b> package and can import all the usual file formats including pdf, jpeg, png, etc.  The command also accepts other options instead of <span style="color:teal">scale</span> such as <span style="color:teal">rotation</span>, <span style="color:teal">height</span>, <span style="color:teal">width</span>, <span style="color:teal">bounding box</span>, etc.</p>
 		</div>
 	</div>
 	<hr />
@@ -165,7 +177,7 @@
 			<h3><b>Captions</b></h3>
 		</div>
 		<div class="small-6 columns">
-			<p>Lets take the figure we had before and add a caption to it. Note where the caption goes in relation to the <span style="color:green">\includegraphics</span> command will determine where it is placed on the page.  Play with this to see what happens.</p>
+			<p>Lets take the figure we had before and add a caption to it. Where the caption goes in relation to the <span style="color:green">\includegraphics</span> command will determine where it is placed on the page.  Play with this to see what happens.</p>
 			<a href="#" data-reveal-id="figure3" class="radius button">View PDF &rsaquo;&rsaquo;</a>
 			<div id="figure3" class="reveal-modal xlarge" data-reveal>
 				<object data="/img/figure3.pdf" type="application/pdf" width="100%" height="60%">
@@ -194,7 +206,8 @@
 			<h3><b>Subfigures</b></h3>
 		</div>
 		<div class="small-12 columns">
-			<p>When one wants to put multiple subfigures inside a subfigure, one must use two package <b>caption</b> and <b>subcaption</b>.  There are other packages such as subfigure and subfig, however, these are no longer considered correct.  Try the code below to see three subfigures within a figure, each with a separate caption in addition to a global caption.</p>
+			<p>When one wants to put multiple subfigures inside a subfigure, one must use two packages, <b>caption</b> and <b>subcaption</b>.  There are other packages such as subfigure and subfig, however, these are no longer considered standard.</p>
+			<p>Try the code below to see three subfigures within a figure, each with a separate caption in addition to a global caption.</p>
 		</div>
 		<div class="small-12 columns">
 			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
@@ -231,7 +244,8 @@
 				</object>
 				<a class="close-reveal-modal">x</a>
 			</div>
-			<p>Each subfigure is treated like a normal figure.  Note that the <span style="color:green">\textwidth</span> simply tells the compiler to make the width of the subfigure .3 times the width of the allowed width of the text (the page width minus the margins).  However, notice that inside the <span style="color:green">\includegraphics</span> command, we set <span style="color:teal">width=\textwidth</span>. This is because inside the subfigure enviornment, the <span style="color:green">\textwidth</span> command has been redifined to the width of the subfigure.</p>
+			<p>Each subfigure is treated like a normal figure in relation to the containing float.  The <span style="color:green">\textwidth</span> simply tells the compiler to make the width of the subfigure .3 times the width of the allowed width of the text (the page width minus the margins).</p>
+			<p>However, inside the <span style="color:green">\includegraphics</span> command, we set <span style="color:teal">width=\textwidth</span>. This is because inside the subfigure enviornment, the <span style="color:green">\textwidth</span> command has been redefined to the width of the subfigure.</p>
 		</div>
 	</div>
 	<hr />
@@ -244,6 +258,12 @@
 		</div>
 		<div class="small-4 columns text-center">
 			<a class="button success" href="latexsix.html">Next &rarr;</a>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns text-center">
+			<p>Created by Zachary Glassman.  Contact at zach.glassman@gmail.com</p>
 		</div>
 	</div>
     <script src="js/jquery.js"></script>
