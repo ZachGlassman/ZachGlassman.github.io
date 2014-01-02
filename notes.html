@@ -1,68 +1,66 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zachary Glassman-Mathematical Notes</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <script src="js/modernizr.js"></script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-          <section id="head-content">
-            <hh1>Notes</hh1><br>
-            <hh2>Mathematical Analysis</hh2>
-          </section>    
-      </div>
-    </header>
-      <div id="nav">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="physics.html">Physics</a></li>
-<li><a href="urysohn.html">Mathematics</a></li>
-<li><a href="notes.html">Notes</a></li>
-<li><a href="about.html">About</a></li>
-</ul>
-</div>
-      <br>
-    <div id="content-wrapper">
-        <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Some of my Math</h3>
-
-<p>I decided sometime in my Sophomore year of college that I would do my homework in LaTeX.  Sometimes in the middle of my Junior year I decided I would liveTex my notes.  Here are notes from Analysis I (partial) taken from Rudin, Complex Analysis, Analysis II and Measure Theory.  I do not guarentee correctness and I am sure there are typos.  However, I believe they are mostly small typographical errors and not mathematical ones.  </p>
-            <hr>
-<p>        <a href="\mathnotes\131Notes.pdf">Real Analysis I</a></p>
-            <p>These notes cover continuity, including uniform continuity of functions, sequences nad series of functions, differentiability and integrability in one dimension.  They are following Rudin. </p>
-            <hr>
-<p>        <a href="\mathnotes\132Notes.pdf">Real Analysis II</a></p>
-            <p>These notes cover the space of continuous functions and extend differentiability and integrability to arbitrary dimension.  Also, some fixed point theory, approximation theory and contraction theory.</p>
-            <hr>
-<p>        <a href="\mathnotes\135Notes.pdf">Complex Analsyis</a></p>
-            
-            <p>These notes cover the basis of complex analysis including sequences and series of complex numbers, Cauchy's Theorem, Laruent expanions, and the calculus of Residues.</p>
-            <hr>
-<p>        <a href="\mathnotes\Math137Notes.pdf">Graduate Real Analysis I (Measure Theory)</a></p>
-            <p>These notes cover measure, mostly in Euclidean space and Lebesgue integration.</p>
-            </section>
-
-
-<div id="footer">
-Contact: zach.glassman@gmail.com
-        </div>
-       
+   <header>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><span style= "color:white"><b>Notes</b></span></h1>
+      <h3><span style= "color:white">Mathematical Analysis</span></h3>
     </div>
-
-
+  </div>
+</header> 
+    <br>
+    <div class="row">
+      <div class="small-12 columns">
+	        <p>I decided sometime in my Sophomore year of college that I would do my homework in LaTeX.  Sometimes in the middle of my Junior year I decided I would liveTex my notes.  Here are notes from Analysis I (partial) taken from Rudin, Complex Analysis, Analysis II and Measure Theory.  I do not guarantee correctness and I am sure there are typos.  However, I believe they are mostly small typographical errors and not mathematical ones.  </p>
+      </div>
+    </div>
+	<hr />
+	<div class="row">
+        <div class="small-12 columns">
+			<dl class="tabs vertical" data-tab>
+				<dd class="active"><a href="#panel1a">Real Analysis I</a></dd>
+					<dd><a href="#panel2a">Real Analysis II</a></dd>
+					<dd><a href="#panel3a">Complex Analysis</a></dd>
+					<dd><a href="#panel4a">Measure Theory</a></dd>
+			</dl>
+			<div class="tabs-content vertical">
+				<div class="content active" id="panel1a">
+					<p>These notes cover continuity, including uniform continuity of functions, sequences and series of functions, differentiability and integrability in one dimension.  They are following Rudin. </p>
+					<p><a href="\mathnotes\131Notes.pdf" class="button success">Click here for pdf</a></p>
+				</div>
+				<div class="content" id="panel2a">
+					<p>These notes cover the space of continuous functions and extend differentiability and integrability to arbitrary dimension.  Also, some fixed point theory, approximation theory and contraction theory.</p>
+					<p><a href="\mathnotes\132Notes.pdf" class="button success">Click here for pdf</a></p>
+				</div>
+				<div class="content" id="panel3a">
+					<p>These notes cover the basis of complex analysis including sequences and series of complex numbers, Cauchy's Theorem, Laurent expansions, and the calculus of Residues.</p>
+					<p><a href="\mathnotes\135Notes.pdf" class="button success">Click here for pdf</a></p>
+				</div>
+				<div class="content" id="panel4a">
+					<p>These notes cover measure, mostly in Euclidean space and Lebesgue integration.</p>
+					<p><a href="\mathnotes\Math137Notes.pdf" class="button success">Click here for pdf</a></p>
+				</div>
+			</div>
+        </div>
+    </div>
+       
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
