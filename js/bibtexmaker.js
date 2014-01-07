@@ -21,10 +21,10 @@ function showText()
 	var abs = document.getElementById("abstract").value;
 	var e = document.getElementById("type");
 	var type = e.options[e.selectedIndex].value;
-	document.getElementById("output").value = "@"+type+"{"+id+",\n";
 	document.getElementById("warning").value = "";
+	document.getElementById("output").value += "@"+type+"{"+id+",\n";
 	if(id == ""){
-		document.getElementById("warning").value += "No Key!!\n";
+		document.getElementById("warning").value = "No Key!!\n";
 	}
 	check(author,"author");
 	check(title,"title");
@@ -33,7 +33,13 @@ function showText()
 	check(number,"number");
 	check(year,"year");
 	check(abs,"abstract");
-	document.getElementById("output").value += "}";
+	document.getElementById("output").value += "}\n";
 	
     alert(popup_message);
+}
+
+function startOver()
+{
+	document.getElementById("output").value = "";
+	document.getElementById("warning").value = "";
 }
