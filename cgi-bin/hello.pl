@@ -1,5 +1,7 @@
-#!/usr/bin/perl -wT
-use strict;
- 
-print "Content-type: text/plain\n\n";
-print 'Hello world';
+#!/usr/bin/perl
+
+# hello.pl -- my first perl script!
+
+print "Content-type: text/html\n\n";
+
+print "Hello, world!\n";

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaTeX Tutorial-BibTeX</title>
+    <title>BibTeX Generator</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
     <script src="js/modernizr.js"></script>
@@ -19,7 +19,7 @@
      <header>
   <div class="row">
     <div class="large-12 columns text-center">
-      <h2><span style= "color:white">BibTeX</span></h2>
+      <h2><span style= "color:white">BibTeX Generator</span></h2>
     </div>
   </div>
 </header> 
@@ -50,14 +50,83 @@
 <br>
 	<div class="row">
 		<div class="small-12 columns">
-			<h3><b>What is BibTeX</b></h3>
-			<form method="post" action="bibtexcre.py">
-Red<input type="checkbox" name="color" value="red">
-Green<input type="checkbox" name="color" value="green">
-<input type="submit" value="Submit">
-</form>
-
-
+			<h3><b>BibTeX Generator</b></h3>
+			
+			<hr />
+			<form>
+				<div class="row">
+					<div class="small-6 columns">
+						<label>Type of Source</label>
+						<select id = "type">
+							<option value="article">Journal Article</option>
+							<option value="book">Book</option>
+							<option value="misc">Miscellaneous - when nothing else fits</option>
+							<option value="conference">Article in Conference Proceeding</option>
+							<option value="booklet">Booklet</option>
+							<option value="inbook">Part of Book</option>
+							<option value="manual">Manual</option>
+							<option value="mastersthesis">Masters Thesis</option>
+							<option value="phdthesis">PhD Thesis</option>
+							<option value="unpublished">Unpublished</option>
+							<option value="proceedings">Conference Proceedings</option>
+						</select>
+					</div>
+					<div class="small-6 columns">
+						<label>BibTeX Key</label>
+						<input type="text" id="id" placeholder="Enter Identifier:"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-6 columns">
+						<label>Author</label>
+						<input type="text" id="author" placeholder="Enter Author:" />
+					</div>
+					<div class="small-6 columns">
+						<label>Title</label>
+						<input type="text" id="title" placeholder="Enter Title:" />
+					</div>
+					<div class="small-6 columns">
+						<label>Journal</label>
+						<input type="text" id="journal" placeholder="Enter Journal:" />
+					</div>
+					<div class="small-6 columns">
+						<label>Volume</label>
+						<input type="text" id="volume" placeholder="Enter Volume:" />
+					</div>
+					<div class="small-6 columns">
+						<label>Number</label>
+						<input type="text" id="number" placeholder="Enter Number:" />
+					</div>
+					<div class="small-6 columns">
+						<label>Year</label>
+						<input type="text" id="year" placeholder="Enter Year:" />
+					</div>
+					<div class="small-6 columns">
+						<label>Pages</label>
+						<input type="text" id="pages" placeholder="Enter Pages:" />
+					</div>
+					<div class="small-6 columns">
+						<label>Publisher</label>
+						<input type="text" id="publisher" placeholder="Enter Publisher:" />
+					</div>
+					<div class="small-12 columns text-center">
+						<textarea type="text" id="abstract" placeholder="Enter Abstract:" /></textarea>
+					</div>
+					<div class="small-12 columns text-center">
+						<input type="button" value="Submit" onclick="showText()">
+					</div>
+				</div>
+				<div id="row">
+					<div class="small-7 columns">
+						<h4>Output</h4>
+						<textarea name="outputtext" id="output" rows="15" style="height:auto;"></textarea>
+					</div>
+					<div class="small-5 columns">
+						<h4>Warnings</h4>
+						<textarea name="warning" id="warning" rows="15" style="height:auto;"></textarea>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 	<hr />
