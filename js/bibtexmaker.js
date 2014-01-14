@@ -33,7 +33,7 @@ function showText()
 	check(number,"number");
 	check(year,"year");
 	check(abs,"abstract");
-	document.getElementById("output").value += "}\n";
+	document.getElementById("output").value += "}\n\n";
 	
     alert(popup_message);
 }
