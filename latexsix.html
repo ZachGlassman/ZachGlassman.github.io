@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LaTeX Tutorial-Labels</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-    <script src="js/modernizr.js"></script>
+    <link rel="stylesheet" href="./css/foundation.css" />
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css"/>
+    <script src="./js/modernizr.js"></script>
 	<script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['\\(','\\)']]}});
 </script>
@@ -128,7 +128,7 @@ We don&#39;t have a <span class="k">\ref</span><span class="nb">{</span>noref<sp
 			<br><br>
 			<a href="#" data-reveal-id="label1" class="radius button">View PDF &rsaquo;&rsaquo;</a>
 			<div id="label1" class="reveal-modal xlarge" data-reveal>
-				<object data="/img/label1.pdf" type="application/pdf" width="100%" height="60%">
+				<object data="./img/label1.pdf" type="application/pdf" width="100%" height="60%">
  				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/label1.pdf">click here to download the PDF file.</a></p>
 				</object>
 				<a class="close-reveal-modal">x</a>
@@ -142,7 +142,7 @@ We don&#39;t have a <span class="k">\ref</span><span class="nb">{</span>noref<sp
 			<div class="panel">
 			<p><span style="color:red">Warning!</span> It matters where the <span style="color:green">\label</span> command is placed relative to the <span style="color:green">\caption</span> command.</p>
 			</div>
-			<p>In this example we have also used the <b>hyperref</b> package.  This is not necessary, however, it creates a linked page where we can click on the numbers and the the pdf will automatically take us to the location in the document.  For a short document like this, it is not necessary, however, for a longer document this can be very useful. </p>
+			<p>In this example we have also used the <b>hyperref</b> package.  It creates a linked page where we can click on the numbers and the the pdf will automatically take us to the location in the document.  For a longer document this can be very useful. </p>
 			<div class="panel">
 			<p><span style="color:orange">Note:</span> the naming scheme I have used as the argument for the <span style="color:green">\label</span> command is not necessary.  However, it is a good habit since it can help keep the labels disparate among different float types and ,perhaps more importantly, organized in your own head.  Furthermore, some packages require this sort of naming convention.</p>
 			</div>
@@ -166,8 +166,8 @@ We don&#39;t have a <span class="k">\ref</span><span class="nb">{</span>noref<sp
 			<p>Created by Zachary Glassman.  Contact at zach.glassman@gmail.com</p>
 		</div>
 	</div>
-    <script src="js/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>
