@@ -1,0 +1,125 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zachary Glassman-Universal Spaces</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <script src="js/modernizr.js"></script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+  <body>
+   <header>
+  <div class="row">
+    <div class="large-12 columns text-center">
+      <h3><span style= "color:white">Universal Spaces</span></h3>
+    </div>
+  </div>
+</header> 
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="index.html">Home</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="physics.html">Physics Research</a></li>
+	  <li class="active"><a href="urysohn.html">Mathematics Research</a></li>
+	  <li><a href="projects.html">Other Projects</a></li>
+	  <li><a href="notes.html">Notes</a></li>
+	  <li><a href="about.html">About</a></li>
+    </ul>
+  </section>
+ </nav>
+    <br>
+	<div class="row">
+      <div class="small-12 columns">
+      	<div class="panel">
+	        <h3><b>Overview</b></h3>
+	        <p>A metric space is one of the fundamental spaces in Analysis and one of the first spaces one learns about in a first course in Analysis.  Mathematics is often concerned with generalization because it forces us to describe the fundamental structure of whatever object we are studying.  The generalization describes an entire class of objects, but also informs our understanding of subclasses as well.  In this case, we are generalizing complete, separable metric spaces which not only informs us of the structure of complete, separable metric spaces, but also the spaces that do not fit this description.</p>
+			<h4><b>Publications</b></h4>
+			<p>Aksoy AG, Glassman Z., Kosheleva O., Kreinovich V. ,"From Urysohn's Universal Metric Space to a Universal Space-Time," <i>Mathematical Structures and Modeling</i>, Vol.2. No.28, 2013, pages 28-34</p>
+      	</div>
+      </div>
+    </div>
+    <div class="row">
+		<hr />
+		<div class="small-12 columns text-center">
+	        <h3><b>Metric Spaces</b></h3>
+		</div>
+	<hr />
+		<div class="small-12 columns text-center">
+	         <img src="/images/metricdefinition.png" alt="Metric Space Defintion" width="601" height="190.5">
+		</div>
+		<div class="small-12 columns">
+			<br>
+			<p>
+            Some common metric spaces are the normal Euclidean space with the metric $d(x,y)=|y-x|$.  Another interesting metric is the discrete metric in which $d(x,y)=0$ if $x=y$ and $d(x,y)=1$ if $x\neq y$.  Metric spaces can also be described as a space where we can define a suitable distance function in the sense that there must be a minimum distance between any two points in the space.</p>
+      </div>
+    </div>
+	<div class="row">
+		<hr />
+		<div class="small-12 columns text-center">
+			<h3><b>Universal Metric Spaces</b></h3>
+		</div>
+		<hr />
+		<div class="small-12 columns">
+            <p>It is known that there are many universal metric spaces in the sense that they contain an isometric embedding of every metric space of a certain type.  In the case of Urysohn space, it contains an isometric property of every complete separable metric space.</p>
+		</div>
+		<div class="small-12 columns text-center">
+            <img src="/images/urysohn.png" alt="Urysohn space" width="504.9" height="162.36">
+		</div>
+		<div class="small-12 columns">
+			<br>
+            <p>There are several construction of such a universal space, the first due to P.S. Urysohn himself in the 1920's.  Sadly, Urysohn died before he could finish his work and although his construction survives, its full implications, at least as he conceived them remain unclear.</p>
+            <p>We seek to study this construction, especially as it relates to the more used functional constructions and see if it can offer more insight into universality and metric spaces in general.</p>
+		</div>
+    </div>
+	
+	
+	<div class="row">
+		<hr />
+		<div class="small-12 columns text-center">
+			<h3><b>Ultrahomogeneous Spaces</b></h3>
+		</div>
+		<hr />
+		<div class="small-12 columns">
+            <p>Another property of the Urysohn space is ultrahomogeneity, which states that an isomorphism between two finite subspaces can be extended to an automorphism of the entire group.  This is intrinsically related to the separability of the space which intuitively speaking the idea that the space has no "holes" or "gaps."  This property is the primary difference between other universal spaces such as $l^\infty$ and $c[0,1]$ (the space of continuous functions on the interval $[0,1]$ with the supremum norm).  By comparing this properties of these other universal spaces in the context of this ultrahomogeneity property, we can also understand more about Urysohn space.</p>
+		</div>
+    </div>
+	
+	<div class="row">
+		<hr />
+		<div class="small-12 columns text-center">
+			<h3><b>Connection to General Relativity</b></h3>
+		</div>
+		<hr />
+		<div class="small-12 columns">
+            <p>Like any mathematical space, there is an underlying geometry to General Relativity.  Unlike the Newtonian gravitational theory which states any two objects with mass will exert forces on each other, General Relativity says that the geometry of space-time what induces the effect we perceive as gravity.  Space-time is a four-dimensional space (technically a time-oriented Lorentzian Manifold) where objects "fall" along curves in spacetime determined by the mass-energy of other objects.</p>
+            <p>John Wheeler summarized it quite well when he said "spacetime tells matter how to move and matter tells spacetime how to curve."  General relativity is the study of this phenomena and produces many observed effects such as the precession of the perihelion and the bending of light and some yet unobserved effects such as gravitational waves.</p>
+            <p>While in a general metric space, we can describe a distance between two points as the minimum of a suitably defined metric function, in a space-time we cannot ever find a suitable function.  This results from the way proper time must be defined to be consistent relativistically.  Instead, we can define a maximal proper time between two events and general relativity says that an object follows a geodesic along this path.  This results in a distance function defined with the reverse triangle inequality, $d(x,y)\geq d(x,z)+d(z,y)$ and no symmetry.</p>
+            <p>Our project is to study this space in terms of its universality and ultrahomogeneity from a purely mathematical standpoint and then see if we can extract physical meaning from this analysis.  We have so far proved that there is in fact a universal space-time with suitable restriction using concepts from model theory.</p>
+            <p>Future projects are organized around studying the one point extension properties of these spaces.  </p>
+		</div>
+    </div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns text-center">
+			<p>Contact at zach.glassman@gmail.com</p>
+		</div>
+	</div>
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

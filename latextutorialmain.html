@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaTeX Tutorial-Intro</title>
+    <link rel="stylesheet" href="./css/foundation.css" />
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css"/>
+    <script src="./js/modernizr.js"></script>
+  </head>
+  <body>
+   <header>
+  <div class="row">
+    <div class="large-12 columns text-center">
+      <h2><span style= "color:white">LaTeX Tutorial</span></h2>
+    </div>
+  </div>
+</header> 
+<nav class="top-bar" data-topbar>
+<ul class="title-area">
+<li class="name">
+      <h1><a href="latex-toc.html">Contents</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+  <section class="top-bar-section">
+	<!--Left Nav Section-->
+	<ul class="left">
+		<li class="active"><a href="latextutorialmain.html">Intro</a></li>
+	</ul>
+    <!-- Right Nav Section -->
+    <ul class="right">
+		<li class="divider"></li>
+		<li class="has-dropdown"><a href="#">LaTeX Tutorial</a>
+			<ul class="dropdown">
+				<li><a href="latexone.html">Installation</a></li>
+				<li><a href="latextwo.html">Basic Commands</a></li>
+				<li><a href="latexthree.html">Math Mode</a></li>
+				<li><a href="latexfour.html">Tables</a></li>
+				<li><a href="latexfive.html">Figures</a></li>
+				<li><a href="latexsix.html">Labels</a></li>
+			</ul>
+		</li>
+		<li class="divider"></li>
+		<li><a href="resources.html">Resources</a></li>
+		<li class="divider"></li>
+    </ul>
+  </section>
+</nav>
+    <br>
+    <div class="row">
+      <div class="small-12 columns">
+      	<div class="panel">
+	        <h3><b>What is LaTeX?</b></h3>
+	        <p>LaTeX is a document preparation system that produces high-quality typeset documents.  It is a set of macro's over Donald Knuth's TeX typesetting language which effectively allows one to focus on actually writing documents and leave design elements to the compiler (although these can be extensively customized).  LaTeX is the preferred typesetting system for most academic fields and most people know it as a good way to typeset mathematical formulas.  However, it can also can be used for posters, presentations, and many other useful applications.  According to the official guide, it can be pronounced either Lah-tech or Lay-tech.</p> 
+            <h3><b>What LaTeX is not.</b></h3>
+            <p>LaTeX is not a word processor, and subsequently, not what you see is what you get (WYSWYG).  This switches the focus from design to content.  LaTeX does not allow one to interactively edit the final appearance of a document.</p>
+			<h3><b>The advantages of LaTeX</b></h3>
+            <p>LaTeX compiles the entire document at once which allows it to adjust many small things such as word spacing, letter spacing, etc in response to the <b>entirety</b> of the document.  This produces much higher quality output and while they does not necessarily "pop" from the page, these small details are why people say things such as <i>"I don't know why, but LaTeX just looks better."</i></p>
+      	</div>
+      </div>
+    </div>
+
+    <hr />
+<div class="row">
+    <div class="small-12 columns text-center">
+        <ul class="small-block-grid-2">
+            <li><img src="/img/whytex1.png" alt="LaTeX" /></li>
+            <li><img src="/img/whytex2.png" alt="Word" /></li>
+        </ul>
+    </div>
+    <div class="small-6 columns text-center">
+        <p>LaTeX</p>
+    </div>
+    <div class="small-6 columns text-center">
+        <p>Microsoft Word</p>
+    </div>
+    <div class="small-12 columns">
+        <p>You may recognize these as the statement of the fundamental theorem of calculus.  The code to create such an equation is given below, note that most of the commands are setting up the document itself the actual code the for the equation is quite simple.  Anyone familiar with word processors would know this would be a much more difficult task to typeset in such a program and as shown above, would produce the same quality output.</p>
+    </div>
+    <div class="small 12 columns">
+           <div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">    \int</span><span class="nb">_</span><span class="k">\alpha</span><span class="nb">^</span><span class="k">\beta</span> f&#39;(x) <span class="k">\,</span> dx=f(<span class="k">\beta</span>)-f(<span class="k">\alpha</span>)
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div> 
+    </div>
+</div>
+    <hr />
+<div class="row">
+     <div class="small-8 columns">
+        <p>This tutorial will teach the basics of LaTeX through examples of both input and output.  There is also a resources section with links and tables that will be useful after completion of the tutorial.  Remember that LaTeX is about the final product and the final rendering is ALL that matters.  However, there are ways to do things that are better than others.  This will improve compilation efficiency and generally make your life easier. </p>
+         <p>One of the main facets of this tutorial will be to reproduce examples.  It is imperative that you actually type <b>everything</b> yourself into the editor of your choice.  First off, we will learn how to install and use LaTeX on the operating system of your choice.</p>
+     </div> 
+     <div class="small-4 columns text-center">
+         <br><br><br><br>
+         <a class="button success" href="latexone.html">Start!</a>
+         <a class="button alert" href="latex-toc.html">Table of Contents</a>
+     </div>
+</div>
+<hr />
+	<div class="row">
+		<div class="small-12 columns text-center">
+			<p>Created by Zachary Glassman.  Contact at zach.glassman@gmail.com</p>
+		</div>
+	</div>
+      
+    <script src="./js/jquery.js"></script>
+    <script src="./js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

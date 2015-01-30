@@ -1,0 +1,256 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaTeX Tutorial-Math Mode</title>
+    <link rel="stylesheet" href="./css/foundation.css" />
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css"/>
+    <script src="./js/modernizr.js"></script>
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['\\(','\\)']]}});
+</script>
+      <script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+  <body>
+     <header>
+  <div class="row">
+    <div class="large-12 columns text-center">
+      <h2><span style= "color:white">Math Mode</span></h2>
+    </div>
+  </div>
+</header> 
+<nav class="top-bar" data-topbar>
+<ul class="title-area">
+<li class="name">
+      <h1><a href="latex-toc.html">Contents</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+  <section class="top-bar-section">
+	<!--Left Nav Section-->
+	<ul class="left">
+		<li><a href="latextutorialmain.html">Intro</a></li>
+	</ul>
+    <!-- Right Nav Section -->
+    <ul class="right">
+		<li class="divider"></li>
+		<li class="has-dropdown"><a href="#">LaTeX Tutorial</a>
+			<ul class="dropdown">
+				<li><a href="latexone.html">Installation</a></li>
+				<li><a href="latextwo.html">Basic Commands</a></li>
+				<li class="active"><a href="latexthree.html">Math Mode</a></li>
+				<li><a href="latexfour.html">Tables</a></li>
+				<li><a href="latexfive.html">Figures</a></li>
+				<li><a href="latexsix.html">Labels</a></li>
+			</ul>
+		</li>
+		<li class="divider"></li>
+		<li><a href="resources.html">Resources</a></li>
+		<li class="divider"></li>
+    </ul>
+  </section>
+</nav>
+    <br>
+	<div class="row">
+		<div class="small 12 columns">
+		<div class="panel">
+			<h3><b>Overview</b></h3>
+			<p> This section will cover how to typeset mathematics.  It will also cover how to handle complicated equations and multiple equation environments.</p>
+		</div>
+		</div>
+		<div class="small-12 columns">
+			<h3><b>What is math mode?</b></h3>
+			<p>For many people the most useful part of LaTeX is the ability to typeset complex mathematical formulas.  for the sake of simplicity, LaTeX separates the tasks of typesetting mathematics and typesetting normal text.  This is achieved by the use of two operating modes, paragraph and math mode.  There is also a third mode called LR mode, however, this is rarely used by beginners and furthermore, is usually implicitly entered with other commands.  It will not be covered here.  Paragraph mode is the default mode for the document environment and does not need to be called explicitly.</p>
+			<p>There are a few ways to enter math mode, however the most common is <span style="color:red">$</span>....<span style="color:red">$</span>, where the text within the dollar signs is in the math mode environment.  You have already been using math mode unknowingly by using the <span style="color:green">\begin{equation}</span> and <span style="color:green">\end{equation}</span> commands.
+			</p>
+			<p> The following table lists three methods and their usage of declaring math mode.</p>
+			<table>
+			<thead>
+				<tr>
+					<th width="100">Method</th>
+					<th>Special Characteristics</th>
+					<th>Usage</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span style="color:red">$</span>....<span style="color:red">$</span></td>
+					<td>None</td>
+					<td>In-line math</td>
+				</tr>
+				<tr>
+					<td><span style="color:green">\begin{equation}</span> <span style="color:green">\end{equation}</span></td>
+					<td>Goes to a newline and center equation with label</td>
+					<td>Equations</td>
+				</tr>
+				<tr>
+					<td><span style="color:red">\[</span> ....<span style="color:red">\]</span></td>
+					<td>Goes to a newline and center equation</td>
+					<td>Equations with no label</td>
+				</tr>
+				</tbody>
+			</table>
+			<br>
+			<p>There are equivalent ways of entering math mode for each of these methods, for example, <span style="color:red">$$</span>....<span style="color:red">$$</span> is equivalent to <span style="color:red">\[</span> ....<span style="color:red">\]</span>, however, the latter is now strongly preferred. I almost always use the first two methods for typesetting basic math.</p>
+			<p>Now try the following LaTeX code.</p>
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+	<span class="k">\int</span><span class="nb">_</span><span class="k">\alpha</span><span class="nb">^</span><span class="k">\beta</span> f&#39;(x) <span class="k">\,</span> dx=f(<span class="k">\beta</span>)-f(<span class="k">\alpha</span>).
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+We can use the fundamental theorem of calculus to say that
+ <span class="s">$</span><span class="nv">\int</span><span class="nb">_</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb"> x^</span><span class="m">2</span><span class="nb"> </span><span class="nv">\,</span><span class="nb"> dx</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">3</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">19</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="s">$</span>.  
+Also note that <span class="s">$</span><span class="nv">\displaystyle</span><span class="nb"> </span><span class="nv">\int</span><span class="nb">_</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb"> x^</span><span class="m">2</span><span class="nb"> </span><span class="nv">\,</span><span class="nb"> dx</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">3</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">19</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="s">$</span>. 
+ We can also give this equation its own line 
+<span class="sb">\[</span><span class="nb"></span>
+<span class="nb">	</span><span class="nv">\int</span><span class="nb">_</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb"> x^</span><span class="m">2</span><span class="nb"> </span><span class="nv">\,</span><span class="nb"> dx</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">3</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">^</span><span class="m">3</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">19</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}.</span>
+<span class="s">\]</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+			<br>
+			<a href="#" data-reveal-id="mathmodeone" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="mathmodeone" class="reveal-modal xlarge" data-reveal>
+				<object data="./img/mathmodeone.pdf" type="application/pdf" width="100%" height="50%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/mathmodeone.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+			<p>Note that math mode ignores whitespace, in fact, this whole code could have been put on one line and still would have compiled correctly.  Another thing to notice is the effect of the <span style="color:teal">\displaystyle</span> command.  This command forces LaTeX to give an equation the full height it needs to display as if it were on its own line.  Be careful in using it as it can make a document due to variable line height. 
+			</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<h3><b>Multiple Equations</b></h3>
+		</div>
+		<div class="small-6 columns">
+			<p>
+			There are several ways to format multiple equations and the amsmath package adds several more.  In general, the command <span style="color:green">\\</a></span> signifies a line break and within the correct math mode environment, it can start a new equation line.  Try the example on the right which sets the same multiple equations in several ways. 
+			</p>
+			<br>
+			<a href="#" data-reveal-id="mathmodetwo" class="radius button">View PDF &rsaquo;&rsaquo;</a>
+			<div id="mathmodetwo" class="reveal-modal xlarge" data-reveal>
+				<object data="./img/mathmodetwo.pdf" type="application/pdf" width="100%" height="60%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="/img/mathmodetwo.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+		</div>
+		<div class="small-6 columns">
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+	(x+3)(x+2)=x<span class="nb">^</span>2+5x+6<span class="k">\notag\\</span>
+	<span class="k">\geq</span> x<span class="nb">^</span>2
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>gather<span class="nb">}</span>
+	(x+3)(x+2)=x<span class="nb">^</span>2+5x+6<span class="k">\notag\\</span>
+	<span class="k">\geq</span> x<span class="nb">^</span>2
+<span class="k">\end</span><span class="nb">{</span>gather<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+	(x+3)(x+2)<span class="nb">&amp;</span>=x<span class="nb">^</span>2+5x+6<span class="k">\notag\\</span>
+	<span class="nb">&amp;</span><span class="k">\geq</span> x<span class="nb">^</span>2
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<br>
+			<p>Observe that the equation environment does not even allow line breaks.  this is not the proper environment for multiple equations if we wish to have them formatted on separate lines.</p>
+			<p>  The <b>gather</b> and <b>align</b> environments both give us the result we want, albeit in slightly different manners.</p>
+			<ul>
+				<li>If we use the gather environment, every equation is centered.</li>
+				<li>If we use the align environment and insert an <span style="color:red">&amp;</span> on every line where we wish the equations to be aligned (usually at some sort of equality symbol), the equations will be aligned.</li>
+			</ul>
+			<div class="panel">
+			<p><span style="color:orange">Note:</span>  The <span style="color:green">\notag</span> command tells LaTeX not to number that specific line.
+			</p>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<p>The following is a table of some of the most common LaTeX mathematical symbols.
+			</p>
+			<table>
+			<thead>
+				<tr>
+					<th width="120">Symbol Name</th>
+					<th>LaTeX Command</th>
+					<th>Rendering</th>
+					<th>Notes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Fraction</td>
+					<td><div class="highlight"><pre><span class="nv">\frac</span><span class="nb">{x}{y} </span></pre></div></td>
+					<td><img src="./img/frac.PNG" alt="fraction" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>In-line Fraction</td>
+					<td><div class="highlight"><pre><span class="nv">\dfrac</span><span class="nb">{x}{y}</span></pre></div></td>
+					<td><img src="./img/dfrac.PNG" alt="dFRAC" /></td>
+					<td>Similar to <span style="color:green">\displaystyle</span> with <span style="color:green">\frac</span></td>
+				</tr>
+				<tr>
+					<td>Greek Letters</td>
+					<td><div class="highlight"><pre><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb"> </span><span class="nv">\gamma</span></pre></div></td>
+					<td><img src="./img/greeklet.PNG" alt="Greek Letters" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Integral</td>
+					<td><div class="highlight"><pre><span class="nv">\int</span><span class="nb">_a^b </span><span class="nv">\iint</span><span class="nb"> </span><span class="nv">\oint</span><span class="nb"></span></pre></div></td>
+					<td><img src="./img/int.PNG" alt="Integral" /></td>
+					<td>Second set have <span style="color:green">\displaystyle</span></td>
+				</tr>
+				<tr>
+					<td>Properly sized parentheses</td>
+					<td><div class="highlight"><pre><span class="nv">\left</span><span class="o">(</span><span class="nv">\dfrac</span><span class="nb">{a}{b}</span><span class="nv">\right</span><span class="o">)</span></pre></div></td>
+					<td><img src="./img/paren.PNG" alt="Paren" /></td>
+					<td>Will automatically size</td>
+				</tr>
+				<tr>
+					<td>Summations</td>
+					<td><div class="highlight"><pre><span class="nv">\sum</span><span class="nb">_{n</span><span class="o">=</span><span class="m">1</span><span class="nb">}^</span><span class="nv">\infty</span></pre></div></td>
+					<td><img src="./img/sum.PNG" alt="sum" /></td>
+					<td>Second set have <span style="color:green">\displaystyle</span></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latextwo.html">&larr; Back</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button alert" href="latex-toc.html">Table of Contents</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latexfour.html">Next &rarr;</a>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns text-center">
+			<p>Created by Zachary Glassman.  Contact at zach.glassman@gmail.com</p>
+		</div>
+	</div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

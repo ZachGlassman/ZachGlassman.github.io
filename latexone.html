@@ -1,0 +1,174 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaTeX Tutorial-Installation</title>
+    <link rel="stylesheet" href="./css/foundation.css" />
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css"/>
+    <script src="./js/modernizr.js"></script>
+  </head>
+  <body>
+     <header>
+  <div class="row">
+    <div class="large-12 columns text-center">
+      <h2><span style= "color:white">Installation</span></h2>
+    </div>
+  </div>
+</header> 
+<nav class="top-bar" data-topbar>
+<ul class="title-area">
+<li class="name">
+      <h1><a href="latex-toc.html">Contents</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+  <section class="top-bar-section">
+	<!--Left Nav Section-->
+	<ul class="left">
+		<li><a href="latextutorialmain.html">Intro</a></li>
+	</ul>
+    <!-- Right Nav Section -->
+    <ul class="right">
+		<li class="divider"></li>
+		<li class="has-dropdown"><a href="#">LaTeX Tutorial</a>
+			<ul class="dropdown">
+				<li class="active"><a href="latexone.html">Installation</a></li>
+				<li><a href="latextwo.html">Basic Commands</a></li>
+				<li><a href="latexthree.html">Math Mode</a></li>
+				<li><a href="latexfour.html">Tables</a></li>
+				<li><a href="latexfive.html">Figures</a></li>
+				<li><a href="latexsix.html">Labels</a></li>
+			</ul>
+		</li>
+		<li class="divider"></li>
+		<li><a href="resources.html">Resources</a></li>
+		<li class="divider"></li>
+    </ul>
+  </section>
+</nav>
+    <br>
+
+    <div class="row">
+		<div class="small 12 columns">
+		<div class="panel">
+			<h3><b>Overview</b></h3>
+			<p> This section will give installation instructions for PC and Mac users as well as a new cloud based solution for LaTeX typesetting.</p>
+		</div>
+		</div>
+        <div class="small 12 columns">
+			<h3><b>Why we need installation</b></h3>
+             <p>LaTeX can be run from the command line with a text editor and properly installed programs, however, I recommend using a LaTeX environment.  This will simplify matters and also provide a development environment with useful properties such as syntax highlighting, compiling macros, etc. </p>
+        </div>
+    </div>
+	<hr />
+	<div class="row">
+      <div class="small-6 columns">
+      	<div class="panel">
+	        <h3><b>PC</b> - MikTeX</h3>
+			<ol>
+			<li>Go to <a href="http://miktex.org/"target="_blank">MikTeX.org</a></li>
+			<li>Download recommended installer.</li>
+			<li>Install downloaded package.</li>
+			<li>Ready to LaTeX!</li>
+			</ol>
+      	</div>
+      </div>
+	  <div class="small-6 columns text-center">
+		<br><br><br><br>
+		<img src="/img/miktex.png" alt="MikTeX" />
+	  </div>
+    </div>
+	<hr />
+	<div class="row">
+      <div class="small-8 columns">
+      	<div class="panel">
+	        <h3><b>Mac</b> - MacTeX and TeXShop</h3>
+			<ol>
+			<li>Go to <a href="http://www.tug.org/mactex/index.html"target="_blank">http://www.tug.org/mactex/index.html</a></li>
+			<li>On the frontpage is the download link for the latest package.  Install this package in the normal manner.</li>
+			<li>Go to <a href="http://pages.uoregon.edu/koch/texshop/"target="_blank">http://pages.uoregon.edu/koch/texshop/</a></li>
+			<li>Go to the obtaining section,download, and install</li>
+			<li>Make sure that the Path setting under the "Engine" tab in TeXShop preferences is set to "usr/textbin," this should be done automatically.  There is also a chance that your particular configuration requires a different configuration, however, this is system specific and cannot be covered here.</li>
+			<li>Ready to LaTeX!</li>
+			</ol>
+      	</div>
+      </div>
+	  <div class="small-4 columns text-center">
+		<img src="./img/mactex.png" alt="MacTeX" />
+		<br><br>
+		<img src="./img/texshop.png" alt="TeXShop" />
+	  </div>
+    </div>
+	<hr />
+    <div class="row">
+      <div class="small-6 columns">
+      	<div class="panel">
+	        <h3><b>Cloud</b> - ShareLaTeX</h3>
+			<ol>
+			<li>Go to <a href="sharelatex.com"target="_blank">sharelatex.com</a></li>
+			<li>Make an account</li>
+			<li>Ready to LaTeX!</li>
+			</ol>
+      	</div>
+      </div>
+	  <div class="small-6 columns text-center">
+		<img src="./img/sharelatex.png" alt="ShareLaTeX" />
+	  </div>
+    </div>   
+	<hr />
+	<div class="row">
+		<div class="small 12 columns">
+			<p>When you have chosen your particular environment, type the following code and attempt to compile it.</p>
+			<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+This is my first <span class="k">\LaTeX</span> document!  
+<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+     a<span class="nb">^</span>2+b<span class="nb">^</span>2=c<span class="nb">^</span>2
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+I can write equations!
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+			<br>
+			<br>
+			Click below to see correct output.
+			<br>
+			<br>
+			<a href="#" data-reveal-id="videoModal" class="radius button">Rendered Example &rsaquo;&rsaquo;</a>
+			<div id="videoModal" class="reveal-modal xlarge" data-reveal>
+				<object data="./img/start.pdf" type="application/pdf" width="100%" height="100%">
+ 				<p>It appears you don't have a PDF plugin for this browser.  You can <a href="./img/start.pdf">click here to download the PDF file.</a></p>
+				</object>
+				<a class="close-reveal-modal">x</a>
+			</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns">
+			<p>I personally use MikTeX for my own purposes, however, this is mostly a matter of not changing old habits and a temperamental internet connection.  Sites such as ShareLaTeX and cloud processing in general are the future of LaTeX typesetting and have several amazing features such as shared document editing and integration with cloud storage.</p>
+		</div>
+	</div>
+	<hr \>
+	<div class="row">
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latextutorialmain.html">&larr; Back</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button alert" href="latex-toc.html">Table of Contents</a>
+		</div>
+		<div class="small-4 columns text-center">
+			<a class="button success" href="latextwo.html">Next &rarr;</a>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="small-12 columns text-center">
+			<p>Created by Zachary Glassman.  Contact at zach.glassman@gmail.com</p>
+		</div>
+	</div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
