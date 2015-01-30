@@ -39,12 +39,12 @@ tfoot{
 }
 #monthOut {
     position: absolute;
-    left: 6in;
+    left: 8in;
     top: 1.2in;
 }
 #monthOutTable {
     position: absolute;
-    left: 6in;
+    left: 8in;
     top: 2in;
 }
 #allTimeOutTable {
@@ -54,7 +54,7 @@ tfoot{
 }
 #monthOutSelect {
     position: absolute;
-    left: 6in;
+    left: 8in;
     top: 1.7in;
 }
 #fileInput {
@@ -79,7 +79,7 @@ tfoot{
 }
 #canvas1 {
   position: absolute;
-    left: 10in;
+    left: 15in;
     top: 2in;
 }
 }
