@@ -11,6 +11,7 @@ window.onload = function() {
   var monthOutSelect = document.getElementById('monthOutSelect');
   var reportTable = document.getElementById('reportTable');
   var ctx = document.getElementById('canvas1').getContext('2d');
+  var chartLegend = document.getElementById('chartLegend');
 	//global list for overall prices for i/o
 	var expenseList;
   var cat;
@@ -216,7 +217,7 @@ window.onload = function() {
         tr.appendChild(td);
 
         var td = document.createElement('TD');
-        td.appendChild(document.createTextNode(sortobj[i]));
+        td.appendChild(document.createTextNode(sortobj[i].toFixed(2)));
         tr.appendChild(td);
         var td = document.createElement('TD');
         td.appendChild(document.createTextNode(percobj[i].calcLeft()));
@@ -230,10 +231,10 @@ window.onload = function() {
     td.appendChild(document.createTextNode('Total'));
     tr.appendChild(td);
     var td = document.createElement('TD');
-    td.appendChild(document.createTextNode(percobj['Spent']));
+    td.appendChild(document.createTextNode(percobj['Spent'].toFixed(2)));
     tr.appendChild(td);
     var td = document.createElement('TD');
-    td.appendChild(document.createTextNode(percobj['Total']));
+    td.appendChild(document.createTextNode(percobj['Total'].toFixed(2)));
     tr.appendChild(td);
 
     place.appendChild(table);
@@ -255,7 +256,7 @@ window.onload = function() {
     this.total = has;
     this.calcLeft = function(){
       if(this.percentage > 0){
-        return this.total * this.percentage - this.spend;
+        return (this.total * this.percentage - this.spend).toFixed(2);
       }
       else{
         return "N/A";
@@ -309,6 +310,29 @@ window.onload = function() {
     this.data = [];
   }
 
+  function genRandomColor(){
+    var ans = "rgba(";
+    var one = Math.floor(Math.random() * 255) + 1;
+    var two = Math.floor(Math.random() * 255) + 1;
+    var three = Math.floor(Math.random() * 255) + 1;
+    ans = ans + one.toString() + ',' + two.toString() + ',' + three.toString()+ ',';
+    return ans;
+  };
+
+  function colorOpac(color,opac){
+    return color + opac.toString() + ')';
+  }
+
+  function correctColors(leg){
+    var tempList =  leg.split('</span>');
+    var ans = tempList[0].split('</li>');
+    for(var i =1; i < tempList.length; i++){
+      ans += tempList[i].split('</li>')[0] + '</span></li>';
+      ans += tempList[i].split('</li>')[1];
+    }
+    return ans ;
+  }
+
   function drawMonthChart(monthT, percT, catt){
     var data = {
     labels: [],
@@ -317,14 +341,15 @@ window.onload = function() {
 
     //now create a dataset for each variable
     for(var j =0; j<catt.length; j++){
+      var col = genRandomColor();
       data.datasets.push(
         new datasetMe(catt[j],
-                  "rgba(220,220,220,0.2)",
-                  "rgba(220,220,220,1)",
-                  "rgba(220,220,220,1)",
+                  colorOpac(col,.1),//fill
+                  colorOpac(col,.8),
+                  colorOpac(col,.5),
+                  "#fff",//dots
                   "#fff",
-                  "#fff",
-                  "rgba(220,220,220,1)"
+                  colorOpac(col,1)
                   ));
         for(var k in monthT){
           data.datasets[j].data.push(monthT[k][catt[j]]);
@@ -333,9 +358,12 @@ window.onload = function() {
     for(var i in monthT){
       data.labels.push(i);
     }
-    output.innerHTML = "got here";
+
     var monthChart = new Chart(ctx).Line(data);
-    output.innerHTML = "GOT HERE";
+    var legend = monthChart.generateLegend();
+    var correctLegend = correctColors(legend);
+    chartLegend.innerHTML = correctLegend;
+
   }
 
   //main routines
@@ -348,7 +376,7 @@ window.onload = function() {
     var resList = res.split('\n');
     cat = resList[0].split(',');
     perc = pObj(resList[1].split(','),cat);
-     //fill expenseList with objects containg data
+    //fill expenseList with objects containg data
     expenseList = parseData(resList.slice(2));
 
     processData(res);
@@ -364,7 +392,6 @@ window.onload = function() {
     var mfrep = percMonthReport(monthTotals,perc);
 
     //now write out HTML Table for this information
-
     writeOutTable(allTotals,frep,allTimeOutTable);
     document.getElementById("monthB").addEventListener(
       "click",function(){
@@ -374,6 +401,7 @@ window.onload = function() {
 
     //write to output
     output.innerHTML = "Processed " + expenseList.length + " transactions";
+
     drawMonthChart(monthTotals,mfrep,cat);
   }
 
