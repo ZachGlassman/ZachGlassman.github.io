@@ -1,0 +1,85 @@
+/* CSS file placeholder. */
+table {
+color: #333; /* Lighten up font color */
+font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+width: 300px;
+border-collapse:
+collapse; border-spacing: 0;
+}
+
+td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+th {
+font-weight: bold; /* Make sure they're bold */
+}
+
+td {
+text-align: center; /* Center our text */
+}
+
+tbody{
+  background-color: #F3F3F3; /* Light grey background */
+}
+thead{
+/* background color for the head part */
+background-color:#282828 ;
+color:#F0F0F0 ;
+
+font-weight:bold;
+}
+
+tfoot{
+  background-color:#C0C0C0 ;
+}
+
+#allTimeOut {
+    position: absolute;
+    left: .1in;
+    top: 1.2in;
+}
+#monthOut {
+    position: absolute;
+    left: 4in;
+    top: 1.2in;
+}
+#monthOutTable {
+    position: absolute;
+    left: 4in;
+    top: 2in;
+}
+#allTimeOutTable {
+    position: absolute;
+    left: .1in;
+    top: 2in;
+}
+#monthOutSelect {
+    position: absolute;
+    left: 4in;
+    top: 1.7in;
+}
+#fileInput {
+    position: absolute;
+    left: 3.5in;
+    top: .4in;
+}
+#titleLabel {
+    position: absolute;
+    left: .1in;
+    top: .1in;
+}
+#output {
+    position: absolute;
+    left: .1in;
+    top: .9in;
+}
+#reportTable {
+    position: absolute;
+    left: .1in;
+    top: 7in;
+}
+#canvas1 {
+  position: absolute;
+    left: 6in;
+    top: 2in;
+}
+}
