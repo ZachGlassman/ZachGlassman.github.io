@@ -1,5 +1,6 @@
 body{
   background-color:#EBEBEB;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 table {
@@ -33,6 +34,11 @@ font-weight:bold;
 
 tfoot{
   background-color:#C0C0C0 ;
+}
+
+h1 {
+  text-shadow:0px 0px 10px #fff;
+  color:#494A48;
 }
 
 #allTimeOut {
