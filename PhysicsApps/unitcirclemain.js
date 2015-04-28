@@ -123,7 +123,7 @@ function unitCircleApp(){
     drawCircleGrid(ctxbox, gamebox);
     drawGrid(ctxmagbox, magbox);
     //draw arrows
-    drawArrow(ctxbox,x0,y0,x1,y1,maincolor);
+    drawCircArrow(ctxbox,x0,y0,x1,y1,maincolor);
     drawArrow(ctxxbox,xbox.width/2,
                       xbox.height-pad,
                       xbox.width/2,
@@ -144,9 +144,9 @@ function unitCircleApp(){
     drawArrow(ctxbox,x0,y0,x0,y1,ycolor);
     drawArrow(ctxbox,x0,y0,x1,y0,xcolor);
     //set magnitude text
-    xmagLabel.innerHTML = (xmag/185).toFixed(2)+ "<br>X Magnitude";
-    ymagLabel.innerHTML = (ymag/185).toFixed(2) + "<br>Y Magnitude";
-    magLabel.innerHTML = (mag/185).toFixed(2) + "<br>Magnitude";
+    xmagLabel.innerHTML = (xmag/185).toFixed(4)+ "<br>X Magnitude";
+    ymagLabel.innerHTML = (ymag/185).toFixed(4) + "<br>Y Magnitude";
+    magLabel.innerHTML = (mag/185).toFixed(4) + "<br>Magnitude";
   
     
   }
@@ -176,6 +176,38 @@ function unitCircleApp(){
   */
 
   function drawArrow(ctx,x0,y0,x1,y1,color){
+    var radius = 5;
+    var twoPI = 2*Math.PI;
+    //compute angle between lines
+    var angle = Math.atan2(y1-y0,x1-x0);
+    
+    //compute points on edges of circles neccessary
+    var x1f = x1 - radius * Math.cos(angle);
+    var y1f = y1 - radius * Math.sin(angle);
+    //draw upper circle
+    ctx.beginPath();
+    ctx.moveTo(x0,y0);
+    //draw to line to edge of next circle
+    ctx.lineTo(x1f,y1f);
+    //draw second circle
+    
+    //draw head
+    ctx.lineTo(x1f + Math.cos(angle + Math.PI/2) * 15, 
+               y1f + Math.sin(angle + Math.PI/2) * 15);
+    ctx.lineTo(x1f + Math.cos(angle) * 15,
+               y1f + Math.sin(angle) * 15);
+    ctx.lineTo(x1f + Math.cos(angle - Math.PI/2) * 15, 
+               y1f + Math.sin(angle - Math.PI/2) * 15);
+    ctx.lineTo(x1f,y1f);
+    //make linewidth prop to distance squared
+    ctx.lineWidth = 3 + (Math.pow((x1-x0),2) 
+                        + Math.pow((y1-y0),2))/40000;
+    ctx.closePath();
+    ctx.strokeStyle = color;
+    ctx.stroke();
+  }
+  
+  function drawCircArrow(ctx,x0,y0,x1,y1,color){
     var radius = 5;
     var twoPI = 2*Math.PI;
     //compute angle between lines
@@ -232,21 +264,28 @@ function unitCircleApp(){
   
   function drawCircleGrid(ctx,can){
     var line;
+    var radiusSqr = Math.pow(gamebox.width/2.5,2);
+    var dxy;
+    var toDraw;
     ctx.strokeStyle = "rgb(127,127,127)";
     ctx.lineWidth = 1;
     for (var i =0; i < can.width/10;i++){
       line = 10 * i;
+      dxy = x0 - line;
+      toDraw = Math.sqrt(radiusSqr - dxy*dxy);
       ctx.beginPath();
-      ctx.moveTo(line,0);
-      ctx.lineTo(line,can.height);
+      ctx.moveTo(line,y0- toDraw);
+      ctx.lineTo(line,y0+toDraw);
       ctx.closePath();
       ctx.stroke();
     }
     for (var j=0; j < can.height/10; j++){
       line = 10 * j;
+      dxy = x0 - line;
+      toDraw = Math.sqrt(radiusSqr - dxy*dxy);
       ctx.beginPath();
-      ctx.moveTo(0,line);
-      ctx.lineTo(can.width,line);
+      ctx.moveTo(x0-toDraw,line);
+      ctx.lineTo(x0+toDraw,line);
       ctx.closePath();
       ctx.stroke();
     }
