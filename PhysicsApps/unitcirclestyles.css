@@ -1,0 +1,41 @@
+#box {
+  position:absolute;
+  left: 50px;
+  top: 25px;
+}
+
+#xbox {
+  position:absolute;
+  left: 600px;
+  top: 25px;
+}
+
+#ybox {
+  position:absolute;
+  left: 750px;
+  top: 25px; 
+}
+#magbox {
+  position:absolute;
+  left: 900px;
+  top: 25px; 
+}
+
+#magLabel {
+  position:absolute;
+  left: 900px;
+  top: 550px; 
+}
+
+#xmagLabel {
+  position:absolute;
+  left: 600px;
+  top: 550px; 
+}
+
+#ymagLabel {
+  position:absolute;
+  left: 750px;
+  top: 550px; 
+}
+

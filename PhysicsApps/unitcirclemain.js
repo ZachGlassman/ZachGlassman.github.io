@@ -2,10 +2,10 @@
 window.addEventListener("load", windowLoadHandler, false);
 
 function windowLoadHandler(){
-  vectorApp();
+  unitCircleApp();
 }
 
-function vectorApp(){  
+function unitCircleApp(){  
   //get element and context
   var gamebox = document.getElementById("box");
   var ctxbox = gamebox.getContext('2d');
@@ -20,9 +20,9 @@ function vectorApp(){
   var ymagLabel = document.getElementById("ymagLabel");
   
   
-  var x0 = 199;
+  var x0 = gamebox.width/2;
   var x1 = 300;
-  var y0 = 100;
+  var y0 = gamebox.height/2;
   var y1 = 200;
   //boolean for dragging
   var dragging = false;
@@ -53,10 +53,6 @@ function vectorApp(){
     mouseX = (evt.clientX - boundRect.left)*(gamebox.width/boundRect.width);
     mouseY = (evt.clientY - boundRect.top)*(gamebox.height/boundRect.height);
     //figure out if one of circles is dragged
-    if (hit(mouseX,mouseY,x0,y0)){
-      dragging = true;
-      grab = "tail";
-    }
     if (hit(mouseX,mouseY,x1,y1)){
       dragging = true;
       grab = "head";
@@ -104,10 +100,6 @@ function vectorApp(){
       x1 = checkX(mouseX);
       y1 = checkY(mouseY);
     }
-    if (grab == "tail"){
-      x0 = checkX(mouseX);
-      y0 = checkY(mouseY);
-    }
     ctxbox.clearRect(0, 0, gamebox.width, gamebox.height);
     ctxxbox.clearRect(0, 0, xbox.width, xbox.height);
     ctxybox.clearRect(0, 0, ybox.width, ybox.height);
@@ -119,13 +111,16 @@ function vectorApp(){
   function draw(){
     var pad = 15;
     //calculate magnitudes
+    var newXY = calcNewXY(x1,y1);
+    x1 = newXY.x;
+    y1 = newXY.y;
     var xmag = Math.abs(x1-x0);
     var ymag = Math.abs(y1-y0);
     var mag = Math.sqrt(Math.pow(xmag,2)+Math.pow(ymag,2));
     //draw grid
     drawGrid(ctxxbox, xbox);
     drawGrid(ctxybox, ybox);
-    drawGrid(ctxbox, gamebox);
+    drawCircleGrid(ctxbox, gamebox);
     drawGrid(ctxmagbox, magbox);
     //draw arrows
     drawArrow(ctxbox,x0,y0,x1,y1,maincolor);
@@ -149,11 +144,21 @@ function vectorApp(){
     drawArrow(ctxbox,x0,y0,x0,y1,ycolor);
     drawArrow(ctxbox,x0,y0,x1,y0,xcolor);
     //set magnitude text
-    xmagLabel.innerHTML = (xmag/10).toFixed(2)+ "<br>X Magnitude";
-    ymagLabel.innerHTML = (ymag/10).toFixed(2) + "<br>Y Magnitude";
-    magLabel.innerHTML = (mag/10).toFixed(2) + "<br>Magnitude";
+    xmagLabel.innerHTML = (xmag/185).toFixed(2)+ "<br>X Magnitude";
+    ymagLabel.innerHTML = (ymag/185).toFixed(2) + "<br>Y Magnitude";
+    magLabel.innerHTML = (mag/185).toFixed(2) + "<br>Magnitude";
   
     
+  }
+  
+  function calcNewXY(x1,y1){
+    var radius = gamebox.width/2.5-15;
+    var angle = Math.atan2(y1-y0,x1-x0);
+    var answer = {
+      x : x0 + Math.cos(angle) * radius,
+      y : y0 + Math.sin(angle) * radius,
+    };
+    return answer;
   }
   
   function hit(hx,hy,x,y){
@@ -181,10 +186,7 @@ function vectorApp(){
     var y1f = y1 - radius * Math.sin(angle);
     //draw upper circle
     ctx.beginPath();
-    ctx.arc(x0,y0,radius,0,twoPI,false);
-    //move to edge of circle in correct direction
-    ctx.moveTo(x0 + radius * Math.cos(angle),
-               y0 + radius * Math.sin(angle));
+    ctx.moveTo(x0,y0);
     //draw to line to edge of next circle
     ctx.lineTo(x1f,y1f);
     //draw second circle
@@ -227,8 +229,35 @@ function vectorApp(){
       ctx.stroke();
     }
   }
+  
+  function drawCircleGrid(ctx,can){
+    var line;
+    ctx.strokeStyle = "rgb(127,127,127)";
+    ctx.lineWidth = 1;
+    for (var i =0; i < can.width/10;i++){
+      line = 10 * i;
+      ctx.beginPath();
+      ctx.moveTo(line,0);
+      ctx.lineTo(line,can.height);
+      ctx.closePath();
+      ctx.stroke();
+    }
+    for (var j=0; j < can.height/10; j++){
+      line = 10 * j;
+      ctx.beginPath();
+      ctx.moveTo(0,line);
+      ctx.lineTo(can.width,line);
+      ctx.closePath();
+      ctx.stroke();
+    }
+    ctx.strokeStyle = "rgb(0,0,0)";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(x0,y0,can.width/2.5,0,2*Math.PI,false);
+    ctx.closePath();
+    ctx.stroke();
+    
+  }
 }
 
 
-  
-  
