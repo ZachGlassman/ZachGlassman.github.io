@@ -127,9 +127,9 @@ function unitCircleApp(){
     drawGrid(ctxxbox, xbox);
     drawGrid(ctxybox, ybox);
     drawCircleGrid(x0,y0,ctxbox, gamebox);
-    drawCircleGrid(100,100,ctxangbox, angbox);
     drawGrid(ctxmagbox, magbox);
-    drawUnitCircle(100,100,ctxangbox,angbox,85);
+    drawUnitCircle(100,100,ctxangbox,
+        angbox,90,calcAngle(x1-x0,y0-y1));
     //draw arrows
     
     drawArrow(ctxxbox,xbox.width/2,
@@ -154,7 +154,7 @@ function unitCircleApp(){
     drawCircArrow(ctxbox,x0,y0,x1,y1,maincolor);
     drawCurveArrow(ctxbox,x0,y0,x1,y1,220,acolor);
     drawSlice(ctxangbox,100,100,20,ang,acolor1,3);
-    drawSlice(ctxangbox,100,100,80,ang,acolor,5);
+    drawSlice(ctxangbox,100,100,60,ang,acolor,5);
     //set magnitude text
     xmagLabel.innerHTML = (xmag/185).toFixed(4)+ "<br>|cos(&theta;)|";//costheta
     ymagLabel.innerHTML = (ymag/185).toFixed(4) + "<br>|sin(&theta;)|";//sintheta
@@ -356,21 +356,45 @@ function unitCircleApp(){
     
   }
   
-  function drawUnitCircle(x0,y0,ctx,can,radius){
-    var angles = ["0/1","1/6","1/4","1/3","1/2"];
+  function drawUnitCircle(x0,y0,ctx,can,radius,angle1){
+    var angles = ["0/1","1/6","1/4","1/3","1/2",
+                  "2/3","3/4","5/6","1/1",
+                  "7/6","5/4","4/3","3/2",
+                  "5/3","7/4","11/6"];
     var  angle;
     var split;
     var x;
     var y;
     ctx.font="15px veranda";
+    ctx.textAlign="center";
     for(var i =0; i < angles.length; i++){
       split = angles[i].split("/");
-      angle = parseFloat(split[0])/parseFloat(split[1])*Math.PI;
-      console.log(angle);
-      x = x0 + radius * Math.cos(angle);
-      y = y0 - radius * Math.sin(angle);
-     
-      ctx.fillText("\u03C0 /"+split[1],x,y);
+      angle = parseInt(split[0])/parseInt(split[1])*Math.PI;
+      if (angle1 >= angle){
+        x = x0 + radius * Math.cos(angle);
+        y = y0 - radius * Math.sin(angle);
+        ctx.fillText(makeString(split[0],split[1]),x,y);
+      }
+      else{
+        break;
+      }
+    }
+  }
+  //function to make unicode string of form pi x/y
+  function makeString(x,y){
+    if (x==0){
+      return 0;
+    }
+    else if (x == 1){
+      if (y == 1){
+        return "\u03C0";
+      }
+      else{
+        return "\u03C0"+ "/" + String(y);
+      }
+    }
+    else{
+      return String(x) + "\u03C0" + "/" + String(y);
     }
   }
 }
