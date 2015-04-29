@@ -7,35 +7,46 @@
 #xbox {
   position:absolute;
   left: 600px;
-  top: 25px;
+  top: 125px;
 }
 
 #ybox {
   position:absolute;
   left: 750px;
-  top: 25px; 
+  top: 125px; 
 }
 #magbox {
   position:absolute;
   left: 900px;
-  top: 25px; 
+  top: 125px; 
+}
+
+#angbox {
+  position:absolute;
+  left: 1050px;
+  top: 175px; 
 }
 
 #magLabel {
   position:absolute;
   left: 900px;
-  top: 550px; 
+  top: 450px; 
 }
 
 #xmagLabel {
   position:absolute;
   left: 600px;
-  top: 550px; 
+  top: 450px; 
 }
 
 #ymagLabel {
   position:absolute;
   left: 750px;
-  top: 550px; 
+  top: 450px; 
 }
 
+#angLabel {
+  position:absolute;
+  left: 10500px;
+  top: 450px; 
+}

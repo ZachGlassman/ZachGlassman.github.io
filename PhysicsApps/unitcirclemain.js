@@ -15,9 +15,12 @@ function unitCircleApp(){
   var ctxybox = ybox.getContext('2d');
   var magbox = document.getElementById("magbox");
   var ctxmagbox = magbox.getContext('2d');
+  var angbox = document.getElementById("angbox");
+  var ctxangbox = angbox.getContext('2d');
   var magLabel = document.getElementById("magLabel");
   var xmagLabel = document.getElementById("xmagLabel");
   var ymagLabel = document.getElementById("ymagLabel");
+  var angLabel = document.getElementById("angLabel");
   
   
   var x0 = gamebox.width/2;
@@ -33,6 +36,7 @@ function unitCircleApp(){
   var maincolor = "rgb(0,0,0)";
   var xcolor = "rgb(0, 0, 255)";
   var ycolor = "rgb(255, 0, 0)";
+  var acolor = "rgb(255,140,0)";
   
   init();
   
@@ -104,7 +108,7 @@ function unitCircleApp(){
     ctxxbox.clearRect(0, 0, xbox.width, xbox.height);
     ctxybox.clearRect(0, 0, ybox.width, ybox.height);
     ctxmagbox.clearRect(0, 0, magbox.width, magbox.height);
-
+    ctxangbox.clearRect(0,0,angbox.width,angbox.height);
     draw();
   }
   
@@ -117,10 +121,12 @@ function unitCircleApp(){
     var xmag = Math.abs(x1-x0);
     var ymag = Math.abs(y1-y0);
     var mag = Math.sqrt(Math.pow(xmag,2)+Math.pow(ymag,2));
+    var ang = Math.atan2(y1-y0,x1-x0);
     //draw grid
     drawGrid(ctxxbox, xbox);
     drawGrid(ctxybox, ybox);
-    drawCircleGrid(ctxbox, gamebox);
+    drawCircleGrid(x0,y0,ctxbox, gamebox);
+    drawCircleGrid(100,100,ctxangbox, angbox);
     drawGrid(ctxmagbox, magbox);
     //draw arrows
     drawCircArrow(ctxbox,x0,y0,x1,y1,maincolor);
@@ -143,11 +149,13 @@ function unitCircleApp(){
                       
     drawArrow(ctxbox,x0,y0,x0,y1,ycolor);
     drawArrow(ctxbox,x0,y0,x1,y0,xcolor);
+    drawCurveArrow(ctxbox,x0,y0,x1,y1,220,acolor);
+    drawSlice(ctxangbox,100,100,80,ang,acolor);
     //set magnitude text
     xmagLabel.innerHTML = (xmag/185).toFixed(4)+ "<br>X Magnitude";
     ymagLabel.innerHTML = (ymag/185).toFixed(4) + "<br>Y Magnitude";
     magLabel.innerHTML = (mag/185).toFixed(4) + "<br>Magnitude";
-  
+    angLabel.innerHTML = (ang).toFixed(4);
     
   }
   
@@ -165,6 +173,15 @@ function unitCircleApp(){
     var dx = hx - x;
     var dy = hy - y;
     return (dx*dx + dy*dy < 25);
+  }
+  
+  function drawSlice(ctx,x0,y0,radius,angle,color){
+    ctx.beginPath();
+    ctx.moveTo(x0,y0);
+    ctx.arc(x0,y0,radius,0,angle,true);
+    ctx.closePath();
+    ctx.strokeStyle = color;
+    ctx.stroke();
   }
   
   /* function drawArrow
@@ -201,8 +218,36 @@ function unitCircleApp(){
     ctx.lineTo(x1f,y1f);
     //make linewidth prop to distance squared
     ctx.lineWidth = 3 + (Math.pow((x1-x0),2) 
-                        + Math.pow((y1-y0),2))/40000;
+                        + Math.pow((y1-y0),2))/20000;
     ctx.closePath();
+    ctx.strokeStyle = color;
+    ctx.stroke();
+  }
+  
+  //function to draw curved arrow around center to point
+  //x1 y1 which must be circle
+  function drawCurveArrow(ctx,x0,y0,x1,y1,radius,color){
+    //compute angle between lines
+    var angle = Math.atan2(y1-y0,x1-x0);
+    var angle2 = angle - Math.PI/2;
+    var x1f = x1 + 35 * Math.cos(angle);
+    var y1f = y1 + 35 * Math.sin(angle);
+    //draw circle
+    ctx.beginPath();
+    //draw circle
+    //ctx.arc(x0,y0,radius,0,angle,false);
+    ctx.arc(x0,y0,radius,0,angle,true);
+    //draw head
+    ctx.lineTo(x1f + Math.cos(angle2 + Math.PI/2) * 15, 
+               y1f + Math.sin(angle2 + Math.PI/2) * 15);
+    ctx.lineTo(x1f + Math.cos(angle2) * 15,
+               y1f + Math.sin(angle2) * 15);
+    ctx.lineTo(x1f + Math.cos(angle2 - Math.PI/2) * 15, 
+               y1f + Math.sin(angle2 - Math.PI/2) * 15);
+    ctx.lineTo(x1f,y1f);
+    //make linewidth prop to distance squared
+    ctx.lineWidth = 3 + (Math.pow((x1-x0),2) 
+                        + Math.pow((y1-y0),2))/40000;
     ctx.strokeStyle = color;
     ctx.stroke();
   }
@@ -262,9 +307,9 @@ function unitCircleApp(){
     }
   }
   
-  function drawCircleGrid(ctx,can){
+  function drawCircleGrid(x0,y0,ctx,can){
     var line;
-    var radiusSqr = Math.pow(gamebox.width/2.5,2);
+    var radiusSqr = Math.pow(can.width/2.5,2);
     var dxy;
     var toDraw;
     ctx.strokeStyle = "rgb(127,127,127)";
