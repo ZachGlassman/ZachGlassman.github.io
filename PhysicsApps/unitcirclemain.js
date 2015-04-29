@@ -37,6 +37,7 @@ function unitCircleApp(){
   var xcolor = "rgb(0, 0, 255)";
   var ycolor = "rgb(255, 0, 0)";
   var acolor = "rgb(255,140,0)";
+  var acolor1 ="rgb(255,80,0)";
   
   init();
   
@@ -128,8 +129,9 @@ function unitCircleApp(){
     drawCircleGrid(x0,y0,ctxbox, gamebox);
     drawCircleGrid(100,100,ctxangbox, angbox);
     drawGrid(ctxmagbox, magbox);
+    drawUnitCircle(100,100,ctxangbox,angbox,85);
     //draw arrows
-    drawCircArrow(ctxbox,x0,y0,x1,y1,maincolor);
+    
     drawArrow(ctxxbox,xbox.width/2,
                       xbox.height-pad,
                       xbox.width/2,
@@ -149,16 +151,26 @@ function unitCircleApp(){
                       
     drawArrow(ctxbox,x0,y0,x0,y1,ycolor);
     drawArrow(ctxbox,x0,y0,x1,y0,xcolor);
+    drawCircArrow(ctxbox,x0,y0,x1,y1,maincolor);
     drawCurveArrow(ctxbox,x0,y0,x1,y1,220,acolor);
-    drawSlice(ctxangbox,100,100,80,ang,acolor);
+    drawSlice(ctxangbox,100,100,20,ang,acolor1,3);
+    drawSlice(ctxangbox,100,100,80,ang,acolor,5);
     //set magnitude text
-    xmagLabel.innerHTML = (xmag/185).toFixed(4)+ "<br>X Magnitude";
-    ymagLabel.innerHTML = (ymag/185).toFixed(4) + "<br>Y Magnitude";
-    magLabel.innerHTML = (mag/185).toFixed(4) + "<br>Magnitude";
-    angLabel.innerHTML = (ang).toFixed(4);
-    
-  }
+    xmagLabel.innerHTML = (xmag/185).toFixed(4)+ "<br>|cos(&theta;)|";//costheta
+    ymagLabel.innerHTML = (ymag/185).toFixed(4) + "<br>|sin(&theta;)|";//sintheta
+    magLabel.innerHTML = (mag/185).toFixed(4) + "<br>[cos<sup>2</sup>(&theta;)+sin<sup>2</sup>(&theta;)]<sup>1/2</sup>";
+    angLabel.innerHTML = (calcAngle(x1-x0,y0-y1)).toFixed(4) + "<br>&theta;";
   
+  }
+  function calcAngle(x,y){
+    var angle = Math.atan2(y,x);
+    if (y >0){
+      return angle;
+    }
+    else{
+      return angle + 2*Math.PI;
+    }
+  }
   function calcNewXY(x1,y1){
     var radius = gamebox.width/2.5-15;
     var angle = Math.atan2(y1-y0,x1-x0);
@@ -175,12 +187,13 @@ function unitCircleApp(){
     return (dx*dx + dy*dy < 25);
   }
   
-  function drawSlice(ctx,x0,y0,radius,angle,color){
+  function drawSlice(ctx,x0,y0,radius,angle,color,thick){
     ctx.beginPath();
     ctx.moveTo(x0,y0);
     ctx.arc(x0,y0,radius,0,angle,true);
     ctx.closePath();
     ctx.strokeStyle = color;
+    ctx.lineWidth = thick;
     ctx.stroke();
   }
   
@@ -341,6 +354,24 @@ function unitCircleApp(){
     ctx.closePath();
     ctx.stroke();
     
+  }
+  
+  function drawUnitCircle(x0,y0,ctx,can,radius){
+    var angles = ["0/1","1/6","1/4","1/3","1/2"];
+    var  angle;
+    var split;
+    var x;
+    var y;
+    ctx.font="15px veranda";
+    for(var i =0; i < angles.length; i++){
+      split = angles[i].split("/");
+      angle = parseFloat(split[0])/parseFloat(split[1])*Math.PI;
+      console.log(angle);
+      x = x0 + radius * Math.cos(angle);
+      y = y0 - radius * Math.sin(angle);
+     
+      ctx.fillText("\u03C0 /"+split[1],x,y);
+    }
   }
 }
 
