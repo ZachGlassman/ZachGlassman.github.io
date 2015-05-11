@@ -1,0 +1,45 @@
+body{
+  background-color:#EBEBEB;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+table {
+color: #333; /* Lighten up font color */
+font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+width: 300px;
+border-collapse:
+collapse; border-spacing: 0;
+}
+
+td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+th {
+font-weight: bold; /* Make sure they're bold */
+}
+
+td {
+text-align: center; /* Center our text */
+}
+
+tbody{
+  background-color: #F3F3F3; /* Light grey background */
+}
+thead{
+/* background color for the head part */
+background-color:#282828 ;
+color:#F0F0F0 ;
+
+font-weight:bold;
+}
+
+tfoot{
+  background-color:#C0C0C0 ;
+}
+
+h1 {
+  text-shadow:0px 0px 10px #fff;
+  color:#494A48;
+}
+
+
+

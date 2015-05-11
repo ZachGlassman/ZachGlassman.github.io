@@ -1,0 +1,53 @@
+#box {
+  position:absolute;
+  left: 50px;
+  top: 25px;
+}
+
+#xbox {
+  position:absolute;
+  left: 600px;
+  top: 125px;
+}
+
+#ybox {
+  position:absolute;
+  left: 750px;
+  top: 125px; 
+}
+#magbox {
+  position:absolute;
+  left: 900px;
+  top: 125px; 
+}
+
+#angbox {
+  position:absolute;
+  left: 1050px;
+  top: 175px; 
+}
+
+#magLabel {
+  position:absolute;
+  left: 900px;
+  top: 450px; 
+}
+
+#xmagLabel {
+  position:absolute;
+  left: 600px;
+  top: 450px; 
+}
+
+#ymagLabel {
+  position:absolute;
+  left: 750px;
+  top: 450px; 
+}
+
+#angLabel {
+  position:absolute;
+  left: 1125px;
+  top: 450px; 
+}
+
