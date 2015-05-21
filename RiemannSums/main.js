@@ -2,20 +2,26 @@
 //much code reused from above
 window.addEventListener("load", windowLoadHandler, false);
 
+
 function windowLoadHandler(){
-  draw();
+  var p = document.getElementById("points");
+  p.addEventListener("input",function(){
+    draw(p.value);
+  },false);
 }
 function fun(x) {
   return (Math.sin(x/2)+Math.cos(x*3))+1;  
 }
 
 
-function draw() {
+function draw(val) {
  var canvas = document.getElementById("canvas");
+
  if (null===canvas || !canvas.getContext) return;
 
  var axes={} ;
  var ctx=canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
  //axes.x0 = 0.5 + 0.5*canvas.width;  // x0 pixels from left to x=0
  axes.x0 = 0;
  axes.y0 = 0.5 + 0.5*canvas.height; // y0 pixels from top to y=0
@@ -25,7 +31,7 @@ function draw() {
  showAxes(ctx,axes);
 
  funGraph(ctx,axes,fun,"rgb(66,44,255)",2);
- riemannGraph(ctx,axes,fun,"rgb(10,10,10)",2,20);
+ riemannGraph(ctx,axes,fun,"rgb(10,10,10)",2,5 * val);
 }
 
 function funGraph (ctx,axes,func,color,thick) {
