@@ -23,6 +23,24 @@ function unitCircleApp(){
   var angLabel = document.getElementById("angLabel");
   
   
+  var unitAngles = {"0":0,
+                    "\u03C0/3":Math.PI/3,
+                    "\u03C0/4":Math.PI/4,
+                    "\u03C0/6":Math.PI/6,
+                    "\u03C0/2":Math.PI/2,
+                    "2\u03C0/3":2*Math.PI/3,
+                    "3\u03C0/4":3*Math.PI/4,
+                    "5\u03C0/6":5*Math.PI/6,
+                    "\u03C0":Math.PI,
+                    "7\u03C0/6":7*Math.PI/6,
+                    "5\u03C0/4":5*Math.PI/4,
+                    "4\u03C0/3":Math.PI/3,
+                    "3\u03C0/2":3*Math.PI/2,
+                    "5\u03C0/3":5*Math.PI/3,
+                    "7\u03C0/4":7*Math.PI/4,
+                    "11\u03C0/6":11*Math.PI/6,
+  };
+  
   var x0 = gamebox.width/2;
   var x1 = 300;
   var y0 = gamebox.height/2;
@@ -88,6 +106,7 @@ function unitCircleApp(){
   }
   
   function mouseMoveListener(evt){
+    var temp;
     var minX = 5;
     var maxX = gamebox.width - 5;
     var minY = 5;
@@ -101,9 +120,39 @@ function unitCircleApp(){
     function checkY(posY){
       return (posY < minY)? minY :((posY > maxY) ? maxX:posY);
     }
+    
+    function isPoint(x,y){
+      function modNum(num){
+        if (num < 0){
+          return num + 2 * Math.PI;
+        }
+        else{
+          return num;
+        }
+      }
+      var angle = modNum(Math.atan2(y0-y,x-x0));
+      var ans = [x,y];
+      for (var jj in unitAngles){
+        if (unitAngles.hasOwnProperty(jj)){
+           if (Math.abs(unitAngles[jj]-angle) < 0.01){
+             
+              ans[0] = gamebox.width/2.5*
+                  Math.cos(unitAngles[jj]);
+              ans[1] = -gamebox.width/2.5*
+                  Math.sin(unitAngles[jj]);
+              
+              return ans;
+           }
+        } 
+      }
+      return ans;
+    }
     if (grab == "head"){
-      x1 = checkX(mouseX);
-      y1 = checkY(mouseY);
+      x1p = checkX(mouseX);
+      y1p = checkY(mouseY);
+      temp = isPoint(x1p,y1p);
+      x1 = temp[0];
+      y1 = temp[1];
     }
     ctxbox.clearRect(0, 0, gamebox.width, gamebox.height);
     ctxxbox.clearRect(0, 0, xbox.width, xbox.height);
@@ -353,6 +402,17 @@ function unitCircleApp(){
     ctx.arc(x0,y0,can.width/2.5,0,2*Math.PI,false);
     ctx.closePath();
     ctx.stroke();
+    
+    for (var jj in unitAngles){
+      if (unitAngles.hasOwnProperty(jj)){
+        xx = can.width/2.5*Math.cos(unitAngles[jj]);
+        yy = -can.width/2.5*Math.sin(unitAngles[jj]);
+        ctx.beginPath();
+        ctx.arc(x0+xx,y0+yy,5,0,2*Math.PI,false);
+        ctx.closePath();
+        ctx.fill();
+      } 
+    }
     
   }
   
