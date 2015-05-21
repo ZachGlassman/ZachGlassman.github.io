@@ -21,4 +21,14 @@ function drawAxis(ctx){
   ctx.lineTo(box.width-20,box.height/2);
   ctx.closePath();
   ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(20,20);
+  ctx.lineTo(20,box.height-20);
+  ctx.closePath();
+  ctx.stroke();
+}
+
+//function to map points to space on canvas
+function xpoint(p){
+  
 }

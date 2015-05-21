@@ -91,6 +91,7 @@ function drawKochSnowflake(x0,y0,ctx,n){
   ctx.lineTo(x0-len/2,y);
   ctx.lineTo(x0,y);
   ctx.closePath();
+  ctx.strokeStyle = '#000';
   ctx.stroke();
   //now recurse
   var ang = Math.PI/3;
