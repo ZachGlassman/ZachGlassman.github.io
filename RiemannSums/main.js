@@ -1,34 +1,71 @@
+//http://www.javascripter.net/faq/plotafunctiongraph.htm
+//much code reused from above
 window.addEventListener("load", windowLoadHandler, false);
 
 function windowLoadHandler(){
-  "use strict";
-  riemannSumsApp();
+  draw();
+}
+function fun(x) {
+  return (Math.sin(x/2)+Math.cos(x*3))+1;  
 }
 
 
-function riemannSumsApp(){  
-  //get element and context
-  var box = document.getElementById("box");
-  var ctx = box.getContext('2d');
-  drawAxis(ctx);
-  
+function draw() {
+ var canvas = document.getElementById("canvas");
+ if (null===canvas || !canvas.getContext) return;
+
+ var axes={} ;
+ var ctx=canvas.getContext("2d");
+ //axes.x0 = 0.5 + 0.5*canvas.width;  // x0 pixels from left to x=0
+ axes.x0 = 0;
+ axes.y0 = 0.5 + 0.5*canvas.height; // y0 pixels from top to y=0
+ axes.scale = 40;                 // 40 pixels from x=0 to x=1
+ axes.doNegativeX = true;
+
+ showAxes(ctx,axes);
+
+ funGraph(ctx,axes,fun,"rgb(66,44,255)",2);
+ riemannGraph(ctx,axes,fun,"rgb(10,10,10)",2,20);
 }
 
+function funGraph (ctx,axes,func,color,thick) {
+ var xx, yy, dx=4, x0=axes.x0, y0=axes.y0, scale=axes.scale;
+ var iMax = Math.round((ctx.canvas.width-x0)/dx);
+ var iMin = axes.doNegativeX ? Math.round(-x0/dx) : 0;
+ ctx.beginPath();
+ ctx.lineWidth = thick;
+ ctx.strokeStyle = color;
 
-function drawAxis(ctx){
-  ctx.beginPath();
-  ctx.moveTo(20,box.height/2);
-  ctx.lineTo(box.width-20,box.height/2);
-  ctx.closePath();
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(20,20);
-  ctx.lineTo(20,box.height-20);
-  ctx.closePath();
-  ctx.stroke();
+ for (var i=iMin;i<=iMax;i++) {
+  xx = dx*i; yy = scale*func(xx/scale);
+  if (i==iMin) ctx.moveTo(x0+xx,y0-yy);
+  else         ctx.lineTo(x0+xx,y0-yy);
+ }
+ ctx.stroke();
 }
 
-//function to map points to space on canvas
-function xpoint(p){
-  
+function riemannGraph(ctx,axes,func,color,thick,dx){
+ var xx,yy,x0 = axes.x0,y0= axes.y0, scale = axes.scale;
+ var iMax = Math.round((ctx.canvas.width-x0)/dx);
+ var iMin = axes.doNegativeX ? Math.round(-x0/dx) : 0;
+ ctx.beginPath();
+ ctx.lineWidth = thick;
+ ctx.strokeStyle = color;
+ ctx.moveTo(x0+xx,y0-yy);
+ for (var i=iMin;i<=iMax;i++) {
+  xx = dx*i; yy = scale*func(xx/scale);
+  ctx.lineTo(x0+xx,y0-yy);
+  ctx.lineTo(x0+xx+ dx,y0-yy);
+ }
+ ctx.stroke();
+}
+function showAxes(ctx,axes) {
+ var x0=axes.x0, w=ctx.canvas.width;
+ var y0=axes.y0, h=ctx.canvas.height;
+ var xmin = axes.doNegativeX ? 0 : x0;
+ ctx.beginPath();
+ ctx.strokeStyle = "rgb(128,128,128)"; 
+ ctx.moveTo(xmin,y0); ctx.lineTo(w,y0);  // X axis
+ ctx.moveTo(x0,0);    ctx.lineTo(x0,h);  // Y axis
+ ctx.stroke();
 }
