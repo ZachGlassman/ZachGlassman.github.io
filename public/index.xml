@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zachary Glassman</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Zachary Glassman</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2015 22:42:42 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Thu, 28 May 2015 22:42:42 -0400</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;I am a graduate student in Chemical Physics at the University of Maryland and NIST working in the Spinor Bose-Einstein Condensate Lab under Dr. Paul Lett.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>http://localhost:1313/work/</link>
+      <pubDate>Thu, 28 May 2015 22:42:42 -0400</pubDate>
+      
+      <guid>http://localhost:1313/work/</guid>
+      <description>&lt;p&gt;email: zach.glassman@gmail.com&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Physics Research</title>
+      <link>http://localhost:1313/physicsresearch/</link>
+      <pubDate>Thu, 28 May 2015 22:42:42 -0400</pubDate>
+      
+      <guid>http://localhost:1313/physicsresearch/</guid>
+      <description>&lt;p&gt;email: zach.glassman@gmail.com&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
