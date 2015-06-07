@@ -128,9 +128,9 @@ footer {
 }
 
 .button {
-  font: bold 11px Arial;
+  font: bold 12px Arial;
   text-decoration: none;
-  background-color: #EEEEEE;
+  background-color: #00004c;
   color: #333333;
   padding: 2px 6px 2px 6px;
   border-top: 1px solid #CCCCCC;
