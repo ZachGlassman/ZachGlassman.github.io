@@ -157,7 +157,7 @@ layout = vform(slider,grid)
 
 save(layout)
 script, div = components(plot, CDN)
-with open('script.txt','w') as f:
+with open('Riemann.js','w') as f:
     f.write(script)
 
 with open('tag.txt','w') as f:
