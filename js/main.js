@@ -45,7 +45,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 /**
  * Controls the Blog
  */
-app.controller('BlogCtrl', ['$scope', '$sce', '$filter',function ($scope,$sce, $filter) {
+app.controller('BlogCtrl', ['$scope', '$sce',function ($scope,$sce) {
   $scope.posts = [
 //begin replace
 {'content': 'This is my first post\n\n# will be bout Riemann sums\n\n', 'name': 'Visualizing Riemann Sums', 'date': 'June 20, 2015'},
@@ -53,9 +53,7 @@ app.controller('BlogCtrl', ['$scope', '$sce', '$filter',function ($scope,$sce, $
 //end replace
       ];
 
-}]);
-
-filter('markdown', function ($sce) {
+}]).filter('markdown', function ($sce) {
     var converter = new Showdown.converter();
     return function (value) {
 		var html = converter.makeHtml(value || '');
