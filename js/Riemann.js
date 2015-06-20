@@ -1,4 +1,3 @@
-<script type="text/javascript">
     Bokeh.$(function() {
         var modelid = "202d32d8-ab92-44ff-8e5c-775716085c1d";
         var modeltype = "Plot";
@@ -13,4 +12,3 @@
         var view = new model.default_view({model: model, el: '#ae03a8d0-e0a8-4cd4-9249-bc92f3718503'});
         Bokeh.index[modelid] = view
     });
-</script>
