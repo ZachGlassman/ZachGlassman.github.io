@@ -49,7 +49,7 @@ app.controller('BlogCtrl', ['$scope', '$sce',function ($scope,$sce) {
   $scope.posts = [
 //begin replace
     {'name': 'Visualizing Riemann Sums', 'date': 'June 20, 2015','content':$scope.s1 = $sce.trustAsHtml('This is my first post\n\n# will be bout Riemann sums\n\n')},
-    {'name': 'Welcome to my Blog', 'date': 'June 20, 2015','content':$scope.s0 = $sce.trustAsHtml('\nAn h1 header\n============\n\n<h1>TRY THIS</h1>\n<div data-markdown>\nParagraphs are separated by a blank line.\n\n2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists\nlook like:\n\n  * this one\n  * that one\n  * the other one\n\nNote that --- not considering the asterisk --- the actual text\ncontent starts at 4-columns in.\n\n> Block quotes are\n> written like so.\n>\n> They can span multiple paragraphs,\n> if you like.\n\nUse 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it\'s all\nin chapters 12--14"). Three dots ... will be converted to an ellipsis.\n</div>\n\n')},
+    {'name': 'Welcome to my Blog', 'date': 'June 20, 2015','content':$scope.s0 = $sce.trustAsHtml('\nAn h1 header\n============\n\n<h1>TRY THIS</h1>\n<markdown>\nParagraphs are separated by a blank line.\n\n2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists\nlook like:\n\n  * this one\n  * that one\n  * the other one\n\nNote that --- not considering the asterisk --- the actual text\ncontent starts at 4-columns in.\n\n> Block quotes are\n> written like so.\n>\n> They can span multiple paragraphs,\n> if you like.\n\nUse 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it\'s all\nin chapters 12--14"). Three dots ... will be converted to an ellipsis.\n</markdown>\n\n')},
 //end replace
       ];
 
