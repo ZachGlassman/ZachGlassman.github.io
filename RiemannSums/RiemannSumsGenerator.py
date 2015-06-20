@@ -51,13 +51,13 @@ source = ColumnDataSource(data=dict(leftL = square_xL,
 #setupt plots
 
 plot = figure(y_range=(-1.5, 2.5),title = "Both",
-              x_range=(-.1,10), plot_width=400, plot_height=200,tools = '')
+              x_range=(-.1,10), plot_width=400, plot_height=200)
 plotL = figure(y_range=(-1.5, 2.5),title = "Left Sums",
-               x_range=(-.1,10), plot_width=400, plot_height=200,tools = '')
+               x_range=(-.1,10), plot_width=400, plot_height=200)
 plotR = figure(y_range=(-1.5, 2.5),title = "Right Sums",
-               x_range=(-.1,10), plot_width=400, plot_height=200,tools = '')
+               x_range=(-.1,10), plot_width=400, plot_height=200)
 plotSum = figure(y_range=(6.5, 8.2),title = "Compare Sums",
-               x_range=(0,1), plot_width=400, plot_height=200,tools = '')
+               x_range=(0,1), plot_width=400, plot_height=200)
                 
                 
 plot.toolbar_location = None
@@ -156,9 +156,11 @@ grid.toolbar_location = None
 layout = vform(slider,grid)
 
 save(layout)
+"""
 script, div = components(layout, CDN)
 with open('Riemann.js','w') as f:
     f.write(script)
 
 with open('tag.txt','w') as f:
     f.write(div)
+"""
