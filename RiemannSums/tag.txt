@@ -1,9 +1,5 @@
-Visualizing Riemann Sums
-June 20, 2015
-This is my first post
-
 <script
-    src="/js/Rjs.js"
+    src="Rjs.js"
     id="9f50422a-8c48-4f2e-847f-27ee040ad8cf"
     async="true"
     data-bokeh-data="static"

@@ -3,6 +3,8 @@
 from bokeh.io import vform
 from bokeh.models import Callback, ColumnDataSource, Slider
 from bokeh.plotting import figure, output_file, save, gridplot
+from bokeh.embed import autoload_static
+from bokeh.resources import Resources
 import numpy as np
 output_file("RiemannSums.html", "Riemmann Sums")
 
@@ -26,7 +28,7 @@ data_real = np.zeros(len(dxx))
 for ind,i in enumerate(dxx):
     xL = np.arange(0,3 * np.pi,i)
     xR = np.arange(3 * np.pi,0,-i)
-    yL = myfunc(xL) 
+    yL = myfunc(xL)
     yR = myfunc(xR)
     sumL = sum([i * j for j in yL])
     sumR = sum([i * j for j in yR])
@@ -95,7 +97,7 @@ plotR.quad(bottom = 'bottom',
           right = 'rightR',
           source = source,
           color = "blue",
-          alpha = 0.25)  
+          alpha = 0.25)
           
 plot.quad(bottom = 'bottom',
           top = 'topR',
@@ -149,8 +151,17 @@ callback = Callback(args=dict(source=source), code="""
 slider = Slider(start=.01, end=1, value=val, step=.05,
                 title="dx", callback=callback)
  
-grid = gridplot([[plotL,plotR],[plot,plotSum]]) 
-grid.toolbar_location = None              
+grid = gridplot([[plotL,plotR],[plot,plotSum]])
+grid.toolbar_location = None
 layout = vform(slider,grid)
 
 save(layout)
+js_filename = 'Rjs.js'
+res = Resources('cdn')
+js, tag = autoload_static(layout,res, js_filename)
+
+with open(js_filename,'w') as f:
+    f.write(js)
+
+with open('tag.txt','w') as f:
+    f.write(tag)
