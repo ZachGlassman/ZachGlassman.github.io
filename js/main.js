@@ -48,7 +48,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 app.controller('BlogCtrl', function ($scope) {
   $scope.posts = [
       {'name':'first',
-        'content': 'This is mhy first post',
+        'content': "This is mhy first post **Code** block below: function hello() { alert('Hello world!');}",
          'date' : 'June 20, 2015'
       },
       {'name': 'second',
@@ -56,4 +56,16 @@ app.controller('BlogCtrl', function ($scope) {
          'date' : 'June 20, 2015'
       }
       ];
+});
+
+app.directive('markdown', function () {
+    var converter = new Showdown.converter();
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var htmlText = converter.makeHtml(element.text());
+            element.html(htmlText);
+        }
+    };
+
 });
