@@ -48,8 +48,14 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 app.controller('BlogCtrl', function ($scope) {
   $scope.posts = [
 //begin replace
-{'date': 'June 20, 2015', 'content': '<div data-markdown>\n', 'name': 'Visualizing Riemann Sums'},
-{'date': 'June 20, 2015', 'content': '<div data-markdown>\n', 'name': 'Welcome to my Blog'},
+      {'name':'first',
+        'content': "partials/POSTS/one.html",
+         'date' : 'June 20, 2015'
+      },
+      {'name': 'second',
+        'content': 'This is my second',
+         'date' : 'June 20, 2015'
+      }
 //end replace
       ];
 

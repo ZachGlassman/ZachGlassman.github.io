@@ -38,10 +38,12 @@ with open('main.js','r') as fp:
 indEnd = data.index('//end replace\n')
 indStart = data.index('//begin replace\n')
 #now write it all to file
-with open('main (1).js','w') as fp:
+with open('main.js','w') as fp:
     for i in data[:indStart+1]:
         fp.write(i)
-    for i in range(high_num,-1,-1):    
+    for i in range(high_num,-1,-1):
         fp.write(blogC[i].__str__()+',\n')
     for i in data[indEnd:]:
         fp.write(i)
+        
+print('File Written')
