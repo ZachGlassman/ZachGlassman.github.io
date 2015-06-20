@@ -51,13 +51,13 @@ source = ColumnDataSource(data=dict(leftL = square_xL,
 #setupt plots
 
 plot = figure(y_range=(-1.5, 2.5),title = "Both",
-              x_range=(-.1,10), plot_width=400, plot_height=200)
+              x_range=(-.1,10), plot_width=400, plot_height=200,tools = '')
 plotL = figure(y_range=(-1.5, 2.5),title = "Left Sums",
-               x_range=(-.1,10), plot_width=400, plot_height=200)
+               x_range=(-.1,10), plot_width=400, plot_height=200,tools = '')
 plotR = figure(y_range=(-1.5, 2.5),title = "Right Sums",
-               x_range=(-.1,10), plot_width=400, plot_height=200)
+               x_range=(-.1,10), plot_width=400, plot_height=200,tools = '')
 plotSum = figure(y_range=(6.5, 8.2),title = "Compare Sums",
-               x_range=(0,1), plot_width=400, plot_height=200)
+               x_range=(0,1), plot_width=400, plot_height=200,tools = '')
                 
                 
 plot.toolbar_location = None
