@@ -48,7 +48,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 app.controller('BlogCtrl', function ($scope) {
   $scope.posts = [
       {'name':'first',
-        'content': "partials/POSTS/post1.md",
+        'content': "partials/POSTS/one.html",
          'date' : 'June 20, 2015'
       },
       {'name': 'second',
