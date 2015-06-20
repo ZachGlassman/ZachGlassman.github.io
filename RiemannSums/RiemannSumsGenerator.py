@@ -4,9 +4,8 @@ from bokeh.io import vform
 from bokeh.models import Callback, ColumnDataSource, Slider
 from bokeh.plotting import figure, output_file, save, gridplot
 from bokeh.embed import components
-from bokeh.resources import CDN
 import numpy as np
-output_file("RiemannSums.html", "Riemmann Sums")
+output_file("RiemannSums.html", "Riemmann Sums",mode = 'cdn')
 
 def myfunc(x):
     return np.sin(x) + x/8
