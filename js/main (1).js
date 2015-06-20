@@ -45,15 +45,15 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 /**
  * Controls the Blog
  */
-app.controller('BlogCtrl', function ($scope) {
+app.controller('BlogCtrl', ['$scope', '$sce',function ($scope,$sce) {
   $scope.posts = [
 //begin replace
-{'content': '<div data-markdown>\n', 'name': 'Visualizing Riemann Sums', 'date': 'June 20, 2015'},
-{'content': '<div data-markdown>\n', 'name': 'Welcome to my Blog', 'date': 'June 20, 2015'},
+    {'name': 'Visualizing Riemann Sums', 'date': 'June 20, 2015','content':$scope.s1 = $sce.trustAsHtml('<div data-markdown>\nThis is my first post\n\n# will be bout Riemann sums\n\n</div>')},
+    {'name': 'Welcome to my Blog', 'date': 'June 20, 2015','content':$scope.s0 = $sce.trustAsHtml('<div data-markdown>\nThis is my first post\n\n# will be bout my blog\n\n</div>')},
 //end replace
       ];
 
-});
+}]);
 
 app.directive('markdown', function () {
     var converter = new Showdown.converter();
