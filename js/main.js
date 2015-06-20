@@ -24,17 +24,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
 
-/**
- * Controls the Blog
- */
-app.controller('BlogCtrl', function ($scope) {
-  $scope.posts = [
-      {'name':'first',
-        'content': 'This is mhy first post'},
-      {'name': 'second',
-        'content': 'This is my second'}
-      ];
-});
 
 /**
  * Controls all other Pages
@@ -51,4 +40,20 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
   $('.tooltip-social').tooltip({
     selector: "a[data-toggle=tooltip]"
   })
+});
+
+/**
+ * Controls the Blog
+ */
+app.controller('BlogCtrl', function ($scope) {
+  $scope.posts = [
+      {'name':'first',
+        'content': 'This is mhy first post',
+         'date' : 'June 20, 2015'
+      },
+      {'name': 'second',
+        'content': 'This is my second',
+         'date' : 'June 20, 2015'
+      }
+      ];
 });
