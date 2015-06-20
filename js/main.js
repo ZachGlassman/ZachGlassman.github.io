@@ -49,7 +49,7 @@ app.controller('BlogCtrl', ['$scope', '$sce',function ($scope,$sce) {
   $scope.posts = [
 //begin replace
     {'name': 'Visualizing Riemann Sums', 'date': 'June 20, 2015','content':$scope.s1 = $sce.trustAsHtml('This is my first post# will be bout Riemann sums')},
-    {'name': 'Welcome to my Blog', 'date': 'June 20, 2015','content':$scope.s0 = $sce.trustAsHtml('<div data-markdown>    An h1 header============Paragraphs are separated by a blank line.2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized listslook like:  * this one  * that one  * the other oneNote that --- not considering the asterisk --- the actual textcontent starts at 4-columns in.> Block quotes are> written like so.>> They can span multiple paragraphs,> if you like.Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it\'s allin chapters 12--14"). Three dots ... will be converted to an ellipsis.</div>')},
+    {'name': 'Welcome to my Blog', 'date': 'June 20, 2015','content':$scope.s0 = $sce.trustAsHtml('An h1 header============Paragraphs are separated by a blank line.2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized listslook like:  * this one  * that one  * the other oneNote that --- not considering the asterisk --- the actual textcontent starts at 4-columns in.> Block quotes are> written like so.>> They can span multiple paragraphs,> if you like.Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it\'s allin chapters 12--14"). Three dots ... will be converted to an ellipsis.')},
 //end replace
       ];
 
