@@ -27,7 +27,8 @@ for file in files:
         data = fp.readlines()
         blogC[num]['name'] = data[0].rstrip('\n')
         blogC[num]['date'] = data[1].rstrip('\n')
-        content[num] =  ''.join(i.rstrip('\n') for i in data[2:])
+        blogC[num]['content'] = ''.join(i for i in data[2:])
+        #content[num] =  ''.join(i.rstrip('\n') for i in data[2:])
 
 #now insert into js file as json
 os.chdir(path)
@@ -43,10 +44,13 @@ with open('main.js','w') as fp:
     for i in data[:indStart+1]:
         fp.write(i)
     for i in range(high_num,-1,-1):
+        fp.write(blogC[i].__str__() + ',\n')
+        '''
         outstr = blogC[i].__str__()[:-1]
         outstr += ','+ 'content'.__repr__() + ':'
         outstr +=  '$scope.s' + str(i)+' = $sce.trustAsHtml('+content[i].__repr__() + ')}'
         fp.write('    ' + outstr+ ',\n')
+        '''
     for i in data[indEnd:]:
         fp.write(i)
         
