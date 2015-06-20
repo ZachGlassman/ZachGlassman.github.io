@@ -1,9 +1,1 @@
-<script
-    src="Rjs.js"
-    id="9f50422a-8c48-4f2e-847f-27ee040ad8cf"
-    async="true"
-    data-bokeh-data="static"
-    data-bokeh-modelid="73370343-424f-49da-b279-3d1bcb6d9e9d"
-    data-bokeh-modeltype="VBoxForm"
-    data-bokeh-loglevel="info"
-></script>
+<div class="plotdiv" id="e8c5f105-64c0-4c8f-95fc-27ea3a56e722"></div>

@@ -3,8 +3,8 @@
 from bokeh.io import vform
 from bokeh.models import Callback, ColumnDataSource, Slider
 from bokeh.plotting import figure, output_file, save, gridplot
-from bokeh.embed import autoload_static
-from bokeh.resources import Resources
+from bokeh.embed import components
+from bokeh.resources import CDN
 import numpy as np
 output_file("RiemannSums.html", "Riemmann Sums")
 
@@ -156,12 +156,9 @@ grid.toolbar_location = None
 layout = vform(slider,grid)
 
 save(layout)
-js_filename = 'Rjs.js'
-res = Resources('cdn')
-js, tag = autoload_static(layout,res, js_filename)
-
-with open(js_filename,'w') as f:
-    f.write(js)
+script, div = components(plot, CDN)
+with open('script.txt','w') as f:
+    f.write(script)
 
 with open('tag.txt','w') as f:
-    f.write(tag)
+    f.write(div)
