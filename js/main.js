@@ -45,7 +45,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 /**
  * Controls the Blog
  */
-app.controller('BlogCtrl', function ($scope) {
+app.controller('BlogCtrl', ['$scope', '$sce', function ($scope, $sce) {
   $scope.posts = [
 //begin replace
 {'name': 'Visualizing Riemann Sums', 'content': $scope.trustedHTML = $sce.trustAsHtml('<div data-markdown>\nThis is my first post\n\n# will be bout Riemann sums\n\n</div>'), 'date': 'June 20, 2015'},
@@ -53,7 +53,7 @@ app.controller('BlogCtrl', function ($scope) {
 //end replace
       ];
 
-});
+}]);
 
 app.directive('markdown', function () {
     var converter = new Showdown.converter();
