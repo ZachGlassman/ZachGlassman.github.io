@@ -48,7 +48,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 app.controller('BlogCtrl', function ($scope) {
   $scope.posts = [
       {'name':'first',
-        'content': "This is mhy first post **Code** block below: function hello() { alert('Hello world!');}",
+        'content': "partials/POSTS/post1.md",
          'date' : 'June 20, 2015'
       },
       {'name': 'second',
