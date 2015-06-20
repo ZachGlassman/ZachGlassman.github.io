@@ -45,7 +45,7 @@ with open('main.js','w') as fp:
     for i in range(high_num,-1,-1):
         outstr = blogC[i].__str__()[:-1]
         outstr += ','+ 'content'.__repr__() + ':'
-        outstr +=  '$sce.trustAsHtml('+content[i].__repr__() + ')}'
+        outstr +=  '$scope.s' + str(i)+' = $sce.trustAsHtml('+content[i].__repr__() + ')}'
         fp.write('    ' + outstr+ ',\n')
     for i in data[indEnd:]:
         fp.write(i)
