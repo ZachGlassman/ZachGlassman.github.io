@@ -11,7 +11,7 @@ output_file("RiemannSums.html", "Riemmann Sums",mode = 'cdn')
 def myfunc(x):
     return np.sin(x) + x/8
     
-x = np.linspace(-20,20,10000)
+x = np.linspace(-20,20,1000)
 y = myfunc(x)
 #plot square, remember center is at point
 val = .5
@@ -21,7 +21,7 @@ square_xR = np.arange(3 * np.pi,0,-.5)
 square_yR = myfunc(square_xR)
 
 #now generate data for last plot
-dxx = np.linspace(.05,1,100)
+dxx = np.linspace(.05,1,50)
 data_R = np.zeros(len(dxx))
 data_L = np.zeros(len(dxx))
 data_real = np.zeros(len(dxx))
