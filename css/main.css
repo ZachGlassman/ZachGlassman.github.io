@@ -30,7 +30,9 @@ body {
     margin-right:-4px;
 }
 
-
+.row-centered {
+    text-align:center;
+}
 .img-home-portfolio,
 .img-customer,
 .portfolio-item {
