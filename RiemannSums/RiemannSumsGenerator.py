@@ -156,7 +156,7 @@ grid.toolbar_location = None
 layout = vform(slider,grid)
 
 save(layout)
-script, div = components(plot, CDN)
+script, div = components(layout, CDN)
 with open('Riemann.js','w') as f:
     f.write(script)
 
