@@ -45,7 +45,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 /**
  * Controls the Blog
  */
-app.controller('BlogCtrl', ['$scope', '$sce',function ($scope,$sce) {
+app.controller('BlogCtrl', ['$scope', '$sce', '$markdown',function ($scope,$sce,$markdown) {
   $scope.posts = [
 //begin replace
 {'content': 'This is my first post\n\n# will be bout Riemann sums\n\n', 'name': 'Visualizing Riemann Sums', 'date': 'June 20, 2015'},
