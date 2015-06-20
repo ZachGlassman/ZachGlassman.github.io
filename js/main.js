@@ -33,8 +33,13 @@ app.config(['$routeProvider', function ($routeProvider) {
 /**
  * Controls the Blog
  */
-app.controller('BlogCtrl', function (/* $scope, $location, $http */) {
-  console.log("Blog Controller reporting for duty.");
+app.controller('BlogCtrl', function ($scope) {
+  $scope.posts = [
+      {'name':'first',
+        'content': 'This is mhy first post'},
+      {'name': 'second',
+        'content': 'This is my second'}
+      ];
 });
 
 /**
