@@ -27,7 +27,7 @@ for file in files:
         data = fp.readlines()
         blogC[num]['name'] = data[0].rstrip('\n')
         blogC[num]['date'] = data[1].rstrip('\n')
-        content[num] =  ''.join(i for i in data[2:])
+        content[num] =  ''.join(i.rstrip('\n') for i in data[2:])
 
 #now insert into js file as json
 os.chdir(path)
