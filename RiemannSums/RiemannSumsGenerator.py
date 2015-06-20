@@ -11,7 +11,7 @@ output_file("RiemannSums.html", "Riemmann Sums",mode = 'cdn')
 def myfunc(x):
     return np.sin(x) + x/8
     
-x = np.linspace(-20,20,1000)
+x = np.linspace(-20,20,100)
 y = myfunc(x)
 #plot square, remember center is at point
 val = .5
@@ -21,7 +21,7 @@ square_xR = np.arange(3 * np.pi,0,-.5)
 square_yR = myfunc(square_xR)
 
 #now generate data for last plot
-dxx = np.linspace(.05,1,50)
+dxx = np.linspace(.05,1,20)
 data_R = np.zeros(len(dxx))
 data_L = np.zeros(len(dxx))
 data_real = np.zeros(len(dxx))
@@ -69,8 +69,13 @@ plotSum.toolbar_location = None
 plot.line(x, y, line_width=3, line_alpha=0.5)
 plotL.line(x, y, line_width=3, line_alpha=0.5)
 plotR.line(x, y, line_width=3, line_alpha=0.5)
-plotSum.multi_line([dxx,dxx,dxx],[data_L,data_R,data_real],
-                   color = ['red','blue','green'])
+#now last plot
+plotSum.cross(x = dxx, y = data_L, color = 'red',legend="Left")
+plotSum.circle(x = dxx, y = data_R, color = 'blue',legend="Right")
+plotSum.line(x = dxx, y = data_real, color = 'green',legend="Exact")
+                   
+plotSum.xaxis.axis_label = 'dx'
+plotSum.yaxis.axis_label = 'Sum'
 
 #source = source
 #change so its one function to plot with numpy arrays or something!!
