@@ -16,7 +16,7 @@ y = slope * x
 
 source = ColumnDataSource(data=dict(x=x,y=y))
 #setupt plots
-plot = figure(y_range=(-5, 5),title = "Line", x_range=(-5,5), plot_width=400, plot_height=400)
+plot = figure(y_range=(-5, 5),title = "Line", x_range=(-5,5), plot_width=800, plot_height=400)
 
 plot.toolbar_location = None
 
