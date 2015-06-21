@@ -3,7 +3,7 @@ June 20, 2015
 
 Riemann sums are one of the first things learned when beginning the study of integration.  Yet often they are presented as a theoretical underpinning and then quickly forgotten as the *rules* of integration are hammered into memory.  While they do not allow for easy computation of integrals, they are an excellent glimpse into the nature of the integral.
 
-First we will consider a straight line with equation \(y = x\), a straight line.  We can plot it as shown in the following figure.  You can play around with the slope by moving the slider.
+First we will consider a straight line with equation $f(x) = x$, a straight line.  We can plot it as shown in the following figure.  You can play around with the slope by moving the slider.
 <script src = "/Graphs/lineplot.js">
 </script>
 <div class="plotdiv" id="17d2cbeb-5f32-4f5b-b626-29ad385fc246"></div>
@@ -14,14 +14,15 @@ So now we want to *integrate* this simple function, but what does that mean?  If
 
 So it appears we want to do some sort of combining or adding.  To proceed, we must first define the problem which we are trying to solve.  Informally, we can state this as
 
-> Given a function \(f(x)\) find the area of the region, \(R\) in the x-y plane subject to the following conditions
-> * \(R\) is always between $f(x)$ and the x-axis
-> * The area above the x-axis is positive and the area below is negative
-> * \(R\) is bounded by the vertial lines \(x=a\) and \(x=b\).
+> Given a function $f(x)$ find the area of the region, $R$ in the x-y plane subject to the following conditions
+>
+> * $R$ is always between $f(x)$ and the $x$-axis
+> * The area above the $x$-axis is positive and the area below is negative
+> * $R$ is bounded by the vertial lines $x=a$ and $x=b$.
 
-Those who have studied some calculus recognize that we can state this problem without the last condition, although without the last condition, our problem is not to compute the area of \(R\), but rather to find a function which represents the area of \(R\).  For now, we will assume all the conditions.
+Those who have studied some calculus recognize that we can state this problem without the last condition, although without the last condition, our problem is not to compute the area of $R$, but rather to find a function which represents the area of $R$.  For now, we will assume all the conditions.
 
-If we go back to our example of a line, and let \(a=-5,b=5\), then we can write our statement of the problem as
+If we go back to our example of a line, and let $a=-5,b=5$, then we can write our statement of the problem as
 $$R = \int_a^b f(x)\,dx$$
 <script src = "/js/Riemann.js">
 </script>
