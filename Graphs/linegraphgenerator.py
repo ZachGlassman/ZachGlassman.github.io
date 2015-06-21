@@ -9,19 +9,24 @@ import numpy as np
 
 output_file("LineGraph.html", "Line Graph")
 
-
 slope = 1
 x = np.arange(-100,101,1)
 y = slope * x
-
-source = ColumnDataSource(data=dict(x=x,y=y))
+py = [[0,0,-5],[0,0,5]]
+px = [[0,-5,-5],[0,5,5]]
+color = ['red','blue']
+#first is left, then right
+source = ColumnDataSource(data=dict(x=x,y=y,px=px,py=py,col=color))
 #setupt plots
-plot = figure(y_range=(-5, 5),title = "Line", x_range=(-5,5), plot_width=750, plot_height=400)
+plot = figure(y_range=(-8, 8),title = "Line", x_range=(-8,8), plot_width=750, plot_height=400)
 
 plot.toolbar_location = None
 
 #plot initial things
-plot.line('x', 'y',source=source, line_width=3, line_alpha=0.5)
+
+plot.patches(xs='px', ys='py', color='col',source=source)
+
+plot.line('x', 'y',source=source, line_width=3, line_alpha=1,color = 'orange')
 
 plot.xaxis.axis_label = 'x'
 plot.yaxis.axis_label = 'y'
@@ -32,9 +37,21 @@ callback = Callback(args=dict(source=source), code="""
     var slope = cb_obj.get('value');
     x = data['x'];
     y = data['y'];
+    col = data['col'];
     for(i = 0; i < x.length; i++){
         y[i] = slope * x[i];
     };
+    var ly = slope * -5;
+    var ry = slope * 5;
+    if (ly > 0.0){
+        col[0] = 'blue';
+        col[1] = 'red';
+    }else{
+        col[1] = 'blue';
+        col[0] = 'red';
+    };
+    
+    data['py'] = [[0,0,ly],[0,0,ry]];
     
     source.trigger('change');
 """    )
