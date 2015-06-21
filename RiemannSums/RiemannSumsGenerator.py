@@ -167,8 +167,20 @@ layout = vform(slider,grid)
 save(layout)
 
 script, div = components(layout, CDN)
-with open('Riemann.js','w') as f:
+
+jsname = 'Riemann.js'
+with open(jsname ,'w') as f:
     f.write(script)
+    
+
+#now fix for what we want
+
+with open(jsname ,'r') as f:
+    in_data = f.readlines()
+
+with open(jsname ,'w') as f:
+    for i in in_data[1:-1]:
+        f.write(i)
 
 with open('tag.txt','w') as f:
     f.write(div)

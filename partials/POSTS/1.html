@@ -65,13 +65,13 @@ We can then define the left Riemann sum as the approximation where we take the v
 $$S = \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1}).$$
 If we replace $f(x_{i-1})$ with $f(x_{i})$ in this expression, we get the right Riemann sum.  In principle, we could use any value $f(x^*)$ with the caveat that
 $$x_{i-1}\leq x^* \leq x_{i}$$
-For our specific example, then app, shows this formalism applied to our function.  The lower right plot shows the dependance of the sum on $dx$, which is $\Delta x$.  Notice that the Left and Right Riemann sums are not in general equal, however, they approach each other, as well as the correct answer as $dx$ gets small.
+For our specific example, then app, shows this formalism applied to our function.  The lower right plot shows the dependance of the sum on $n$, where $n$ is the number of partitions.  Notice that the Left and Right Riemann sums are not in general equal, however, they approach each other, as well as the correct answer as $n$ gets large.
 
 <script src = "/RiemannSums/Riemann.js">
 </script>
     
-<div class="plotdiv" id="3efebf6a-60e8-4eb3-8565-6f06751b264d"></div>
-In the limit that $\Delta x \to 0$, for a properly *behaved* function, this converges to the integral.  The exact details of this are quite complicated and if you are interested, I point you to the Real Analysis notes in the Notes section of this website which have a much more rigourous derivation.
+<div class="plotdiv" id="96bf92b6-51b3-4f94-ac99-0601f79f39d7"></div>
+In the limit that $\Delta x \to 0$,($n \to \infty$), for a properly *behaved* function, this converges to the integral.  The exact details of this are quite complicated and if you are interested, I point you to the Real Analysis notes in the Notes section of this website which have a much more rigourous derivation.
 
 We are now ready to say that $dx$ is an infinitly small segment of the real line.  Integration is the act of adding infinitesimally narrow rectangles together to find the area of the curve.  Although outside the scope of this post, we could use the fundamnetal theorem of calculus to compute that
 $$\int_a^b \sin(x) + \frac{x}{8} = \left(-\cos(b)+\frac{b^2}{16}\right)-\left(-\cos(a)+\frac{a^2}{16}\right),$$
