@@ -40,13 +40,35 @@ so in this case, the solution to the integral problem is zero.
 Lets take a moment and see if this is surprising.  We know that the function $f(x)=sx$ is anti-symmetric with respect to reflection over the $y$ axis in the sense that $f(x) = -f(-x)$.  So it makes sense if we take any region where $a=-b$, then the areas will always exactly cancel each other out.  However, if $a\neq -b$, then we will get a non-zero answer.
 It is easy enough to do this problem for general $a$ and $b$, which is given as
 $$R = \frac{sb^2}{2}-\frac{sa^2}{2},$$
-make sure you understand why this is before you continue.  The following app illustrates this and allows you to change $a$ and $b$.  It calculates the area according to the formula above.
+make sure you understand how to get to this formula before you continue.
+
+The following app illustrates allows you to change the slope, $a$, and $b$, and will compute the slope.
 
 <script src = "/Graphs/lineplotab.js"></script>
 <div class="plotdiv" id="99782a86-2387-4e6e-9e24-687c8f90a02c"></div>
 
-Notice that
+Notice that in this easy case, we are able to get by just knowing about triangles.  However, we have discovered one, very essential detail, **We can solve the problem by breaking it into pieces**.  In the previous case, these pieces were two triangles and we were able to get an exact answer, but now we will on to more complicated function where this will not be sufficent to get an exact answer.
+
+Let us consider the slightly more complicated function
+$$f(x) = \sin(x) + \frac{x}{8},$$
+which is shown in the plot below.
+<script src = "/Graphs/sinplot.js"></script>
+<div class="plotdiv" id="78bbf997-72bb-4bcc-9e3e-aeb7c39e231b"></div>
+
+We can see that triangles don't really make sense, so we choose to use the simplest shape we can, a rectangle.  The following will get slightly technical, but the basic idea is that we will divide the range we want to integrate over into equally spaced regions $\Delta x$.  We will then approximate the curve in each region by a rectange and add them up.  As we make $\Delta x$ smaller, we will achieve a better approximation to the integral.  In the limit that $\Delta x \to 0$, we have solved our problem.
+
+More formally, divide the interval $[a,b]$ into $n$ subintervals, which all have equal length $\Delta x$ given as
+$$\Delta x = \frac{b-a}{n}.$$
+This is usually referred to as a *parition* of the interval.  We can write out the elements of the partition as
+$$P = \{a,a+\Delta x, a + 2\Delta x,\dots,a + (n-1)\Delta x, b\}$$
+We can then define the left Riemann sum as the approximation where we take the value of the function at the left of each element of the parition $p_i$ and create a rectange with one side $f(p_i)$ and the other side $\Delta x$.  So we then form the Left Riemann sum
+$$S = \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1).$$
+If we replace $f(x_{i-1})$ with $f_{i}$ in this expression, we get the right Riemann sum.  In principle, we could use any value $f(x^*)$ with the caveat that
+$$x_{i-1}\leq x^* \leq x_{i}$$
+For our specific example, then app, shows this formalism applied to our function.  The lower right plot shows the dependance of the sum on $dx$, which is $\Delta x$.
+
 <script src = "/js/Riemann.js">
 </script>
     
 <div class="plotdiv" id="e3e05286-f3bf-4a8a-af56-9c282fa255d6"></div>
+In the limit that $\Delta x \to 0$, for a properly *behaved* function, this converges to the integral.  The exact details of this are quite complicated and if you are interested, I point you to the Real Analysis notes in the Notes section of this website which have a much more rigourous derivation.
