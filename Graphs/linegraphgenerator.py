@@ -16,7 +16,7 @@ y = slope * x
 
 source = ColumnDataSource(data=dict(x=x,y=y))
 #setupt plots
-plot = figure(y_range=(-5, 5),title = "Line", x_range=(-5,5), plot_width=800, plot_height=400)
+plot = figure(y_range=(-5, 5),title = "Line", x_range=(-5,5), plot_width=750, plot_height=400)
 
 plot.toolbar_location = None
 
@@ -45,15 +45,15 @@ layout = vform(slider,plot)
 save(layout)
 
 script, div = components(layout, CDN)
-with open('lineplot.js','w') as f:
+with open('lineplotfilled.js','w') as f:
     f.write(script)
 
 #now fix for what we want
 
-with open('lineplot.js','r') as f:
+with open('lineplotfilled.js','r') as f:
     in_data = f.readlines()
 
-with open('lineplot.js','w') as f:
+with open('lineplotfilled.js','w') as f:
     for i in in_data[1:-1]:
         f.write(i)
 
