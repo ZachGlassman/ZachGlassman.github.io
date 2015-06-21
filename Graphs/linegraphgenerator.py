@@ -67,10 +67,10 @@ with open('lineplotfilled.js','w') as f:
 
 #now fix for what we want
 
-with open('lineplotfilled.js','r') as f:
+with open('lineplotab.js','r') as f:
     in_data = f.readlines()
 
-with open('lineplotfilled.js','w') as f:
+with open('lineplotab.js','w') as f:
     for i in in_data[1:-1]:
         f.write(i)
 
