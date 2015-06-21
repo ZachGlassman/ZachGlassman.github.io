@@ -17,10 +17,11 @@ b = 5
 py = [[0,0,a],[0,0,b]]
 px = [[0,a,a],[0,b,b]]
 color = ['red','blue']
+area = ['Area is: ' + str(b*b*slope/2 - a*a*slope/2)]
 #first is left, then right
-source = ColumnDataSource(data=dict(x=x,y=y,px=px,py=py,col=color,a=a,b=b))
+source = ColumnDataSource(data=dict(x=x,y=y,px=px,py=py,col=color,a=a,b=b,slope = slope, area = area))
 #setupt plots
-plot = figure(y_range=(-8, 8),title = "Line", x_range=(-8,8), plot_width=750, plot_height=400)
+plot = figure(y_range=(-12, 12),title = 'Line Area', x_range=(-12,12), plot_width=750, plot_height=400)
 
 plot.toolbar_location = None
 
@@ -29,14 +30,16 @@ plot.toolbar_location = None
 plot.patches(xs='px', ys='py', color='col',source=source)
 
 plot.line('x', 'y',source=source, line_width=3, line_alpha=1,color = 'orange')
-
+plot.text(x=-2,y=10,text='area', source=source)
 plot.xaxis.axis_label = 'x'
 plot.yaxis.axis_label = 'y'
+
 
 #callback for slider
 callback = Callback(args=dict(source=source), code="""
     var data = source.get('data');
     var slope = cb_obj.get('value');
+    data['slope'] = slope;
     x = data['x'];
     y = data['y'];
     a = data['a'];
@@ -57,13 +60,72 @@ callback = Callback(args=dict(source=source), code="""
     
     data['py'] = [[0,0,ly],[0,0,ry]];
     
+    var area = b*b*slope/2-a*a*slope/2;
+    area = ['Area is: ' + area.toFixed(3)];
+    data['area'] = area;
     source.trigger('change');
 """    )
 
-slidera = Slider(start=-5, end=5, value=1, step=.1,
-                title="a", callback=callback)
-sliderb = Slider(start=-5, end=5, value=1, step=.1,
-                title="b", callback=callback)
+callbacka = Callback(args=dict(source=source), code="""
+    var data = source.get('data');
+    var a = cb_obj.get('value');
+    data['a'] = a
+    data['x'] = [];
+    data['y'] = [];
+    b = data['b'];
+    slope = data['slope'];
+    col = data['col'];
+    var p = a;
+    var dx = (b-a)/100;
+    for(i = 0; i < 100; i++){
+        data['x'].push(p)
+        data['y'].push(slope * p);
+        p = p +dx;
+    };
+    var ly = slope * a;
+    var ry = slope * b;
+    data['px'] = [[0,a,a],[0,b,b]];
+    data['py'] = [[0,0,ly],[0,0,ry]];
+    
+    var area = b*b*slope/2-a*a*slope/2;
+    area = ['Area is: ' + area.toFixed(3)];
+    data['area'] = area;
+    
+    source.trigger('change');
+"""    )
+
+callbackb = Callback(args=dict(source=source), code="""
+    var data = source.get('data');
+    var b = cb_obj.get('value');
+    data['b'] = b
+    data['x'] = [];
+    data['y'] = [];
+    a = data['a'];
+    slope = data['slope'];
+    col = data['col'];
+    var p = a;
+    var dx = (b-a)/100;
+    for(i = 0; i < 100; i++){
+        data['x'].push(p)
+        data['y'].push(slope * p);
+        p = p +dx;
+    };
+    var ly = slope * a;
+    var ry = slope * b;
+    data['px'] = [[0,a,a],[0,b,b]];
+    data['py'] = [[0,0,ly],[0,0,ry]];
+    
+    var area = b*b*slope/2-a*a*slope/2;
+    area = ['Area is: ' + area.toFixed(3)];
+    data['area'] = area;
+    
+    source.trigger('change');
+"""    )
+
+slidera = Slider(start=-10, end=1, value=-5, step=.1,
+                title="a", callback=callbacka)
+sliderb = Slider(start=1, end=10, value=5, step=.1,
+                title="b", callback=callbackb)
 
 slider = Slider(start=-5, end=5, value=1, step=.1,
                 title="Slope", callback=callback)
