@@ -63,12 +63,16 @@ This is usually referred to as a *parition* of the interval.  We can write out t
 $$P = \{a,a+\Delta x, a + 2\Delta x,\dots,a + (n-1)\Delta x, b\}$$
 We can then define the left Riemann sum as the approximation where we take the value of the function at the left of each element of the parition $p_i$ and create a rectange with one side $f(p_i)$ and the other side $\Delta x$.  So we then form the Left Riemann sum
 $$S = \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1}).$$
-If we replace $f(x_{i-1})$ with $f_{i}$ in this expression, we get the right Riemann sum.  In principle, we could use any value $f(x^*)$ with the caveat that
+If we replace $f(x_{i-1})$ with $f(x_{i})$ in this expression, we get the right Riemann sum.  In principle, we could use any value $f(x^*)$ with the caveat that
 $$x_{i-1}\leq x^* \leq x_{i}$$
-For our specific example, then app, shows this formalism applied to our function.  The lower right plot shows the dependance of the sum on $dx$, which is $\Delta x$.
+For our specific example, then app, shows this formalism applied to our function.  The lower right plot shows the dependance of the sum on $dx$, which is $\Delta x$.  Notice that the Left and Right Riemann sums are not in general equal, however, they approach each other, as well as the correct answer as $dx$ gets small.
 
 <script src = "/js/Riemann.js">
 </script>
     
 <div class="plotdiv" id="e3e05286-f3bf-4a8a-af56-9c282fa255d6"></div>
 In the limit that $\Delta x \to 0$, for a properly *behaved* function, this converges to the integral.  The exact details of this are quite complicated and if you are interested, I point you to the Real Analysis notes in the Notes section of this website which have a much more rigourous derivation.
+
+We are now ready to say that $dx$ is an infinitly small segment of the real line.  Integration is the act of adding infinitesimally narrow rectangles together to find the area of the curve.  Although outside the scope of this post, we could use the fundamnetal theorem of calculus to compute that
+$$\int_a^b \sin(x) + \frac{x}{8} = \left(-\cos(b)+\frac{b^2}{16}\right)-\left(-\cos(a)+\frac{a^2}{16}\right),$$
+which answers the question of integration for this function.
