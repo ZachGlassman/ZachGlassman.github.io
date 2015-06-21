@@ -1,8 +1,7 @@
 Welcome to my Blog
 June 20, 2015
 
-This is my blog that I will use to talk about things that I am working on
-or things that I am thinking about.  So a relevant first discussion would be how this website was created.
+This is my blog that I will use to talk about things that I am working on or things that I am thinking about.  A relavant first discussion is about the general technologies used to develop this site.
 
 This website was written using a Bootstrap theme controlled with AngularJS and the markdown on the blog rendered with Showndown.  Lets discuss each of these individually.
 
@@ -12,6 +11,27 @@ The Bootstrap contains the basic CSS and HTML structure of the website.  I think
 
 ### AngularJS
 
-AngularJS is a framework that allows abstract definitions of how to view data.  This means that instead of defining every individual element of a webpage, we can define how to view a *model*.  For example, in this blog, I do not write the HTML for every post separately, rather I write the posts in markdown and
+AngularJS is a framework that allows abstract definitions of how to view data.  This means that instead of defining every individual element of a webpage, we can define how to view a *model*.  For example, in this blog, I do not write the HTML for every post separately, rather I write the posts in markdown and then generate the HTML automatically.  Angular also allows for fast responsive pages and some nifty effects.  I am by no means skilled at using Angular and I hope to write about it as I learn more of its features.
+
+### Showdown
+
+Showdown converts markdown to HTML, so for example, if we get can render
+
+    ### This is a heading
+    *italics are cool*
+    * item
+    * item
+    * item
+### This is a heading
+*italics are cool*
+* item
+* item
+* item
+
+I find this to be a nicer medium with which to write quickly and efficiently instead of hand coding the HTML.  After I write my blog posts, I have a simple python script which generates the Angular model, including the mardown which is then rendered live as the page loads.
+
+### Bokeh
+
+The last nice piece of software which is going to be featured prominently in this site is bokeh, a python package for interactive visualizations.  It produces javascript graphs based on d3.js.  Technology such as this can be extremely effective at reducing complicated mathematical ideas to simple pictures.  One example is shown in the Riemann sums post.
 
 
