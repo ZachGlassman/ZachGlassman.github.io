@@ -40,7 +40,7 @@ $$ A = \frac{ h \times b}{2},$$
 
 where $h$ is the height and $b$ is the base of the triangle (not to be confused with $b$ the right bound of integration), to compute this area.  For both regions, we know that the base of the triangle is $b=5$. The height for the blue side is $f(5)=5s$ and the height for the red side is $f(-5)= -5s$.  So the region is given as
 
-$$ R = A_{blue}-A_{red} = \frac{25s}{2}-\frac{25s}{2}=0,$$
+\[ R = A_{blue}-A_{red} = \frac{25s}{2}-\frac{25s}{2}=0,\]
 
 so in this case, the solution to the integral problem is zero.
 
@@ -70,7 +70,9 @@ which is shown in the plot below.
 We can see that triangles don't really make sense, so we choose to use the simplest shape we can, a rectangle.  The following will get slightly technical, but the basic idea is that we will divide the range we want to integrate over into equally spaced regions $\Delta x$.  We will then approximate the curve in each region by a rectange and add them up.  As we make $\Delta x$ smaller, we will achieve a better approximation to the integral.  In the limit that $\Delta x \to 0$, we have solved our problem.
 
 More formally, divide the interval $[a,b]$ into $n$ subintervals, which all have equal length $\Delta x$ given as
+
 $$\Delta x = \frac{b-a}{n}.$$
+
 This is usually referred to as a *parition* of the interval.  We can write out the elements of the partition as
 
 $$ P = \{a,a+\Delta x, a + 2\Delta x,\dots,a + (n-1)\Delta x, b\}.$$
