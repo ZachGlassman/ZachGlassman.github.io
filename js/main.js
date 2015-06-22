@@ -55,6 +55,7 @@ app.controller('BlogCtrl', ['$scope', '$sce',function ($scope,$sce) {
 
 }]).filter('markdown', function ($sce,$window) {
     var converter = new $window.showdown.converter();
+    console.log('HERE');
     return function (value) {
 		var html = converter.makeHtml(value || '');
         return $sce.trustAsHtml(html);
