@@ -1,11 +1,14 @@
 Delta Function Potential
 June 21, 2015
 
+## Problem Statement
 Find the wavefunctions and energies of a 1-D particle of mass m in the potential
 \begin{equation}
 V(x) = V\_0 a \delta(x),
 \end{equation}
-so we want to solve the Schrodinger equation
+
+## Solution
+So we want to solve the Schrodinger equation
 \begin{equation}
 -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x) + V(x)\psi(x) = E\psi(x),
 \end{equation}
@@ -20,56 +23,56 @@ where $k$ is not necessarily real and defined by
 \end{equation}
 Our two general boundary conditions are given by the continuity of the wavefunction at $x=0$ and if we integrate both sides of the Schrodinger equation from $-\epsilon $ to $\epsilon$ where $\epsilon \to 0$, we must retain equality.  More explicitly, we have that
 \begin{align}
-\psi_-(0)&=\psi_+(0)\\
--\frac{\hbar^2}{2m}\int_{-\epsilon}^\epsilon \psi''(x)\, dx + \int_{-\epsilon}^\epsilon V_0 a \delta(x) \psi(x)\,dx &= \int_{-\epsilon}^\epsilon E\psi(x),
+\psi\_-(0)&=\psi\_+(0)\\
+-\frac{\hbar^2}{2m}\int\_{-\epsilon}^\epsilon \psi''(x)\, dx + \int\_{-\epsilon}^\epsilon V_0 a \delta(x) \psi(x)\,dx &= \int\_{-\epsilon}^\epsilon E\psi(x),
 \end{align}
-and we can simplify the equation by noting that $\psi$ is continuous, thus $\int_{-\epsilon}^\epsilon E\psi(x)=0$ and by using the definition of the delta function, we get for the second condition
+and we can simplify the equation by noting that $\psi$ is continuous, thus $\int\_{-\epsilon}^\epsilon E\psi(x)=0$ and by using the definition of the delta function, we get for the second condition
 \begin{equation}
--\frac{\hbar^2}{2m}[\psi'(x)]_{-\epsilon}^\epsilon + V_0 a \psi(0) = 0,
+-\frac{\hbar^2}{2m}[\psi'(x)]\_{-\epsilon}^\epsilon + V_0 a \psi(0) = 0,
 \end{equation}
 which leads to the two conditions
 \begin{align}
 B &=D\\
 \label{1ddelta}
-\frac{\hbar^2k}{2m}[C-A]&=V_0aB
+\frac{\hbar^2k}{2m}[C-A]&=V\_0aB
 \end{align}
 Now we must consider the cases of a bound state and a scattering state.
-\subsubsection{Bound State}
+## Bound State
 For this state, we require the wavefunction be normalizable, so we require that
 \begin{equation}
-\lim_{x\to \pm \infty}\psi(x) = 0.
+\lim\_{x\to \pm \infty}\psi(x) = 0.
 \end{equation}
 So in order to have this, we know $k$ must be imaginary, so we define $\kappa = ik$, which gives us that
 \begin{equation}
 \psi_- = A\left(\frac{e^{-\kappa x}-e^{\kappa x}}{2i}\right) + B\left(\frac{e^{-\kappa x}+e^{\kappa x}}{2}\right),
 \end{equation}
-and if we require this to be zero at $-\infty$< we get that $A=-iB$ by noting that the term pre-multiplying the divergent exponential, must be zero.  Similar considerations for $\psi_+$ gives that $C=iD$.  Since we know that
+and if we require this to be zero at $-\infty$, we get that $A=-iB$ by noting that the term pre-multiplying the divergent exponential, must be zero.  Similar considerations for $\psi_+$ gives that $C=iD$.  Since we know that
 \begin{equation}
 k = \frac{\sqrt{2mE}}{\hbar},
 \end{equation}
-and $k$ is imaginary, we must have $E<0$.
+and $k$ is imaginary, we must have $E \lt 0$.
 
-We now have four equations, which allows us to write using \eqref{1ddelta}
+We now have four equations, which allows us to write
 \begin{equation}
--\frac{\hbar^2 k}{m}=V_0 a B,
+-\frac{\hbar^2 k}{m}=V\_0 a B,
 \end{equation}
 which implies that
 \begin{equation}
-\kappa = -\frac{maV_0}{\hbar^2},
+\kappa = -\frac{maV\_0}{\hbar^2},
 \end{equation}
-which implies that $V_0 a$ must be negative to get a bound state and there is only one bound state.  We can write the energy of this bound state as
+which implies that $V\_0 a$ must be negative to get a bound state and there is only one bound state.  We can write the energy of this bound state as
 \begin{equation}
-E = -\frac{\hbar^2\kappa^2}{2m} = -\frac{ma^2V_0^2}{2\hbar^2},
+E = -\frac{\hbar^2\kappa^2}{2m} = -\frac{ma^2V\_0^2}{2\hbar^2},
 \end{equation}
 which lets us write the wavefunction
 \begin{align}
-\psi_- &= Be^{\kappa x}\\
-\psi_+ &= -Ce^{-\kappa x},
+\psi\_- &= Be^{\kappa x}\\
+\psi\_+ &= -Ce^{-\kappa x},
 \end{align}
 and so using the fact that $B=-C$, we get that
 \begin{equation}
 \psi(x) = Be^{-\kappa |x|},
 \end{equation}
 and we could determine $B$ by normalization.
-\subsubsection{Scattering States}
+## Scattering States
 For these states, we can project onto the delta states which gives the idea of a forward and backward traveling state.
