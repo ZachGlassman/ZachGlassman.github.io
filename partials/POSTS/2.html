@@ -13,18 +13,18 @@ So we want to solve the Schrodinger equation
 -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x) + V(x)\psi(x) = E\psi(x),
 \end{equation}
 where $-\infty\lt x\lt \infty$.  So our general idea will be to solve the equation for $x \lt 0$ and for $x \gt 0$ and join at the origin.  The free particle solutions can be written as
-\begin{align}
-\psi\_- &= A \sin(kx) + B\cos(kx)\\
-\psi\_+ &= C \sin(kx)+ D\cos(kx),
-\end{align}
+\begin{equation}
+\psi\_- = A \sin(kx) + B\cos(kx)
+\end{equation}
+\begin{equation}
+\psi\_+ = C \sin(kx)+ D\cos(kx),
+\end{equation}
 where $k$ is not necessarily real and defined by
 \begin{equation}
 \frac{\hbar^2 k^2}{2m} = E.
 \end{equation}
 Our two general boundary conditions are given by the continuity of the wavefunction at $x=0$ and if we integrate both sides of the Schrodinger equation from $-\epsilon $ to $\epsilon$ where $\epsilon \to 0$, we must retain equality.  More explicitly, we have that
-\begin{equation}
-\psi\_-(0)&=\psi\_+(0)
-\end{equation},
+\begin{equation}\psi\_-(0)=\psi\_+(0)\end{equation},
 which implies that
 \begin{equation}
 -\frac{\hbar^2}{2m}\int\_{-\epsilon}^\epsilon \psi''(x)\, dx + \int\_{-\epsilon}^\epsilon V\_0 a \delta(x) \psi(x)\,dx = \int\_{-\epsilon}^\epsilon E\psi(x),
