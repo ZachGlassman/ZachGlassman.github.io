@@ -53,10 +53,10 @@ app.controller('BlogCtrl', ['$scope', '$sce',function ($scope,$sce) {
 //end replace
       ];
 
-}]).filter('markdown', function ($sce, $window) {
-    var converter = new $window.showdown.converter();
+}]).filter('markdown', function ($sce) {
+    var converter = new showdown.converter();
     return function (value) {
-		var html = converter.makeHtml(value);
+		var html = converter.makeHtml(value || '');
         return $sce.trustAsHtml(html);
     };
 });
