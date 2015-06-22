@@ -39,7 +39,7 @@ For this specific case, the region is always composed of two right triangular re
 $$ A = \frac{ h \times b}{2},$$
 
 where $h$ is the height and $b$ is the base of the triangle (not to be confused with $b$ the right bound of integration), to compute this area.  For both regions, we know that the base of the triangle is $b=5$. The height for the blue side is $f(5)=5s$ and the height for the red side is $f(-5)= -5s$.  So the region is given as
-$$A\_{blue}-A\_{red} = \frac{25s}{2}-\frac{25s}{2}=0,$$
+$$R=A\_{blue}-A\_{red} = \frac{25s}{2}-\frac{25s}{2}=0,$$
 
 so in this case, the solution to the integral problem is zero.
 
@@ -78,11 +78,11 @@ $$ P = \{a,a+\Delta x, a + 2\Delta x,\dots,a + (n-1)\Delta x, b\}.$$
 
 We can then define the left Riemann sum as the approximation where we take the value of the function at the left of each element of the parition and create a rectange with one side $f(p_i)$ and the other side $\Delta x$.  So we then form the Left Riemann sum
 
-$$ S = \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1}).$$
+$$ S = \sum\_{i=1}^n f(x\_{i-1})(x\_i-x\_{i-1}).$$
 
-If we replace $f(x_{i-1})$ with $f(x_{i})$ in this expression, we get the right Riemann sum.  In principle, we could use any value $f(x^*)$ with the caveat that
+If we replace $f(x\_{i-1})$ with $f(x\_{i})$ in this expression, we get the right Riemann sum.  In principle, we could use any value $f(x^*)$ with the caveat that
 
-$$ x_{i-1}\leq x^* \leq x_{i}.$$
+$$ x\_{i-1}\leq x^* \leq x\_{i}.$$
 
 For our specific example, then app, shows this formalism applied to our function.  The lower right plot shows the dependance of the sum on $n$, where $n$ is the number of partitions.  Notice that the Left and Right Riemann sums are not in general equal, however, they approach each other, as well as the correct answer as $n$ gets large.
 
