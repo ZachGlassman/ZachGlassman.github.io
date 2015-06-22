@@ -9,14 +9,14 @@ First we will consider a straight line with equation \(f(x) = sx\), a straight l
 <div class="plotdiv" id="17d2cbeb-5f32-4f5b-b626-29ad385fc246"></div>
 
 So now we want to *integrate* this simple function, but what does that mean?  If we look up integrate on google, we get
+>
 > #### integrate
-
 > combine one thing with another so that they become whole.
 
 So it appears we want to do some sort of combining or adding.  To proceed, we must first define the problem which we are trying to solve.  Informally, we can state this as
 
-> Given a function \(f(x)\) find the area of the region, \(R\) in the x-y plane subject to the following conditions
 >
+> Given a function \(f(x)\) find the area of the region, \(R\) in the x-y plane subject to the following conditions
 > * \(R\) is always between \(f(x)\) and the \(x\)-axis
 > * The area above the \(x\)-axis is positive and the area below is negative
 > * \(R\) is bounded by the vertial lines \(x=a\) and \(x=b\).
@@ -60,22 +60,22 @@ which is shown in the plot below.
 
 We can see that triangles don't really make sense, so we choose to use the simplest shape we can, a rectangle.  The following will get slightly technical, but the basic idea is that we will divide the range we want to integrate over into equally spaced regions \(\Delta x\).  We will then approximate the curve in each region by a rectange and add them up.  As we make \(\Delta x\) smaller, we will achieve a better approximation to the integral.  In the limit that \(\Delta x \to 0\), we have solved our problem.
 
-More formally, divide the interval \([a,b]\) into $n$ subintervals, which all have equal length $\Delta x$ given as
+More formally, divide the interval \([a,b]\) into \(n\) subintervals, which all have equal length \(\Delta x\) given as
 $$\Delta x = \frac{b-a}{n}.$$
 This is usually referred to as a *parition* of the interval.  We can write out the elements of the partition as
 $$P = \{a,a+\Delta x, a + 2\Delta x,\dots,a + (n-1)\Delta x, b\}$$
-We can then define the left Riemann sum as the approximation where we take the value of the function at the left of each element of the parition $p_i$ and create a rectange with one side $f(p_i)$ and the other side $\Delta x$.  So we then form the Left Riemann sum
+We can then define the left Riemann sum as the approximation where we take the value of the function at the left of each element of the parition \(p_i\) and create a rectange with one side \(f(p_i)\) and the other side \(\Delta x\).  So we then form the Left Riemann sum
 $$S = \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1}).$$
-If we replace $f(x_{i-1})$ with $f(x_{i})$ in this expression, we get the right Riemann sum.  In principle, we could use any value $f(x^*)$ with the caveat that
+If we replace \(f(x_{i-1})\) with \(f(x_{i})\) in this expression, we get the right Riemann sum.  In principle, we could use any value \(f(x^*)\) with the caveat that
 $$x_{i-1}\leq x^* \leq x_{i}$$
-For our specific example, then app, shows this formalism applied to our function.  The lower right plot shows the dependance of the sum on $n$, where $n$ is the number of partitions.  Notice that the Left and Right Riemann sums are not in general equal, however, they approach each other, as well as the correct answer as $n$ gets large.
+For our specific example, then app, shows this formalism applied to our function.  The lower right plot shows the dependance of the sum on \(n\), where \(n\) is the number of partitions.  Notice that the Left and Right Riemann sums are not in general equal, however, they approach each other, as well as the correct answer as $n$ gets large.
 
 <script src = "/RiemannSums/Riemann.js"></script>
 <div class="plotdiv" id="96bf92b6-51b3-4f94-ac99-0601f79f39d7"></div>
 
-In the limit that $\Delta x \to 0$,($n \to \infty$), for a properly *behaved* function, this converges to the integral.  The exact details of this are quite complicated and if you are interested, I point you to the Real Analysis notes in the Notes section of this website which have a much more rigourous derivation.
+In the limit that \(\Delta x \to 0\),(\(n \to \infty\) ), for a properly *behaved* function, this converges to the integral.  The exact details of this are quite complicated and if you are interested, I point you to the Real Analysis notes in the Notes section of this website which have a much more rigourous derivation.
 
-We are now ready to say that $dx$ is an infinitly small segment of the real line.  Integration is the act of adding infinitesimally narrow rectangles together to find the area of the curve.  Although outside the scope of this post, we could use the fundamnetal theorem of calculus to compute that
+We are now ready to say that \(dx\) is an infinitly small segment of the real line.  Integration is the act of adding infinitesimally narrow rectangles together to find the area of the curve.  Although outside the scope of this post, we could use the fundamnetal theorem of calculus to compute that
 $$\int_a^b \sin(x) + \frac{x}{8} = \left(-\cos(b)+\frac{b^2}{16}\right)-\left(-\cos(a)+\frac{a^2}{16}\right),$$
 which answers the question of integration for this function.
 
