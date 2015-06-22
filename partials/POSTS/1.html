@@ -15,27 +15,27 @@ So now we want to *integrate* this simple function, but what does that mean?  If
 
 So it appears we want to do some sort of combining or adding.  To proceed, we must first define the problem which we are trying to solve.  Informally, we can state this as
 
-> Given a function $f(x)$ find the area of the region, $R$ in the x-y plane subject to the following conditions
+> Given a function \\(f(x)\\) find the area of the region, \\(R\\) in the x-y plane subject to the following conditions
 >
-> * $R$ is always between $f(x)$ and the $x$-axis
-> * The area above the $x$-axis is positive and the area below is negative
-> * $R$ is bounded by the vertial lines $x=a$ and $x=b$.
+> * \\(R\\) is always between \\(f(x)\\) and the \\(x\\)-axis
+> * The area above the \\(x\\)-axis is positive and the area below is negative
+> * \\(R\\) is bounded by the vertial lines \\(x=a\\) and \\(x=b\\).
 
-Those who have studied some calculus recognize that we can state this problem without the last condition, although without the last condition, our problem is not to compute the area of $R$, but rather to find a function which represents the area of $R$.  For now, we will assume all the conditions.
+Those who have studied some calculus recognize that we can state this problem without the last condition, although without the last condition, our problem is not to compute the area of \\(R\\), but rather to find a function which represents the area of \\(R\\).  For now, we will assume all the conditions.
 
-If we go back to our example of a line, and let $a=-5,b=5$, then we can write our statement of the problem as
+If we go back to our example of a line, and let \\(a=-5,b=5\\), then we can write our statement of the problem as
 $$R = \int_a^b f(x)\,dx.$$
 
-The curly sign simply means we want to find all the area and the function is any one we choose, in this case $f(x) =s x$.  However, at this point you may be bothered by the $dx$ at the end.  $dx$ is not technically a number, but we can think of it as the limit of one.  For now, we will say that it is some sort of distance along the $x$-axis, we will develop understanding of its nature through the Riemann sum.
+The curly sign simply means we want to find all the area and the function is any one we choose, in this case \\(f(x) =s x\\).  However, at this point you may be bothered by the $dx$ at the end.  \\(dx\\) is not technically a number, but we can think of it as the limit of one.  For now, we will say that it is some sort of distance along the \\(x\))-axis, we will develop understanding of its nature through the Riemann sum.
 
-The plot below shows the problem we are trying to solve where $R$ is the blue region minus the red region.  Again you can move the slider to see how the region changes.
+The plot below shows the problem we are trying to solve where \((R\)) is the blue region minus the red region.  Again you can move the slider to see how the region changes.
 
 <script src = "/Graphs/lineplotfilled.js"></script>
 <div class="plotdiv" id="7cc2bbe7-dc2b-4d93-894b-3bf2501bcb6f"></div>
 
 For this specific case, the region is always composed of two right triangular regions, one red, one blue.  We can use the formula for the area of a triangle which is
 $$ A = \frac{ h \times b}{2},$$
-where $h$ is the height and $b$ is the base of the triangle (not to be confused with $b$ the right bound of integration), to compute this area.  For both regions, we know that the base of the triangle is $b=5$. The height for the blue side is $f(5)=5s$ and the height for the red side is $f(-5)= -5s$.  So the region is given as
+where \\(h\\) is the height and \\(b\\) is the base of the triangle (not to be confused with $b$ the right bound of integration), to compute this area.  For both regions, we know that the base of the triangle is \\(b=5\\). The height for the blue side is $f(5)=5s$ and the height for the red side is \\(f(-5)= -5s\\).  So the region is given as
 $$R = A_{blue}-A_{red} = \frac{25s}{2}-\frac{25s}{2}=0,$$
 so in this case, the solution to the integral problem is zero.
 
