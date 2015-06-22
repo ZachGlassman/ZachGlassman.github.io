@@ -56,7 +56,7 @@ app.controller('BlogCtrl', ['$scope', '$sce',function ($scope,$sce) {
 }]).filter('markdown', function ($sce) {
     var converter = new showdown.converter();
     return function (value) {
-		var html = converter.makeHtml(value || '');
+		var html = converter.makeHtml(value);
         return $sce.trustAsHtml(html);
     };
 });
