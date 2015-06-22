@@ -1,13 +1,13 @@
 Delta Function Potential
 June 21, 2015
 
-## Problem Statement
+#### Problem Statement
 Find the wavefunctions and energies of a 1-D particle of mass m in the potential
 \begin{equation}
 V(x) = V\_0 a \delta(x),
 \end{equation}
 
-## Solution
+##### Solution
 So we want to solve the Schrodinger equation
 \begin{equation}
 -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x) + V(x)\psi(x) = E\psi(x),
@@ -24,11 +24,11 @@ where $k$ is not necessarily real and defined by
 Our two general boundary conditions are given by the continuity of the wavefunction at $x=0$ and if we integrate both sides of the Schrodinger equation from $-\epsilon $ to $\epsilon$ where $\epsilon \to 0$, we must retain equality.  More explicitly, we have that
 \begin{align}
 \psi\_-(0)&=\psi\_+(0)\\
--\frac{\hbar^2}{2m}\int\_{-\epsilon}^\epsilon \psi''(x)\, dx + \int\_{-\epsilon}^\epsilon V_0 a \delta(x) \psi(x)\,dx &= \int\_{-\epsilon}^\epsilon E\psi(x),
+-\frac{\hbar^2}{2m}\int\_{-\epsilon}^\epsilon \psi''(x)\, dx + \int\_{-\epsilon}^\epsilon V\_0 a \delta(x) \psi(x)\,dx &= \int\_{-\epsilon}^\epsilon E\psi(x),
 \end{align}
 and we can simplify the equation by noting that $\psi$ is continuous, thus $\int\_{-\epsilon}^\epsilon E\psi(x)=0$ and by using the definition of the delta function, we get for the second condition
 \begin{equation}
--\frac{\hbar^2}{2m}[\psi'(x)]\_{-\epsilon}^\epsilon + V_0 a \psi(0) = 0,
+-\frac{\hbar^2}{2m}[\psi'(x)]\_{-\epsilon}^\epsilon + V\_0 a \psi(0) = 0,
 \end{equation}
 which leads to the two conditions
 \begin{align}
@@ -37,7 +37,7 @@ B &=D\\
 \frac{\hbar^2k}{2m}[C-A]&=V\_0aB
 \end{align}
 Now we must consider the cases of a bound state and a scattering state.
-## Bound State
+##### Bound State
 For this state, we require the wavefunction be normalizable, so we require that
 \begin{equation}
 \lim\_{x\to \pm \infty}\psi(x) = 0.
@@ -74,5 +74,5 @@ and so using the fact that $B=-C$, we get that
 \psi(x) = Be^{-\kappa |x|},
 \end{equation}
 and we could determine $B$ by normalization.
-## Scattering States
+##### Scattering States
 For these states, we can project onto the delta states which gives the idea of a forward and backward traveling state.
