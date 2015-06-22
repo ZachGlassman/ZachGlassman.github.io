@@ -5,8 +5,7 @@ Riemann sums are one of the first things learned when beginning the study of int
 
 First we will consider a straight line with equation $f(x) = sx$, a straight line with slope $s$.  We can plot it as shown in the following figure.  You can play around with the slope by moving the slider.
 
-So now we want to *integrate* this simple function, but what does that mean?  If we look up integrate on google, we get
-> #### integrate
+
 <script src = "/Graphs/lineplot.js"></script>
 <div class="plotdiv" id="17d2cbeb-5f32-4f5b-b626-29ad385fc246"></div>
 So now we want to *integrate* this simple function, but what does that mean?  If we look up integrate on google, we get
@@ -36,8 +35,7 @@ The plot below shows the problem we are trying to solve where $R$ is the blue re
 
 For this specific case, the region is always composed of two right triangular regions, one red, one blue.  We can use the formula for the area of a triangle which is
 $$ A = \frac{ h \times b}{2},$$
-where $h$ is the height and $b$ is the base of the triangle (not to be confused with $b$ the right bound of integration), to compute this area.  For both regions, we know that the base of the triangle is $b=5$. The height for the blue side is $f(5)=5s$ and the height for the red side is $f(-5)= -5s$.  So the region is given as
-$$R = A_{blue}-A_{red} = \frac{25s}{2}-\frac{25s}{2}=0,$$
+where $h$ is the height and $b$ is the base of the triangle (not to be confused with $b$ the right bound of integration), to compute this area.  For both regions, we know that the base of the triangle is $b=5$. The height for the blue side is $f(5)=5s$ and the height for the red side is $f(-5)= -5s$.  So the region is given as $$R = A_{blue}-A_{red} = \frac{25s}{2}-\frac{25s}{2}=0,$$
 so in this case, the solution to the integral problem is zero.
 
 Lets take a moment and see if this is surprising.  We know that the function $f(x)=sx$ is anti-symmetric with respect to reflection over the $y$ axis in the sense that $f(x) = -f(-x)$.  So it makes sense if we take any region where $a=-b$, then the areas will always exactly cancel each other out.  However, if $a\neq -b$, then we will get a non-zero answer.
@@ -65,7 +63,7 @@ More formally, divide the interval $[a,b]$ into $n$ subintervals, which all have
 $$\Delta x = \frac{b-a}{n}.$$
 This is usually referred to as a *parition* of the interval.  We can write out the elements of the partition as
 $$P = \{a,a+\Delta x, a + 2\Delta x,\dots,a + (n-1)\Delta x, b\}$$
-We can then define the left Riemann sum as the approximation where we take the value of the function at the left of each element of the parition $p_i$ and create a rectange with one side $f(p_i)$ and the other side $\Delta x$.  So we then form the Left Riemann sum
+We can then define the left Riemann sum as the approximation where we take the value of the function at the left of each element of the parition $p_{i}$ and create a rectange with one side $f(p_i)$ and the other side $\Delta x$.  So we then form the Left Riemann sum
 $$S = \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1}).$$
 If we replace $f(x_{i-1})$ with $f(x_{i})$ in this expression, we get the right Riemann sum.  In principle, we could use any value $f(x^*)$ with the caveat that
 $$x_{i-1}\leq x^* \leq x_{i}$$
