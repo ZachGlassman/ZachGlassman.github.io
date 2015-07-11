@@ -36,23 +36,33 @@ os.chdir(path)
 os.chdir('js')
 # we will read in the javascript, then edit it and copy
 with open('main.js','r') as fp:
-    data = fp.readlines()
-#we have marked javascript where we want to replace it
-indEnd = data.index('//end replace\n')
-indStart = data.index('//begin replace\n')
-#now write it all to file
-with open('main.js','w') as fp:
-    for i in data[:indStart+1]:
-        fp.write(i)
-    for i in range(high_num,-1,-1):
-        fp.write(blogC[i].__str__() + ',\n')
-        '''
-        outstr = blogC[i].__str__()[:-1]
-        outstr += ','+ 'content'.__repr__() + ':'
-        outstr +=  '$scope.s' + str(i)+' = $sce.trustAsHtml('+content[i].__repr__() + ')}'
-        fp.write('    ' + outstr+ ',\n')
-        '''
-    for i in data[indEnd:]:
-        fp.write(i)
-        
-print('File Written')
+    data1 = fp.readlines()
+
+#keep copy
+data = data1
+try:
+    #we have marked javascript where we want to replace it
+    indEnd = data.index('//end replace\n')
+    indStart = data.index('//begin replace\n')
+    #now write it all to file
+    with open('main.js','w') as fp:
+        for i in data[:indStart+1]:
+            fp.write(i)
+        for i in range(high_num,-1,-1):
+            fp.write(blogC[i].__str__() + ',\n')
+            '''
+            outstr = blogC[i].__str__()[:-1]
+            outstr += ','+ 'content'.__repr__() + ':'
+            outstr +=  '$scope.s' + str(i)+' = $sce.trustAsHtml('+content[i].__repr__() + ')}'
+            fp.write('    ' + outstr+ ',\n')
+            '''
+        for i in data[indEnd:]:
+            fp.write(i)
+            
+    print('File Written')
+except:
+    with open('main.js','w') as fp:
+        for i in data1:
+            fp.write(i)
+    
+    print('File not written, old record restored')

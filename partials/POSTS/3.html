@@ -1,0 +1,26 @@
+Fractals, Recursion, Tikz
+July 11, 2015
+
+Fractals are mathematical objects which have many interesting and visually stunning properties.  Often these can be represented through recurseive algorithms.  This post will attempt to explain how to make some beautiful, recursively drawn fractals using Tikz, a $\\LaTeX$ drawing package.  For more information on $\\LaTeX$, check out the tutorial on my projects page.
+
+## Recursion
+Recursion is quite generally a process which repeats itself in a self similiar way.  There are many examples of recursion in computer science, but perhaps the most basic is the computation of the factorial, denote $n!$.
+
+We define the factorial function as
+$$ n! = n(n-1)(n-2)\\dots (2)(1),$$
+and we make the assumption that $0! = 1$.
+
+We can compute this factorial in two different ways, one is to enumerate all the numbers less than $n$ and then multiply them together.  Or we can notice that $ n! = n*(n-1)! $, for all $n$.  This recursive  definition allows us to define a function of $n$ in terms of the function itself.  As long as we have a base case which allows the recursion to stop, this is a perfectly valid procedure.  We can write some python code to compute this as
+
+
+    def factorial(n):
+        """return the n!"""
+        if n < 1:
+            return 1
+        else:
+            return n * factorial(n-1)
+
+            
+Of course, this assumes we are inputing $n$ as a positive integer.
+
+
