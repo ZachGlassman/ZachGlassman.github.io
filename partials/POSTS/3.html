@@ -3,7 +3,7 @@ July 11, 2015
 
 Fractals are mathematical objects which have many interesting and visually stunning properties.  Often these can be represented through recurseive algorithms.  This post will attempt to explain how to make some beautiful, recursively drawn fractals using Tikz, a $\\LaTeX$ drawing package.  For more information on $\\LaTeX$, check out the tutorial on my projects page.
 
-## Recursion
+### Recursion
 Recursion is quite generally a process which repeats itself in a self similiar way.  There are many examples of recursion in computer science, but perhaps the most basic is the computation of the factorial, denote $n!$.
 
 We define the factorial function as
@@ -23,4 +23,179 @@ We can compute this factorial in two different ways, one is to enumerate all the
             
 Of course, this assumes we are inputing $n$ as a positive integer.
 
+### Fractals
+Fractals are loosely defined as a set which has a repeating pattern at any scale one observes it.  For example, when looking at a pictorial representation, one can zoom in or out arbitrarily many times and see the same pattern.  One famous example is the Sierpinski triangle, which is shown below:
 
+![Sierpinski triangle](/Images/Sierpinski.png "Sierpinski triangle")
+
+Later we will show how to make draw this exact triangle in $\\LaTeX$, but lets first consider the algorithm design behind it.  We start with a single black triangle, divide it into four equilaterial triangle and remove the middle triangle.  This produces
+
+#### Step 1
+![Sierpinski triangle stage 1](/Images/Sierpinski1.png "Sierpinski triangle stage 1")
+
+#### Step 2
+And if we then perform the same operation on each of the inner triangles ,we get the second step,
+
+![Sierpinski triangle stage 2](/Images/Sierpinski2.png "Sierpinski triangle stage 2")
+
+#### Step3
+If we take each of the black triangles, and again perform the original operation, we obtain the next stage:
+
+![Sierpinski triangle stage 3](/Images/Sierpinski3.png "Sierpinski triangle stage 3")
+
+
+So we can see that this is a recursive process where all we need to do is
+
+* Define function $f$ to remove the middle of the triangle
+* Create the large triangle
+* Operate with $f$ on the large triangle
+* Now consider each of the three border triangle the original triangle and continue.
+
+In principle, we can continue the process forever and keep producing the fractal, but in practice we only need a few iterations to produce a good graphic.
+
+### Tikz
+Implementing this is not too dificult now that we have the algorithm.  We will be using tikz which is a graphics package for $\\LaTeX$ which produces high quality graphics.  We will also use the package ifthen which gives us some conditional statements.  Here is the source code, broken up into chunks. It produces all of the pictures shown above, depending on how many steps one recurses. The full code will be at the end of the document.
+
+The first part imports the necessary packages, we use standalone here to just generate an image, but we could just as easily use article and wrap the tikzpicture in a figur environment.  We will need the tikz and ifthem packages, and the calc tikz library to perform coordinate calculations.
+
+    \documentclass{standalone}
+    \usepackage{tikz,ifthen}
+    \usetikzlibrary{calc}
+    
+Here we begin the document and define two triangles, one up and one down.  Each take four arguments which are x,y,length,color, where
+
+* x - x coordinate of lower left corner
+* y - y coordinate of lower left corner
+* length - length of side
+* color - fill color
+
+Remember that tikz commands such as these can be thought of as macros to insert the code they contain whenever called.  We do not need to use these, however, they will save us a large amount of work.
+
+    \begin{document}
+    \newcommand{\drawtri}[4]{
+        \pgfmathsetmacro\xone{#1+#3}
+        \pgfmathsetmacro\xtwo{#1+#3/2}
+        \pgfmathsetmacro\yone{#2 + #3/2 *1.732050807568877}
+        \draw[fill = #4](#1,#2)--(\xone,#2)--(\xtwo,\yone)--cycle;
+    }
+    
+    \newcommand{\drawdowntri}[4]{
+        \pgfmathsetmacro\xone{#1+#3}
+        \pgfmathsetmacro\xtwo{#1+#3/2}
+        \pgfmathsetmacro\yone{#2 - #3/2 *1.732050807568877}
+        \draw[fill = #4](#1,#2)--(\xone,#2)--(\xtwo,\yone)--cycle;
+    }
+    
+Now we define the command \sierpinskitriangle to draw the fractal.  Its arguments are (n,x,y,length), where the n is the recursion level and x,y,length the parameters to draw the first inner triangles.  The algorithm goes like this,
+
+1. Check if we are at the max recursion limit, if we are, complete function.
+2. If not at recursion limit then calculate the three lower left corners of the outer triangles, draw triangles there and call \sierpinskitriangle with length divided by two and n incremented by one.
+3. Clean up middle triangle by drawing white triangle over whatever is already there.
+
+Here is the relevant code:
+
+    \newcommand{\sierpinskitriangle}[4]{
+        \ifthenelse{#1 = 6}
+            {
+                
+            }
+            {
+                {
+                    \pgfmathtruncatemacro{\newn}{#1+1}
+                    \pgfmathsetmacro\coln{#1*10}
+                    \pgfmathsetmacro\newl{#4/2}
+                    \drawtri{#2}{#3}{\newl}{black}
+                    \sierpinskitriangle{\newn}{#2}{#3}{\newl}
+                }
+                    %second
+                {
+                    \pgfmathtruncatemacro{\newn}{#1+1}
+                    \pgfmathsetmacro\coln{#1*10}
+                    \pgfmathsetmacro\newx{#2 + #4/2}
+                    \pgfmathsetmacro\newl{#4/2}
+                    \drawtri{\newx}{#3}{\newl}{black}
+                    \sierpinskitriangle{\newn}{\newx}{#3}{\newl}
+                }
+                {
+                    \pgfmathtruncatemacro{\newn}{#1+1}
+                    \pgfmathsetmacro\coln{#1*10}
+                    \pgfmathsetmacro\newx{#2 + #4/4}
+                    \pgfmathsetmacro\newy{#3 + #4/4*1.732050807568877}
+                    \pgfmathsetmacro\newl{#4/2}
+                    \drawtri{\newx}{\newy}{\newl}{black}
+                    \sierpinskitriangle{\newn}{\newx}{\newy}{\newl}
+                }
+                \pgfmathsetmacro\newx{#2 + #4/4}
+                \pgfmathsetmacro\newy{#3 + #4/4*1.732050807568877}
+                \pgfmathsetmacro\newl{#4/2}
+                \drawdowntri{\newx}{\newy}{\newl}{white}
+            }}
+       
+Now we actually draw the picture and end the document.
+
+    \begin{tikzpicture}
+    \sierpinskitriangle{0}{0}{0}{10}
+    \end{tikzpicture}
+    \end{document}
+    
+So we have drawn the complete fractal using recursion and tikz.  For convenience, here is the complete source code
+
+    \begin{document}
+    \newcommand{\drawtri}[4]{
+        \pgfmathsetmacro\xone{#1+#3}
+        \pgfmathsetmacro\xtwo{#1+#3/2}
+        \pgfmathsetmacro\yone{#2 + #3/2 *1.732050807568877}
+        \draw[fill = #4](#1,#2)--(\xone,#2)--(\xtwo,\yone)--cycle;
+    }
+    
+    \newcommand{\drawdowntri}[4]{
+        \pgfmathsetmacro\xone{#1+#3}
+        \pgfmathsetmacro\xtwo{#1+#3/2}
+        \pgfmathsetmacro\yone{#2 - #3/2 *1.732050807568877}
+        \draw[fill = #4](#1,#2)--(\xone,#2)--(\xtwo,\yone)--cycle;
+    }
+    
+
+    \newcommand{\sierpinskitriangle}[4]{
+        \ifthenelse{#1 = 6}
+            {
+                
+            }
+            {
+                {
+                    \pgfmathtruncatemacro{\newn}{#1+1}
+                    \pgfmathsetmacro\coln{#1*10}
+                    \pgfmathsetmacro\newl{#4/2}
+                    \drawtri{#2}{#3}{\newl}{black}
+                    \sierpinskitriangle{\newn}{#2}{#3}{\newl}
+                }
+                    %second
+                {
+                    \pgfmathtruncatemacro{\newn}{#1+1}
+                    \pgfmathsetmacro\coln{#1*10}
+                    \pgfmathsetmacro\newx{#2 + #4/2}
+                    \pgfmathsetmacro\newl{#4/2}
+                    \drawtri{\newx}{#3}{\newl}{black}
+                    \sierpinskitriangle{\newn}{\newx}{#3}{\newl}
+                }
+                {
+                    \pgfmathtruncatemacro{\newn}{#1+1}
+                    \pgfmathsetmacro\coln{#1*10}
+                    \pgfmathsetmacro\newx{#2 + #4/4}
+                    \pgfmathsetmacro\newy{#3 + #4/4*1.732050807568877}
+                    \pgfmathsetmacro\newl{#4/2}
+                    \drawtri{\newx}{\newy}{\newl}{black}
+                    \sierpinskitriangle{\newn}{\newx}{\newy}{\newl}
+                }
+                \pgfmathsetmacro\newx{#2 + #4/4}
+                \pgfmathsetmacro\newy{#3 + #4/4*1.732050807568877}
+                \pgfmathsetmacro\newl{#4/2}
+                \drawdowntri{\newx}{\newy}{\newl}{white}
+            }
+    }
+       
+
+    \begin{tikzpicture}
+    \sierpinskitriangle{0}{0}{0}{10}
+    \end{tikzpicture}
+    \end{document}
