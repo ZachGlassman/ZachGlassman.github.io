@@ -94,7 +94,7 @@ module.directive('math', function() {
         if (!value) return;
         elem.html(value);
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, elem[0]]);
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub, elem[0]]);
       });
     }
   };
