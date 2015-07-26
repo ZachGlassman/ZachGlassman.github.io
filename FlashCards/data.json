@@ -1,4 +1,4 @@
-[{ "Front":"Probability of wavefunction.", "Back":"|\\psi^*\\psi|^2" },
- { "Front":"build an angular app", "Back":"TRY"},
+[{ "Front":"Probability of wavefunction.", "Back":"$|\\psi^*\\psi|^2$" },
+ { "Front":"Time Independant Shrodinger Equation", "Back":""},
  { "Front":"something", "Back":"TRY" },
  { "Front":"another todo", "Back":"TRY" }]
