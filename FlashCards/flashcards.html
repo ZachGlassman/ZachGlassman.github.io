@@ -113,10 +113,10 @@ module.directive('math', function() {
             </div>
         </div>
     </div>
-    <button ng-click="lowerIndex() ; isFlipped=False;render()">
+    <button ng-click="isFlipped=False;lowerIndex()">
       Back
     </button>
-    <button ng-click="raiseIndex(); isFlipped=False; render()">
+    <button ng-click="isFlipped=False;raiseIndex()">
       Next
     </button>
 </div>
