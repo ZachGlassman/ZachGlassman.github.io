@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+<style  type = "text/css">
+    body {
+     background: #ccc;
+    }
+    .flip {
+      -webkit-perspective: 800;
+       width: 800px;
+       height: 400px;
+        position: relative;
+        margin: 50px auto;
+    }
+    .flip .card.flipped {
+      -webkit-transform: rotatex(-180deg);
+    }
+    .flip .card {
+      width: 100%;
+      height: 100%;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: 0.5s;
+    }
+    .flip .card .face {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -webkit-backface-visibility: hidden ;
+      z-index: 2;
+        font-family: Georgia;
+        font-size: 3em;
+        text-align: center;
+        line-height: 200px;
+    }
+    .flip .card .front {
+      position: absolute;
+      z-index: 1;
+        background: black;
+        color: white;
+        cursor: pointer;
+    }
+    .flip .card .back {
+      -webkit-transform: rotatex(-180deg);
+        background: blue;
+        background: white;
+        color: black;
+        cursor: pointer;
+    }
+</style>
+    
+    <script>
+        var module = angular.module('flip', []);
+
+module.controller('flipCtrl', function($scope,$http) {
+    $http.get('data.json')
+       .then(function(res){
+          $scope.data = res.data;
+        });
+        
+        
+    $scope.index = 0;
+    $scope.raiseIndex = function(){
+        if($scope.index < $scope.data.length-1){
+            $scope.index = $scope.index+1;
+        }
+    }
+    $scope.lowerIndex = function(){
+        if($scope.index > 0){
+            $scope.index = $scope.index-1;
+        }
+        
+    }
+    
+});
+
+module.directive('math', function() {
+  return {
+    restrict: 'EA',
+    scope: {
+      math: '@'
+    },
+    link: function(scope, elem, attrs) {
+      scope.$watch('math', function(value) {
+        if (!value) return;
+        elem.html(value);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, elem[0]]);
+      });
+    }
+  };
+});
+
+</script>
+  </head>
+  <body>
+    <div ng-app="flip" ng-controller="flipCtrl">
+    <div class="flip">
+        <div class="card" ng-class="{'flipped':isFlipped}" ng-click="isFlipped=!isFlipped">
+            <div class="face front">
+                <span math ={{data[index].Front}}></span>
+            </div>
+            <div class="face back">
+                <span math ={{data[index].Back}}></span>
+            </div>
+        </div>
+    </div>
+    <button ng-click="lowerIndex() ; isFlipped=False;render()">
+      Back
+    </button>
+    <button ng-click="raiseIndex(); isFlipped=False; render()">
+      Next
+    </button>
+</div>
+  </body>
+</html>
