@@ -15,12 +15,31 @@ MathJax.Hub.Config({
     body {
      background: #ccc;
     }
+    
+    .buttons {
+        text-align: center;
+    }
+    
+    .btn {
+	display: inline-block;
+	background-color: #eee;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 10px 30px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom-width: 3px;
+    }
+    
     .flip {
       -webkit-perspective: 800;
        width: 800px;
        height: 400px;
-        position: relative;
-        margin: 50px auto;
+       position: relative;
+       margin: 50px auto;
     }
     .flip .card.flipped {
       -webkit-transform: rotatex(-180deg);
@@ -36,9 +55,8 @@ MathJax.Hub.Config({
       height: 100%;
       position: absolute;
       -webkit-backface-visibility: hidden ;
-      z-index: 2;
-        font-family: Georgia;
-        font-size: 3em;
+        z-index: 2;
+        font-size: 2em;
         text-align: center;
         line-height: 200px;
     }
@@ -78,7 +96,10 @@ module.controller('flipCtrl', function($scope,$http) {
         if($scope.index > 0){
             $scope.index = $scope.index-1;
         }
-        
+    }
+    
+    $scope.randIndex = function(){
+        $scope.index = Math.floor(Math.random() * ($scope.data.length-1));
     }
     
 });
@@ -114,12 +135,17 @@ module.directive('math', function() {
             </div>
         </div>
     </div>
-    <button ng-click="isFlipped=False;lowerIndex()">
-      Back
-    </button>
-    <button ng-click="isFlipped=False;raiseIndex()">
-      Next
-    </button>
+    <div class = 'buttons'>
+        <button class = 'btn' ng-click="isFlipped=False;lowerIndex()">
+            Back
+        </button>
+        <button class = 'btn' ng-click="isFlipped=False;randIndex()">
+            Random
+        </button>
+        <button class = 'btn' ng-click="isFlipped=False;raiseIndex()">
+            Next
+        </button>
+    </div>
 </div>
   </body>
 </html>
