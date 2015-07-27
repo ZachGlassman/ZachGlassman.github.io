@@ -5,33 +5,33 @@ $\hat{H}\psi=E\psi$
 Born Approximation
 $$f^{(1)}(\vec{k},\vec{k}') = -\frac{1}{4\pi}\frac{m}{\hbar^2}\int e^{-i(\vec{k}'-\vec{k})\cdot \vec x}V(\vec{x})\,d^3\vec{x}$$
 Spherically Symmetric Born Approximation
-$f^{(1)}(\theta) =-\frac{2m}{\hbar^2}\frac{1}{q}\int_0^\infty rV(r)\sin(qr)\,dr$, <br> where $q = 2k\sin\left(\frac{\theta}{2}\right)$.
+$$f^{(1)}(\theta) =-\frac{2m}{\hbar^2}\frac{1}{q}\int_0^\infty rV(r)\sin(qr)\,dr$, <br> where $q = 2k\sin\left(\frac{\theta}{2}\right)$$.
 Yukawa Potential Scattering <br> $V(r) = V_0 \frac{e^{-\mu r}}{\mu r}$.
-$f^{(1)}(\theta) = \left(\frac{2mV_0}{\mu h^2}\right)\frac{1}{q^2+u^2}.$
+$$f^{(1)}(\theta) = \left(\frac{2mV_0}{\mu h^2}\right)\frac{1}{q^2+u^2}.$$
 Validity of Born Approximation
 $\left|\frac{2m}{\hbar^2}\frac{1}{4\pi}\int d^3 x'\, \frac{e^{ikr'}}{r'}V(\vec{x}')e^{i\vec{k}\cdot \vec{x}'}\right| \ll 1.$
 Optical Theorem
-$\sigma_{tot} = \frac{4\pi}{k}\text{Im}[f(\theta=0)]$
+$$\sigma_{tot} = \frac{4\pi}{k}\text{Im}[f(\theta=0)]$$
 Partial Wave scattering amplitude
-$f(\theta) = \frac{1}{k}\sum_l (2l+1)e^{i\delta_l}\sin\delta_lP_l(\cos\theta)$
+$$f(\theta) = \frac{1}{k}\sum_l (2l+1)e^{i\delta_l}\sin\delta_lP_l(\cos\theta)$$
 Partial Wave Total Cross Section
-$\sigma_{tot} = \frac{4\pi}{k^2}\sum_l(2l+1)\sin^2\delta_l.$
+$$\sigma_{tot} = \frac{4\pi}{k^2}\sum_l(2l+1)\sin^2\delta_l.$$
 Asymtotic radial wave function for partial wave analysis
-$A_l(r) = e^{i\delta_l}[\cos\delta_l j_l(kr) - \sin\delta_ln_l(kr)].$
+$$A_l(r) = e^{i\delta_l}[\cos\delta_l j_l(kr) - \sin\delta_ln_l(kr)].$$
 Scattering Length
-$-\frac{1}{a} = \lim_{k\to 0}k\cot\delta_0$ <br> where $a$ is the scattering length.
+$$-\frac{1}{a} = \lim_{k\to 0}k\cot\delta_0$$ <br> where $a$ is the scattering length.
 Non-Degenerate Time-Independent first order energy shift and correction.
-$\Delta_n^{(1)} = \langle n^{(0)}|V|n^{(0)}\rangle$ <br> $|n^{(1)}\rangle = \sum_{k\neq n} \frac{\langle k^{(0)}|V|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle$ <br> where $V$ is pertubation.
+$$\Delta_n^{(1)} = \langle n^{(0)}|V|n^{(0)}\rangle$ <br> $|n^{(1)}\rangle = \sum_{k\neq n} \frac{\langle k^{(0)}|V|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle$$ <br> where $V$ is pertubation.
 Non-Degenerate Time-Independent second order energy shift
-$\Delta_n^{(2)} = \sum_{k\neq n} \frac{|\langle k^{(0)}|V|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}$ <br> where $V$ is pertubation.
+$$\Delta_n^{(2)} = \sum_{k\neq n} \frac{|\langle k^{(0)}|V|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}$$ <br> where $V$ is pertubation.
 Wavefunction probability current
-$\vec{j} = \frac{-i\hbar}{2m}(\psi^*\nabla\psi - \psi \nabla \psi^*)$
+$$\vec{j} = \frac{-i\hbar}{2m}(\psi^*\nabla\psi - \psi \nabla \psi^*)$$
 Fourier Transform of particle in 3D
-$\phi(\vec p} = \frac{1}{\sqrt{2\pi\hbar}}\int d^3\vec{r}\,e^{-i\vec{p}\cdot \vec{r}/\hbar}\psi(\vec{r})$<br> $\psi(\vec{r}) = \frac{1}{\sqrt{2\pi\hbar}}\int d^3\vec{p}\, e^{i\vec{p}\cdot \vec{r}/\hbar}\phi(\vec{p})$
+$$\phi(\vec p} = \frac{1}{\sqrt{2\pi\hbar}}\int d^3\vec{r}\,e^{-i\vec{p}\cdot \vec{r}/\hbar}\psi(\vec{r})$$<br> $$\psi(\vec{r}) = \frac{1}{\sqrt{2\pi\hbar}}\int d^3\vec{p}\, e^{i\vec{p}\cdot \vec{r}/\hbar}\phi(\vec{p})$$
 Time-dependent Shrodinger Equation
 $i\hbar \frac{\partial}{\partial t}\psi = \hat{H}\psi$
 Heisenberg Equation
-$\frac{d}{dt}\hat{A}(t) = \frac{i}{\hbar}[\hat{H},\hat{A}(t)]+\frac{\partial \hat{A}(t)}{\partial t}$.
+$$\frac{d}{dt}\hat{A}(t) = \frac{i}{\hbar}[\hat{H},\hat{A}(t)]+\frac{\partial \hat{A}(t)}{\partial t}$$.
 Time evolution of operator expectation in Heisenberg picture
 $\frac{d}{dt}\langle \hat{A}\rangle = \frac{1}{i\hbar}\langle [\hat{A},\hat{H}]\rangle+\left\langle \frac{\partial \hat A}{\partial t}\right\rangle.$
 Single Particle Hamiltonian
