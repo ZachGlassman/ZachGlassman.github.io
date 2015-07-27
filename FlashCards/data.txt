@@ -1,6 +1,6 @@
 Probability of wavefunction.
 $|\psi^*\psi|^2$
-Time Independant Shrodinger Equation
+Time Independent Shrodinger Equation
 $\hat{H}\psi=E\psi$
 Born Approximation
 $f^{(1)}(\vec{k},\vec{k}') = -\frac{1}{4\pi}\frac{m}{\hbar^2}\int e^{-i(\vec{k}'-\vec{k})\cdot \vec x}V(\vec{x})\,d^3\vec{x}$
@@ -10,3 +10,15 @@ Yukawa Potential Scattering <br> $V(r) = V_0 \frac{e^{-\mu r}}{\mu r}$.
 $f^{(1)}(\theta) = \left(\frac{2mV_0}{\mu h^2}\right)\frac{1}{q^2+u^2}.$
 Validity of Born Approximation
 $\left|\frac{2m}{\hbar^2}\frac{1}{4\pi}\int d^3 x'\, \frac{e^{ikr'}}{r'}V(\vec{x}')e^{i\vec{k}\cdot \vec{x}'}\right| \ll 1.$
+Optical Theorem
+$\sigma_{tot}$ = \frac{4\pi}{k}\text{Im}[f(\theta=0)]$
+Partial Wave scattering amplitude
+$f(\theta) = \frac{1}{k}\sum_l (2l+1)e^{i\delta_l}\sin\delta_lP_l(\cos\theta)$
+Partial Wave Total Cross Section
+$\sigma_{tot} = \frac{4\pi}{k^2}\sum_l(2l+1)\sin^2\delta_l.$
+Asymtotic radial wave function for partial wave analysis
+$A_l(r) = e^{i\delta_l}[\cos\delta_l j_l(kr) - \sin\delta_ln_l(kr)].$
+Scattering Length
+$-\frac{1}{a} = \lim_{k\to 0}k\cot\delta_0$ <br> where $a$ is the scattering length.
+Non-Degenerate Time-Independent first order energy shift and correction.
+$\Delta_n^{(1)} = \langle n^{(0)}|V|n^{(0)}\rangle$ <br> $|n^{(1)}\rangle = \sum_{k\neq n} \frac{\langle k^{0}|V|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle$ <br> where $V$ is pertubation.
