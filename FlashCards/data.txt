@@ -34,3 +34,34 @@ Heisenberg Equation
 $\frac{d}{dt}\hat{A}(t) = \frac{i}{\hbar}[\hat{H},\hat{A}(t)]+\frac{\partial \hat{A}(t)}{\partial t}$.
 Time evolution of operator expectation in Heisenberg picture
 $\frac{d}{dt}\langle \hat{A}\rangle = \frac{1}{i\hbar}\langle [\hat{A},\hat{H}]\rangle+\left\langle \frac{\partial \hat A}{\partial t}\right\rangle.$
+Single Particle Hamiltonian
+$\hat{H} = \frac{\hat{p}^2}{2m}+V(\vec{x}) = -\frac{\hbar^2}{2m}\nabla^2+V(\vec{x})$.
+1-D momentum operator in position basis
+$\hat{p} = -i\hbar \frac{d}{dx}$
+De Broglie relation
+$p=\frac{hf}{c} = \frac{h}{\lambda}$.
+Heisenberg Uncertainty relationship
+$\sigma(A)\sigma(B) \geq \frac{1}{2}\langle i[\hat{A},\hat{B]]\rangle.$
+Variance calculation (Dispersion)
+$\sigma(A)^2 = \langle A^2\rangle - \langle A \rangle^2.$
+Density of states in 1d,2d,3d of particle in a box
+3D-$g(E)=\frac{8\pi\sqrt{2}}{h^3}m^{3/2}\sqrt{E}$<br>2D-$g(E) =frac{2\pi m a^2}{h^2}$, where $a$ is dimension. <br> 1D-$g(E)=\frac{a\sqrt{8m}}{2h\sqrt{E}}$.
+Fermi-Dirac Distribution (fermions)
+$P(E_i) = \frac{g(E_i)}{e^{\beta(E-\mu)}+1}$<br> $\beta = 1/k_BT$.
+Bose-Einstein Distribution (bosons)
+$P(E_i) = \frac{g(E_i)}{e^{\beta(E-\mu)}-1}$<br> $\beta = 1/k_BT$.
+Magnitude of angular momentum operator $\hat{J}$.
+$|\hat{J}| = \hbar\sqrt{j(j+1)}$.
+Angular momentum eigenvalue $J_z$
+$J_z \langle j,m_j\rangle = m_j\hbar \langle j,m_j\rangle$.
+Angular momentum eigenvalue $J^2$
+$J^2\langle j,m_j\rangle = \hbar^2j(j+1) \langle j,m_j\rangle$.
+Energy levels of hydrogen atom
+$E_n = -\frac{me^4}{8\epsilon_0h^2n^2}= \frac{13.61eV}{n^2]$.
+Angular momentum commutation relatons
+$[L_l,L_m]=i\hbar \sum_{n=1}^3 \epsilon_{lmn}L_n$ <br>
+ex. $[L_x,L_y] =i\hbar L_z$.
+$[L^2,L_i]$ $i=x,y,z$.
+$0$.
+Ladder operators
+$J_+ = J_x + iJ_y\, ;\, J_- = J_x - iJ_y$.
