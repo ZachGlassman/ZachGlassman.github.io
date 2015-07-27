@@ -22,3 +22,5 @@ Scattering Length
 $-\frac{1}{a} = \lim_{k\to 0}k\cot\delta_0$ <br> where $a$ is the scattering length.
 Non-Degenerate Time-Independent first order energy shift and correction.
 $\Delta_n^{(1)} = \langle n^{(0)}|V|n^{(0)}\rangle$ <br> $|n^{(1)}\rangle = \sum_{k\neq n} \frac{\langle k^{0}|V|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle$ <br> where $V$ is pertubation.
+Non-Degenerate Time-Independent second order energy shift
+$\Delta_n^{(2)} = \sum_{k\neq n} \frac{|\langle k^{0}|V|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle$ <br> where $V$ is pertubation.
