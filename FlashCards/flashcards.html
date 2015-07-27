@@ -134,6 +134,9 @@ module.directive('math', function() {
                 <span math ={{data[index].Back}}></span>
             </div>
         </div>
+        <div class = 'buttons'>
+            Card {{index}} of {{data.length}}.
+        </div>
     </div>
     <div class = 'buttons'>
         <button class = 'btn' ng-click="isFlipped=False;lowerIndex()">
