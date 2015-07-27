@@ -26,3 +26,11 @@ Non-Degenerate Time-Independent second order energy shift
 $\Delta_n^{(2)} = \sum_{k\neq n} \frac{|\langle k^{(0)}|V|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}$ <br> where $V$ is pertubation.
 Wavefunction probability current
 $\vec{j} = \frac{-i\hbar}{2m}(\psi^*\nabla\psi - \psi \nabla \psi^*)$
+Fourier Transform of particle in 3D
+$\phi(\vec p} = \frac{1}{\sqrt{2\pi\hbar}}\int d^3\vec{r}\,e^{-i\vec{p}\cdot \vec{r}/\hbar}\psi(\vec{r})$<br> $\psi(\vec{r}) = \frac{1}{\sqrt{2\pi\hbar}}\int d^3\vec{p}\, e^{i\vec{p}\cdot \vec{r}/\hbar}\phi(\vec{p})$
+Time-dependent Shrodinger Equation
+$i\hbar \frac{\partial}{\partial t}\psi = \hat{H}\psi$
+Heisenberg Equation
+$\frac{d}{dt}\hat{A}(t) = \frac{i}{\hbar}[\hat{H},\hat{A}(t)]+\frac{\partial \hat{A}(t)}{\partial t}$.
+Time evolution of operator expectation in Heisenberg picture
+$\frac{d}{dt}\langle \hat{A}\rangle = \frac{1}{i\hbar}\langle [\hat{A},\hat{H}]\rangle+\left\langle \frac{\partial \hat A}{\partial t}\right\rangle.$
