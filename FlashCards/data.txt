@@ -1,5 +1,5 @@
 Probability of wavefunction.
-$|\psi^*\psi|^2$
+$|\psi|^2 = \psi^*\psi$
 Time Independent Shrodinger Equation
 $\hat{H}\psi=E\psi$
 Born Approximation
@@ -24,3 +24,5 @@ Non-Degenerate Time-Independent first order energy shift and correction.
 $\Delta_n^{(1)} = \langle n^{(0)}|V|n^{(0)}\rangle$ <br> $|n^{(1)}\rangle = \sum_{k\neq n} \frac{\langle k^{(0)}|V|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle$ <br> where $V$ is pertubation.
 Non-Degenerate Time-Independent second order energy shift
 $\Delta_n^{(2)} = \sum_{k\neq n} \frac{|\langle k^{(0)}|V|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}$ <br> where $V$ is pertubation.
+Wavefunction probability current
+$\vec{j} = \frac{-i\hbar}{2m}(\psi^*\nabla\psi - \psi \nabla \psi^*)$
