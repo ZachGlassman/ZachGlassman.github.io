@@ -3,9 +3,9 @@ $|\psi|^2 = \psi^*\psi$
 Time Independent Shrodinger Equation
 $\hat{H}\psi=E\psi$
 Born Approximation
-$$f^{(1)}(\vec{k},\vec{k}') = -\frac{1}{4\pi}\frac{m}{\hbar^2}\int e^{-i(\vec{k}'-\vec{k})\cdot \vec x}V(\vec{x})\,d^3\vec{x}$$
+$$f^{(1)}(\vec{k},\vec{k}') = -\frac{1}{4\pi}\frac{2m}{\hbar^2}\int e^{-i(\vec{k}'-\vec{k})\cdot \vec x}V(\vec{x})\,d^3\vec{x}$$
 Spherically Symmetric Born Approximation
-$$f^{(1)}(\theta) =-\frac{2m}{\hbar^2}\frac{1}{q}\int_0^\infty rV(r)\sin(qr)\,dr$, <br> where $q = 2k\sin\left(\frac{\theta}{2}\right)$$.
+$$f^{(1)}(\theta) =-\frac{2m}{\hbar^2}\frac{1}{q}\int_0^\infty rV(r)\sin(qr)\,dr$$, <br> where $q = 2k\sin\left(\frac{\theta}{2}\right)$.
 Yukawa Potential Scattering <br> $V(r) = V_0 \frac{e^{-\mu r}}{\mu r}$.
 $$f^{(1)}(\theta) = \left(\frac{2mV_0}{\mu h^2}\right)\frac{1}{q^2+u^2}.$$
 Validity of Born Approximation
@@ -59,8 +59,22 @@ $J^2| j,m_j\rangle = \hbar^2j(j+1) | j,m_j\rangle$.
 Energy levels of hydrogen atom
 $E_n = -\frac{me^4}{8\epsilon_0h^2n^2}= \frac{13.61eV}{n^2}$.
 Angular momentum commutation relatons
-$$[L_l,L_m]=i\hbar \sum_{n=1}^3 \epsilon_{lmn}L_n$ <br> ex. $[L_x,L_y] =i\hbar L_z$$.
+$$[L_l,L_m]=i\hbar \sum_{n=1}^3 \epsilon_{lmn}L_n$$ <br> ex. $[L_x,L_y] =i\hbar L_z$.
 $[L^2,L_i]$ where $i=x,y,z$.
 $0$.
 Ladder operators
 $J_+ = J_x + iJ_y\, ;\, J_- = J_x - iJ_y$.
+${n \choose k}$
+$$\frac{n!}{k!(n-k)!}$$
+Stirling's Apprximation
+$$\ln(n!) = n\ln(n)-n$$
+Microcanonical Entrop
+$$S = k_B \ln \Omega,$$ <br> where $\Omega$ is number of microstates.
+Zeroth law of Thermodynamics
+If systems A and B are in thermal equilibrium and systems B and C are in thermal equilibrium, then systems A and C are in thermal equilibrium.
+First Law of Thermodynamics
+$$\Delta U = Q - W,$$ <br> where $Q$ is the heat supplied to the system and $W$ is the work done by the system on its surroundings.
+Change in internal energy for quasi-static process
+$$dU = \delta Q - PdV$$
+Second Law of Thermodynamics
+$$dS = \frac{dQ}{T}$$, where $dQ$ is an inexact differential.
