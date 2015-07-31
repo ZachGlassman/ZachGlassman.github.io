@@ -68,7 +68,7 @@ ${n \choose k}$
 $$\frac{n!}{k!(n-k)!}$$
 Stirling's Apprximation
 $$\ln(n!) = n\ln(n)-n$$
-Microcanonical Entrop
+Microcanonical Entropy
 $$S = k_B \ln \Omega,$$ <br> where $\Omega$ is number of microstates.
 Zeroth law of Thermodynamics
 If systems A and B are in thermal equilibrium and systems B and C are in thermal equilibrium, then systems A and C are in thermal equilibrium.
@@ -78,3 +78,17 @@ Change in internal energy for quasi-static process
 $$dU = \delta Q - PdV$$
 Second Law of Thermodynamics
 $$dS = \frac{dQ}{T}$$, where $dQ$ is an inexact differential.
+Gausian Integral
+$$\int_{-\infty}^\infty e^{-a(x+b)^2\,dx = \sqrt{\frac{\pi}{a}}.$$
+Geometric Series
+$$\sum_{k=0}^\infty r^k = \frac{1}{1-r}$$ <br> if $|r| < 1$.
+Fermi Golden Rule
+$$P(i\to f) = \frac{2\pi}{\hbar}|\langle f|V|i\rangle|^2\delta(E_f-E_i)$$
+Perturbation Therory sudden approximation
+State doesn't change, is now a linear combination of perturbed eigenstates.  Time dependance is based on evolution under new Hamiltonian.
+One electron Hamiltonian in atomic units
+$$h(1) = -\frac{1}{2}\nabla^2_1-\frac{Z}{r_1}$$
+$$\langle 1s_\zeta|h|1s_\zeta\rangle$$ <br> where $h$ is the one electron Hailtonian and $\zeta$ is a screeing constant in terms of $Z$, the atomic number in atomic units.
+$$-Z\zeta +\frac{\zeta^2}{2}$$
+$$[1s^2|1s^2] = \iint 1s(1)^2\frac{1}{r_{12}}1s(2)^2dV_1dV_2=\frac{5\zeta}{8}.$$
+$$\frac{5\zeta}{8}
