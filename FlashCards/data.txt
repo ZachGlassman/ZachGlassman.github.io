@@ -94,3 +94,25 @@ $$[1s^2|1s^2] = \iint 1s(1)^2\frac{1}{r_{12}}1s(2)^2dV_1dV_2=\frac{5\zeta}{8}.$$
 $$\frac{5\zeta}{8}
 Angular momentum raising and lowering operator
 $$J_\pm|j,m\rangle = \sqrt{j(j+1)-m(m\pm 1)}|j,m\m1\rangle.$$
+Creation and annhiliation operator in terms of position and momentum
+$$\hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}-\frac{i}{m\omega}\hat{p}\right).$$ <br> $$\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}+\frac{i}{m\omega}\hat{p}\right).$$
+Eigenvalue equations of creation and annhiliation operators
+$$\hat{a}|n\rangle = \sqrt{n}|n-1\rangle$$ <br> $\hat{a}^\dagger|n\rangle = \sqrt{n+1}|n+1\rangle$$
+Fundamental Relation (E,S,V,N)
+$$dE = TdS - pdV + \mu dN$$
+Gibbs-Duhem relation
+$$SdT - Vdp + N d\mu =0$$
+Given $df = adx + dy$, where $a = (\partial f/\partial x)_y$ and $b=(\partial f/\partial y)_x,$ relate partials of $a$ and $b$.
+$$\left(\frac{\partial a}{\partial y}\right)_x = \left(\frac{\partial b}{\partial x}\right),$$ since they both equal $\frac{\partial^2 f}{\partial x \partial y}$.
+Consider a function $z(x,y)$, triple rule relating partial derivatives.
+$$\left(\frac{\partial x}{\partial y}\right)_z \cdot\left(\frac{\partial y}{\partial z}\right)_x\cdot\left(\frac{\partial z}{\partial x}\right)_y=-1.$$
+Relationship between chemical potential
+$$G = \mu N$, so chemical potential is Gibb's free energy per partial, and $\mu = \left(\frac{\partial G}{\partial N}\right)_{T,p}$ as well.
+Helmholtz free energy differential relation
+$$dA = -SdT - pdV + \mu dN$$
+Enthalpy differential relation
+$$dH = TdX + Vdp + \mu dN$$
+Gibbs Free Energy Differential relation
+$$dG = -SdT + Vdp + \mu dN$$
+Entropy of ideal gas (Sakur-Tetrode equation)
+$$S = k_B \left[\ln\left(\frac{V}{N}\left(\frac{4\pi m E}{3Nh^2}\right)^{3/2}\right)+\frac{5}{2}\right].$$
