@@ -111,8 +111,16 @@ $$G = \mu N$, so chemical potential is Gibb's free energy per partial, and $\mu 
 Helmholtz free energy differential relation
 $$dA = -SdT - pdV + \mu dN$$
 Enthalpy differential relation
-$$dH = TdX + Vdp + \mu dN$$
+$$dH = TdS + Vdp + \mu dN$$
 Gibbs Free Energy Differential relation
 $$dG = -SdT + Vdp + \mu dN$$
 Entropy of ideal gas (Sakur-Tetrode equation)
 $$S = k_B \left[\ln\left(\frac{V}{N}\left(\frac{4\pi m E}{3Nh^2}\right)^{3/2}\right)+\frac{5}{2}\right].$$
+Poisson distribution
+$$Pr(X=k)=\frac{1}{k!}\lambda^k e^{-\lambda}.$$
+Mean and Variance of Poisson Distribution $$Pr(X=k)=\frac{1}{k!}\lambda^k e^{-\lambda}.$$
+Meand and Varance both $\lambda$.
+Ideal Gas Partition Function
+$$Z = \frac{V^N}{N!}\left(\frac{2\pi m k_B T}{h^2}\right)^{3N/2}$$
+$L_z$ in angular coordinates.
+$$L_z = -i\hbar \frac{\partial }{\partial \phi}$$
