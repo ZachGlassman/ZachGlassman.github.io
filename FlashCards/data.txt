@@ -5,9 +5,9 @@ $\hat{H}\psi=E\psi$
 Born Approximation
 $$f^{(1)}(\vec{k},\vec{k}') = -\frac{1}{4\pi}\frac{2m}{\hbar^2}\int e^{-i(\vec{k}'-\vec{k})\cdot \vec x}V(\vec{x})\,d^3\vec{x}$$
 Spherically Symmetric Born Approximation
-$$f^{(1)}(\theta) =-\frac{2m}{\hbar^2}\frac{1}{q}\int_0^\infty rV(r)\sin(qr)\,dr$$, <br> where $q = 2k\sin\left(\frac{\theta}{2}\right)$.
+$$f^{(1)}(\theta) =-\frac{2m}{\hbar^2}\frac{1}{q}\int_0^\infty rV(r)\sin(qr)\,dr,$$ where $q = 2k\sin\left(\frac{\theta}{2}\right)$.
 Yukawa Potential Scattering <br> $V(r) = V_0 \frac{e^{-\mu r}}{\mu r}$.
-$$f^{(1)}(\theta) = \left(\frac{2mV_0}{\mu h^2}\right)\frac{1}{q^2+u^2}.$$
+$$f^{(1)}(\theta) = \left(\frac{2mV_0}{\mu h^2}\right)\frac{1}{q^2+\mu^2}.$$
 Validity of Born Approximation
 $\left|\frac{2m}{\hbar^2}\frac{1}{4\pi}\int d^3 x'\, \frac{e^{ikr'}}{r'}V(\vec{x}')e^{i\vec{k}\cdot \vec{x}'}\right| \ll 1.$
 Optical Theorem
@@ -21,7 +21,7 @@ $$A_l(r) = e^{i\delta_l}[\cos\delta_l j_l(kr) - \sin\delta_ln_l(kr)].$$
 Scattering Length
 $$-\frac{1}{a} = \lim_{k\to 0}k\cot\delta_0$$ <br> where $a$ is the scattering length.
 Non-Degenerate Time-Independent first order energy shift and correction.
-$$\Delta_n^{(1)} = \langle n^{(0)}|V|n^{(0)}\rangle$ <br> $$|n^{(1)}\rangle = \sum_{k\neq n} \frac{\langle k^{(0)}|V|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle$$ <br> where $V$ is pertubation.
+$$\Delta_n^{(1)} = \langle n^{(0)}|V|n^{(0)}\rangle$$ $$|n^{(1)}\rangle = \sum_{k\neq n} \frac{\langle k^{(0)}|V|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle$$  where $V$ is pertubation.
 Non-Degenerate Time-Independent second order energy shift
 $$\Delta_n^{(2)} = \sum_{k\neq n} \frac{|\langle k^{(0)}|V|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}$$ <br> where $V$ is pertubation.
 Wavefunction probability current
@@ -95,9 +95,9 @@ $$\frac{5\zeta}{8}$$
 Angular momentum raising and lowering operator
 $$J_\pm|j,m\rangle = \sqrt{j(j+1)-m(m\pm 1)}|j,m\rangle.$$
 Creation and annhiliation operator in terms of position and momentum
-$$\hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}-\frac{i}{m\omega}\hat{p}\right).$$ <br> $$\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}+\frac{i}{m\omega}\hat{p}\right).$$
+$$\hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}-\frac{i}{m\omega}\hat{p}\right).$$ $$\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}+\frac{i}{m\omega}\hat{p}\right).$$
 Eigenvalue equations of creation and annhiliation operators
-$$\hat{a}|n\rangle = \sqrt{n}|n-1\rangle$$ <br> $\hat{a}^\dagger|n\rangle = \sqrt{n+1}|n+1\rangle$$
+$$\hat{a}|n\rangle = \sqrt{n}|n-1\rangle$$ $$\hat{a}^\dagger|n\rangle = \sqrt{n+1}|n+1\rangle $$
 Fundamental Relation (E,S,V,N)
 $$dE = TdS - pdV + \mu dN$$
 Gibbs-Duhem relation
@@ -106,8 +106,8 @@ Given $df = adx + dy$, where $a = (\partial f/\partial x)_y$ and $b=(\partial f/
 $$\left(\frac{\partial a}{\partial y}\right)_x = \left(\frac{\partial b}{\partial x}\right)_y,$$ since they both equal $\frac{\partial^2 f}{\partial x \partial y}$.
 Consider a function $z(x,y)$, triple rule relating partial derivatives.
 $$\left(\frac{\partial x}{\partial y}\right)_z \cdot\left(\frac{\partial y}{\partial z}\right)_x\cdot\left(\frac{\partial z}{\partial x}\right)_y=-1.$$
-Relationship between chemical potential
-$$G = \mu N$, so chemical potential is Gibb's free energy per partial, and $\mu = \left(\frac{\partial G}{\partial N}\right)_{T,p}$ as well.
+Relationship between chemical potential and Gibb's free energy
+$$G = \mu N$$, so chemical potential is Gibb's free energy per partical, and $\mu = \left(\frac{\partial G}{\partial N}\right)_{T,p}$ as well.
 Helmholtz free energy differential relation
 $$dA = -SdT - pdV + \mu dN$$
 Enthalpy differential relation
@@ -119,7 +119,7 @@ $$S = k_B \left[\ln\left(\frac{V}{N}\left(\frac{4\pi m E}{3Nh^2}\right)^{3/2}\ri
 Poisson distribution
 $$Pr(X=k)=\frac{1}{k!}\lambda^k e^{-\lambda}.$$
 Mean and Variance of Poisson Distribution $$Pr(X=k)=\frac{1}{k!}\lambda^k e^{-\lambda}.$$
-Mean and Varance both $\lambda$.
+Mean and Variance both $\lambda$.
 Ideal Gas Partition Function
 $$Z = \frac{V^N}{N!}\left(\frac{2\pi m k_B T}{h^2}\right)^{3N/2}$$
 $L_z$ in angular coordinates.
@@ -137,4 +137,7 @@ $$x = r\sin\theta\cos\phi$$ $$y = r\sin\theta\sin\phi$$ $$z = r\cos\theta$$
 Heat capcity in terms of $\beta$
 $$C_v = -k_B \beta^2\left(\frac{\partial E}{\partial \beta}\right)_V.$$
 Wigner-Eckart Theorem
-$$\langle \gamma'j'm'|T^k_q|\gamma j m\rangle = \langle\gamma'j'||T^k||\gamma j\langle j'm'|jkmq\rangle.$$
+$$\langle \gamma'j'm'|T^k_q|\gamma j m\rangle = \langle\gamma'j'||T^k||\gamma j\rangle\langle j'm'|jkmq\rangle.$$
+General energy density of states
+$$\rho^{(d)}(\epsilon) = \Omega_d\left(\frac{L}{2\pi}\right)^d\frac{1}{2}\left(\frac{2m}{\hbar^2}\right)^{d/2}\epsilon^{d/2-1}$$ where $\omega_D = \begin{cases} 4\pi &d=3\\ 2\pi&d=2\\1&d=1\end{cases}$
+Integral of product of three spherical harmonics
