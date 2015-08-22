@@ -141,3 +141,4 @@ $$\langle \gamma'j'm'|T^k_q|\gamma j m\rangle = \langle\gamma'j'||T^k||\gamma j\
 General energy density of states
 $$\rho^{(d)}(\epsilon) = \Omega_d\left(\frac{L}{2\pi}\right)^d\frac{1}{2}\left(\frac{2m}{\hbar^2}\right)^{d/2}\epsilon^{d/2-1}$$ where $\omega_D = \begin{cases} 4\pi &d=3\\ 2\pi&d=2\\1&d=1\end{cases}$
 Integral of product of three spherical harmonics
+blah
