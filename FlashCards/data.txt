@@ -140,5 +140,15 @@ Wigner-Eckart Theorem
 $$\langle \gamma'j'm'|T^k_q|\gamma j m\rangle = \langle\gamma'j'||T^k||\gamma j\rangle\langle j'm'|jkmq\rangle.$$
 General energy density of states
 $$\rho^{(d)}(\epsilon) = \Omega_d\left(\frac{L}{2\pi}\right)^d\frac{1}{2}\left(\frac{2m}{\hbar^2}\right)^{d/2}\epsilon^{d/2-1}$$ where $\omega_D = \begin{cases} 4\pi &d=3\\ 2\pi&d=2\\1&d=1\end{cases}$
-Integral of product of three spherical harmonics
-blah
+Isothermal compressability
+$$\xi_T = -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T > 0$$
+Electromagnetic Hamiltonian
+$$H = \frac{1}{2m}\left(p-\frac{e}{c}\vec{A}\right^2+V_c(r)$$  $\vec{E}=-\frac{1}{c}\frac{\partial \vec{A}}{\partial t}$, $\vec{B} = \nabla\times\vec{A}$.
+Fermi Golden Rule for emmission/absorbtion
+$$\omega_{i\to n} = \frac{2\pi e^2}{\hbar m^2 c^2}A_0^2\left|\left\langle n \left|\vec{p}\cdot \hat{\epsilon}e^{i\vec{k}\cdot \vec{r}\right|r\right\rangle\right|^2\delta(E_n-E_i\pm\hbar\omega),$$ where $\vec{A}=2A_0\hat{\epsilon}\cos(\vec{k}\cdot\vec{r}-\omega t)$.
+Solution to Rabi problem with oscillation of strength $\delta$ and frequency $\omega$ starting in state $1$.
+$$|c_2(t)|\frac{\delta^2}{\delta^2+\hbar^2(\omega-\omega_{21})/4}\sin^2\Omega t$$ where $$\Omega = \sqrt{\left(\frac{\delta}{\hbar}\right)^2+(\omega-\omega_{21})/4}.$$
+First order time dependant pertubation coefficient
+$$c_n^{(1)}(t) = -\frac{i}{\hbar}\int_0^t dt'\, e^{i\omega_{ni}t'}\langle n|V|i\rangle,$$ where $V$ is the perturbation in the interaction picture and $\omega_{ni} = (E_n-E_i)/\hbar$.
+Baker-Campbell-Hausdorff identity
+$$e^{\hat A}\hat{B}e^{-\hat{A}} = \hat{B} + [\hat{A},\hat{B}]+\frac{1}{2!}[\hat{A},[\hat{A},\hat{B}]]+\dots$$
