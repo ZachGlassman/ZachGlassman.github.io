@@ -9,7 +9,7 @@ $$f^{(1)}(\theta) =-\frac{2m}{\hbar^2}\frac{1}{q}\int_0^\infty rV(r)\sin(qr)\,dr
 Yukawa Potential Scattering <br> $V(r) = V_0 \frac{e^{-\mu r}}{\mu r}$.
 $$f^{(1)}(\theta) = \left(\frac{2mV_0}{\mu h^2}\right)\frac{1}{q^2+\mu^2}.$$
 Validity of Born Approximation
-$\left|\frac{2m}{\hbar^2}\frac{1}{4\pi}\int d^3 x'\, \frac{e^{ikr'}}{r'}V(\vec{x}')e^{i\vec{k}\cdot \vec{x}'}\right| \ll 1.$
+$$\left|\frac{2m}{\hbar^2}\frac{1}{4\pi}\int d^3 x'\, \frac{e^{ikr'}}{r'}V(\vec{x}')e^{i\vec{k}\cdot \vec{x}'}\right| \ll 1.$$
 Optical Theorem
 $$\sigma_{tot} = \frac{4\pi}{k}\text{Im}[f(\theta=0)]$$
 Partial Wave scattering amplitude
@@ -58,7 +58,7 @@ Angular momentum eigenvalue $J^2$
 $J^2| j,m_j\rangle = \hbar^2j(j+1) | j,m_j\rangle$.
 Energy levels of hydrogen atom
 $E_n = -\frac{me^4}{8\epsilon_0h^2n^2}= -\frac{13.61eV}{n^2}$.
-Angular momentum commutation relatons
+Angular momentum commutation relations
 $$[L_l,L_m]=i\hbar \sum_{n=1}^3 \epsilon_{lmn}L_n$$ <br> ex. $[L_x,L_y] =i\hbar L_z$.
 $[L^2,L_i]$ where $i=x,y,z$.
 $0$.
@@ -147,13 +147,13 @@ $$H = \frac{1}{2m}\left(p-\frac{e}{c}\vec{A}\right)^2+V_c(r)$$  $\vec{E}=-\frac{
 Fermi Golden Rule for emmission/absorbtion
 $$\omega_{i\to n} = \frac{2\pi e^2}{\hbar m^2 c^2}A_0^2\left|\left\langle n \left|\vec{p}\cdot \hat{\epsilon}e^{i\vec{k}\cdot \vec{r}}\right|i\right\rangle\right|^2\delta(E_n-E_i\pm\hbar\omega),$$ where $\vec{A}=2A_0\hat{\epsilon}\cos(\vec{k}\cdot\vec{r}-\omega t)$.
 Solution to Rabi problem with oscillation of strength $\delta$ and frequency $\omega$ starting in state $1$.
-$$|c_2(t)|\frac{\delta^2}{\delta^2+\hbar^2(\omega-\omega_{21})/4}\sin^2\Omega t$$ where $$\Omega = \sqrt{\left(\frac{\delta}{\hbar}\right)^2+(\omega-\omega_{21})/4}.$$
+$$|c_2(t)|=\frac{\delta^2}{\delta^2+\hbar^2(\omega-\omega_{21})/4}\sin^2\Omega t$$ where $$\Omega = \sqrt{\left(\frac{\delta}{\hbar}\right)^2+(\omega-\omega_{21})/4}.$$
 First order time dependant pertubation coefficient
 $$c_n^{(1)}(t) = -\frac{i}{\hbar}\int_0^t dt'\, e^{i\omega_{ni}t'}\langle n|V|i\rangle,$$ where $V$ is the perturbation in the interaction picture and $\omega_{ni} = (E_n-E_i)/\hbar$.
 Baker-Campbell-Hausdorff identity
 $$e^{\hat A}\hat{B}e^{-\hat{A}} = \hat{B} + [\hat{A},\hat{B}]+\frac{1}{2!}[\hat{A},[\hat{A},\hat{B}]]+\dots$$
-$$\int_0^\infty e^{-\alpha x}\,dx$$ where $\alpha >0$
-$$\int_0^\infty e^{-\alpha x}\,dx=\frac{n!}{\alpha^{n+1}}.$$
+$$\int_0^\infty x^n e^{-\alpha x}\,dx$$ where $\alpha >0$
+$$\int_0^\infty x^n e^{-\alpha x}\,dx=\frac{n!}{\alpha^{n+1}}.$$
 Thermal WaveLength
 $$\lambda_T = \sqrt{\frac{h^2}{2\pi m k_B T}}$$
 Concavity and Convexity of Thermodynamics Potentials
