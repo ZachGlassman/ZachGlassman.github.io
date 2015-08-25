@@ -154,3 +154,7 @@ Baker-Campbell-Hausdorff identity
 $$e^{\hat A}\hat{B}e^{-\hat{A}} = \hat{B} + [\hat{A},\hat{B}]+\frac{1}{2!}[\hat{A},[\hat{A},\hat{B}]]+\dots$$
 $$\int_0^\infty e^{-\alpha x}\,dx$$ where $\alpha >0$
 $$\int_0^\infty e^{-\alpha x}\,dx=\frac{n!}{\alpha^{n+1}}.$$
+Thermal WaveLength
+$$\lambda_T = \sqrt{\frac{h^2}{2\pi m k_B T}}$$
+Concavity and Convexity of Thermodynamics Potentials
+For constant $N$, the thermodynamic potentials (energy and its Legendre transforms) are convex functions of their extensive varialbes and concave functions of their intensive variabls.  For constant $N$ entropy and its Legendre transforms are concave functions of their extensive variables and convex functions of their intensive variables.
