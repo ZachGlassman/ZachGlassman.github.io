@@ -371,14 +371,13 @@ window.onload = function() {
   function processInitialData(res){
     //add the rest of the form
     addRestHTML()
-
     //get the list first list is categories, second is percentages
-    var resList = res.split('\n');
+    //remove all where empty
+    var resList = res.split('\n').filter(function(n){return n != ""});
     cat = resList[0].split(',');
     perc = pObj(resList[1].split(','),cat);
     //fill expenseList with objects containg data
     expenseList = parseData(resList.slice(2));
-
     processData(res);
   }
 
@@ -390,7 +389,6 @@ window.onload = function() {
     var monthTotals = sortMonthData(expenseList, cat);
     var frep = financeReport(allTotals,perc);
     var mfrep = percMonthReport(monthTotals,perc);
-
     //now write out HTML Table for this information
     writeOutTable(allTotals,frep,allTimeOutTable);
     document.getElementById("monthB").addEventListener(
