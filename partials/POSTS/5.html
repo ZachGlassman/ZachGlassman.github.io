@@ -1,0 +1,65 @@
+Chain Rule
+June 19, 2017
+When tutoring differential calculus, I find that one of the hardest concepts for students to grasp is the chain rule.  In this post, we will examine the chain rule and how it might be applied.  We will assume knowledge typical of a calculus I class at the point where the chain rule is taught.
+
+## Why the Chain Rule?
+
+We have already learned to handle many situations where we have two functions $f(x), g(x)$, we combine them together into a single function $y(x)$ and we wish to find the derivative $dy/dx$.  Examples include
+$$y(x) = f(x)+g(x)$$
+$$y(x) = f(x) - g(x)$$
+$$y(x) = f(x)g(x)$$
+$$y(x) = f(x)/g(x)$$
+\end{align}
+These rules will allow us to find derivative for many functions, however, we have yet to learn the derivative for an important situation,
+$$y(x) = f(g(x)),$$
+where we have whats known as *function composition*.  It is this case for which we will need the chain rule.
+
+We have actually been using the chain rule for a while now without noticing it.  Consider the function $y(x)=x^2$.  We could consider this as a composition of functions $f(g(x))$, where $f(x) = x^2$ and $g(x)=x$.  We know that $dy/dx = 2x$, so we best recover that when we derive the chain rule and figure out how to use it.
+
+## What is the Chain Rule?
+We will now provide a proof of the chain rule, a more complete (although differently notated) version is available at [Chain Rule](https://en.wikipedia.org/wiki/Chain_rule).
+
+Consider two differentiable functions $f(x), g(x)$ which map from the reals to the reals.  Now consider the function $y(x) = f(g(x))$.  We use the definition of the derivative $dy/dx$ to write
+$$\frac{dy}{dx} = \lim\_{h\to0}\frac{f(g(x+h))- f(g(x))}{h}=\lim\_{h\to0}\frac{f(g(x+h))- f(g(x))}{h} \cdot \frac{g(x+h)-g(x)}{g(x+h)-g(x)},$$
+which is valid as long as $g(x)\neq g(x+h)$ for any $x$ in this regime.  We will need to deal with the case where $g(x) = g(x+h)$ later. For now, assume that $g(x) \neq g(x+h)$ for sufficiently small $h$.
+
+We can now use the fact that if $\lim\_{x\to a}f(x)$ and $\lim\_{x\to a} g(x)$ both exist and are finite then $$\lim\_{x\to a}f(x)g(x)=\lim\_{x\to a}f(x)\cdot\lim\_{x\to a}g(x)$$
+
+This allows us to rearrange some terms as
+$$\frac{dy}{dx} =\lim\_{h\to0}\frac{f(g(x+h))- f(g(x))}{g(x+h)-g(x)} \cdot \frac{g(x+h)-g(x)}{h}$$
+$$=\lim\_{h\to0}\frac{f(g(x+h))- f(g(x))}{g(x+h)-g(x)} \cdot\lim\_{h\to0} \frac{g(x+h)-g(x)}{h}$$
+
+The second term is simply $g'(x)$ and we can continue for the first term.  We have already assumed that $g(x)$ is differentiable, thus we can we can write for sufficiently small $h$
+$$ g(x+h) \approx g(x) + g'(x)h$$
+which is a type of linear approximation.  So we can write
+$$\lim\_{h\to0}\frac{f(g(x+h))- f(g(x))}{g(x+h)-g(x)}\approx \lim\_{h\to0}\frac{f(g(x) + hg'(x))- f(g(x))}{g'(x)h}$$
+and we now note that $g'(x)$ is a finite number, thus we can define $h' = g'(x)h$ and then
+$$\lim\_{h\to0}\frac{f(g(x) + hg'(x))- f(g(x))}{g'(x)h}= \lim\_{h'\to0}\frac{f(g(x) + h')- f(g(x))}{h'},$$
+which is simply $f'(g(x))$.  This gives us the chain rule which is
+$$ \frac{dy}{dx} = f'(g(x))\cdot g'(x).$$
+
+Now we can consider the case where $g(x+h)=g(x)$, in which case our proof fails since we have a division by zero.  However in this case, we also have that $f(g(x+h)) - f(g(x)) = 0$, thus the whole expression is zero.  It is beyond the scope of this post to rigoursly show this, however, the general idea is to introduce piecewise defined function where we define the expression as zero at those points.  The result will follow.
+
+##  When do we use the Chain Rule
+Now with the derivation of the chain rule complete, we will write it in a perhaps more useful form.  Given a function $f(u)$, where $u= g(x)$, we can define
+$$ \frac{d}{dx} f(u) = f'(u)\cdot u'$$,
+where $u'$ is understand as the derivate with respect to the relevant variable.
+
+Lets apply this in the case of $x^2$ (we had better get $2x$!).  In this case, we can define $u=x$ and $f(u) = u^2$.  So the chain rule says
+$$\frac{d}{dx} x^2 = 2u * \frac{d}{dx} x = 2u = 2x$$
+Luckily, math still works!
+
+In general, we will use the chain rule when we have function composition and *we do not know the derivative*, thus even though it is perfectly acceptable to apply the chain rule to $\frac{d}{dx}x^3$, it is not necessary since we already know this derivative.  A good strategy is to break a function composition into the fewest number of functions possible where all the derivatives are known.
+
+Now we will do a few exmaples.
+
+### Example 1
+Find $\frac{d}{dx} \sin(x^2)$.
+
+Let us first define our function $u$. There are several functions we could define as $u$, including $\sin(x^2), x^2, x$.  We don't want to define $u=\sin(x^2)$ as that does not reduce our problem when we need to find $u'$, nor do we want to define $u=x$ as then we are left with $f(u) = \sin(u^2)$ which means we have again not reduced our problem.
+
+So we define $u=x^2$.  Thus, $f(u) = \sin(u)$.  We know the derivatives to **both** these functions, $u' = 2x, f' = \cos(u)$, so the chain rule tells us that
+$$\frac{d}{dx} \sin(x^2) = 2x\cos(x^2)$$
+
+### Example 2
+Find $\frac{d}{dx} \sin^2(x)$.
