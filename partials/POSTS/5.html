@@ -63,3 +63,14 @@ $$\frac{d}{dx} \sin(x^2) = 2x\cos(x^2)$$
 
 ### Example 2
 Find $\frac{d}{dx} \sin^2(x)$.
+
+Here the two relevant functions are the same as before, namely $\sin(p), p^2$ (here I have used $p$ as a dummy variable so it doesn't get confused with $x$).  The only difference is the order.  So we can define $u=\sin(x)$ and $f(u) = u^2$.  This implies that
+$$\frac{d}{dx} \sin^2(x) = 2u * \cos(x) = 2\sin(x)*\cos(x) = \sin(2x),$$
+where we have used the  double angle formula.
+
+### Example 3
+Find $\frac{d}{dx}\ln(\sqrt{5x-5})$
+
+This is a good problem because there are two reasonable ways to do it (which must give the same answer !).
+#### First method
+The first method is to brute force repeated applictions of the chain rule.
