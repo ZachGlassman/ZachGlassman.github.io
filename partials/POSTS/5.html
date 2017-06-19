@@ -73,4 +73,17 @@ Find $\frac{d}{dx}\ln(\sqrt{5x-5})$
 
 This is a good problem because there are two reasonable ways to do it (which must give the same answer !).
 #### First method
-The first method is to brute force repeated applictions of the chain rule.
+The first method is to brute force repeated applictions of the chain rule.  We will need several steps to do this.  First we can define $u=\sqrt{5x-5}$ and $f(u) = \ln(u)$, thus
+$$\frac{d}{dx}\ln(\sqrt{5x-5}) = \frac{1}{u}\frac{d}{dx}u = \frac{1}{\sqrt{5x-5}}\frac{d}{dx}\sqrt{5x-5}$$
+Now we can identify a new $u$, $u=5x-5$ and $f(u)=\sqrt{u}$, thus
+$$\frac{d}{dx}\ln(\sqrt{5x-5}) = \frac{1}{\sqrt{5x-5}}\frac{1}{2}(u)^{-1/2}5= \frac{1}{2(x-1)},$$
+where in the last step we have simplified the expression considerably.
+
+Now let us apply the second method.
+#### Second method
+First we note that $\ln(x^n) = n\ln(x)$, so we can rewrite
+$$\ln(\sqrt{5x-5}) = \frac{1}{2}\ln(5x-5),$$
+and defining $u=5x-5$ and $f(u) = \frac{1}{2}\ln(u)$, we have
+$$\frac{d}{dx}\ln(\sqrt{5x-5}) = \frac{1}{2u}*5 = \frac{5}{2(5x-5)} = \frac{1}{2(x-1)}.$$
+
+For both cases, we recover the same answer which is a good sign that we have performed the correct steps of differentation.  However, it does bring up a good point, no matter how well you learn derivatives, a good algebra trick to make the problem simpler is a very nice way to save a ton of work.
