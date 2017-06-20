@@ -17,7 +17,17 @@ where we have whats known as *function composition*.  It is this case for which 
 We have actually been using the chain rule for a while now without noticing it.  Consider the function $y(x)=x^2$.  We could consider this as a composition of functions $f(g(x))$, where $f(x) = x^2$ and $g(x)=x$.  We know that $dy/dx = 2x$, so we best recover that when we derive the chain rule and figure out how to use it.
 
 ## What is the Chain Rule?
-We will now provide a proof of the chain rule, a more complete (although differently notated) version is available at [Chain Rule](https://en.wikipedia.org/wiki/Chain_rule).
+
+We will first state the chain rule without proof (to come later on).  Given two differential functions $f, g$, then
+$$ \frac{d}{dx}f(g(x)) = f'(g(x))\cdot g'(x).$$
+
+To get some intutition for this, first recall the intution behind a derivative, it tells how a function is changing in a region around a certain point.  So $f'(a)$, tells us how the function is changing about the point $x=a$.  We can to lowest order approximate this change as $f(a + \Delta x) \approx f(a) + \Delta x f'(a)$.  Thus the change of the function in the region around $a$ is $\Delta x f'(a)$.
+
+Now for the case where our function is $f(g(x))$, we can do the same expnsion about $a$,
+$$f(g(a+\Delta x)) \approx f(g(a)) + f'(g(a))[g'(a)\Delta x]$$  The brackets here are meant to be suggestive of one interpretation of the chain rule.  We can think of $g(x)$ as a rescaling of the $x$ axis and the derivative works the same way except we also need to add in an extra factor of $g'$ to rescale $\Delta x$ to make it commensurate with the new rescaled axis.
+
+## Proof of the Chain Rule
+We will now provide a proof of the chain rule.  If you only want to see some examples, then skip to the next section. A more complete (although differently notated) version is available at [Chain Rule](https://en.wikipedia.org/wiki/Chain_rule).
 
 Consider two differentiable functions $f(x), g(x)$ which map from the reals to the reals.  Now consider the function $y(x) = f(g(x))$.  We use the definition of the derivative $dy/dx$ to write
 $$\frac{dy}{dx} = \lim\_{h\to0}\frac{f(g(x+h))- f(g(x))}{h}=\lim\_{h\to0}\frac{f(g(x+h))- f(g(x))}{h} \cdot \frac{g(x+h)-g(x)}{g(x+h)-g(x)},$$
