@@ -3,16 +3,18 @@
         delayPlot();
         baggagePlot();
     }
+    var margin = {
+        top: 20,
+        right: 20,
+        bottom: 150,
+        left: 140
+    };
+    var COLORS = ['#c43a64', '#ce7c46', "#ccce5c"];
 
     function delayPlot() {
         var DAYS = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
         var svg = d3.select("#delaySvg");
-        var margin = {
-            top: 20,
-            right: 20,
-            bottom: 30,
-            left: 40
-        };
+
         var g = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         var width = +svg.attr("width") - margin.left - margin.right;
@@ -29,7 +31,7 @@
             })
 
             x.domain([0, d3.max(data, function (d) {
-                return d.day - 1;
+                return d.day - .5;
             })]);
 
             y.domain([0, d3.max(data, function (d) {
@@ -45,7 +47,6 @@
                         return DAYS[i]
                     }));
 
-            var COLORS = ['red', 'orange'];
             var airlines = ['UA', 'DL'];
             for (var i = 0; i < airlines.length; i++) {
                 g.selectAll(".bar" + i.toString())
@@ -63,7 +64,7 @@
                         return height - y(d[airlines[i]]);
                     })
                     .attr("fill", COLORS[i])
-                    .attr('opacity', '.4')
+                    .attr('opacity', '.9')
             }
         });
 
@@ -72,12 +73,6 @@
     function baggagePlot() {
         // baggage costs by airline
         var svg = d3.select("#baggageSvg");
-        var margin = {
-            top: 20,
-            right: 20,
-            bottom: 30,
-            left: 40
-        };
         var g = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         var width = +svg.attr("width") - margin.left - margin.right;
@@ -88,7 +83,9 @@
             var tickValues = [];
             data.forEach(function (d) {
                 d.bagOne = +d.bagOne;
-                d['index'] = +d[''];
+                d.bagTwo = +d.bagTwo;
+                d.bagExtra = +d.bagExtra;
+                d['index'] = +d[''] + .2;
                 tickValues.push(d['index'] + .25);
             })
             x.domain([0, d3.max(data, function (d) {
@@ -96,7 +93,7 @@
             })]);
 
             y.domain([0, d3.max(data, function (d) {
-                return d.bagOne;
+                return d.bagExtra;
             })]);
 
 
@@ -108,6 +105,42 @@
                     .tickFormat(function (d, i) {
                         return data[i]['airline']
                     }));
+
+            g.append("g")
+                .attr("class", "axis axis--y")
+                .call(d3.axisLeft(y));
+
+            g.selectAll(".bar2")
+                .data(data)
+                .enter().append("rect")
+                .attr("class", "bar2")
+                .attr("x", function (d) {
+                    return x(d.index);
+                })
+                .attr("y", function (d) {
+                    return y(d.bagExtra);
+                })
+                .attr("width", x(0.5))
+                .attr("height", function (d) {
+                    return height - y(d.bagExtra);
+                })
+                .attr("fill", COLORS[2])
+
+            g.selectAll(".bar1")
+                .data(data)
+                .enter().append("rect")
+                .attr("class", "bar1")
+                .attr("x", function (d) {
+                    return x(d.index);
+                })
+                .attr("y", function (d) {
+                    return y(d.bagTwo);
+                })
+                .attr("width", x(0.5))
+                .attr("height", function (d) {
+                    return height - y(d.bagTwo);
+                })
+                .attr("fill", COLORS[1])
 
 
             g.selectAll(".bar")
@@ -124,7 +157,9 @@
                 .attr("height", function (d) {
                     return height - y(d.bagOne);
                 })
-                .attr("fill", "steelblue")
+                .attr("fill", COLORS[0]);
+
+
         });
 
     }

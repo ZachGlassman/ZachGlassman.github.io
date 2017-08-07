@@ -1,5 +1,5 @@
-(function() {
-    document.getElementById("submit").onclick = function() {
+(function () {
+    document.getElementById("submit").onclick = function () {
         var info = parseInformation();
         var inputs = validateInputs();
         var origin = CITIES[inputs['source-select']];
@@ -10,11 +10,32 @@
                 break;
             }
         }
-        var tableEle = document.getElementById('tableSpace');
-        airportDayTable(rel_data, 'delay_data', tableEle);
+
         hideParams();
-        var barData = transformBarData(rel_data['delay_data'])
-        generateBarGraph(barData[0], barData[1]);
+        var ans = run(info, rel_data);
+        var ansSpace = document.getElementById('ansSpace');
+        if (ans['error']) {
+            ansSpace.innerHTML = ans['message']
+        }
+        //var tableEle = document.getElementById('tableSpace');
+        //airportDayTable(rel_data, 'delay_data', tableEle);
+        //var barData = transformBarData(rel_data['delay_data'])
+        //generateBarGraph(barData[0], barData[1]);
+    }
+
+    function run(info, data) {
+        if (!data) {
+            return {
+                "error": true,
+                "message": "No flights processed for that route"
+            }
+        } else {
+            console.log(info, data)
+            return {
+                "error": false,
+                "message": 'none'
+            }
+        }
 
     }
 
@@ -72,7 +93,7 @@
 
 
     var paramsBtn = document.getElementById('paramsBtn')
-    paramsBtn.onclick = function() {
+    paramsBtn.onclick = function () {
         showParams();
     }
 
@@ -134,14 +155,14 @@
 
 
         //need to get maxX and maxY
-        maxX = d3.max(dataList, function(d) {
-            return d3.max(d, function(e) {
+        maxX = d3.max(dataList, function (d) {
+            return d3.max(d, function (e) {
                 return e.x + delta;
             });
         })
 
-        maxY = d3.max(dataList, function(d) {
-            return d3.max(d, function(e) {
+        maxY = d3.max(dataList, function (d) {
+            return d3.max(d, function (e) {
                 return e.y;
             });
         })
@@ -169,20 +190,20 @@
                 .data(data)
                 .enter().append("rect")
                 .attr("class", "bar" + i.toString())
-                .attr("x", function(d) {
+                .attr("x", function (d) {
                     return x(d.x + delta / 15 * i);
                 })
-                .attr("y", function(d) {
+                .attr("y", function (d) {
                     return y(d.y);
                 })
                 .attr("width", x(0.15))
-                .attr("height", function(d) {
+                .attr("height", function (d) {
                     return height - y(d.y);
                 })
-                .attr("fill", function(d) {
+                .attr("fill", function (d) {
                     return COLORS(i);
                 })
-                .attr("data-legend", function(d) {
+                .attr("data-legend", function (d) {
                     return names[i]
                 });
         }
@@ -194,7 +215,7 @@
             .enter()
             .append('g')
             .attr('class', 'legend')
-            .attr('transform', function(d, i) {
+            .attr('transform', function (d, i) {
                 var height_ = legendRectSize + legendSpacing;
                 var offset_ = height_ * COLORS.domain().length / 2;
                 var horz = -2 * legendRectSize;
@@ -209,7 +230,7 @@
         legend.append('text')
             .attr('x', legendRectSize + legendSpacing) // NEW
             .attr('y', legendRectSize - legendSpacing) // NEW
-            .text(function(d) {
+            .text(function (d) {
                 return d;
             });
 
