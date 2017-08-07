@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    <a class="navbar-brand" href="index.html">FlyMe</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="app.html">App</a>
+        <a class="nav-item nav-link" href="about.html">About</a>
+      </div>
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-9">
+          <h1 class="display-1">FlyMe</h1>
+          <h4>Flying customized</h4>
+        </div>
+        <div class="col-sm-3">
+          <a href="app.html"><button type="button" class="btn btn-success">Find my Flight</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-sm-6">
+              <svg id="delaySvg" width="500" height="300"></svg>
+            </div>
+            <div class="col-sm-6">
+              <p>Aggregate flight data</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <svg id="baggageSvg" width="500" height="300"></svg>
+            ALSDFJALSDFJALSDFJASLDFJASLDF
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <svg id="somethingSvg" width="500" height="300"></svg>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery-3.1.1.slim.min.js"></script>
+  <script src="assets/js/tether.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/d3.v4.min.js"></script>
+  <script src="about.js"></script>
+
+</body>
+
+</html>

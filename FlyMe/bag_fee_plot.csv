@@ -1,0 +1,8 @@
+,index,airline,code,bagOne,bagTwo,bagThree,bagExtra,resource
+0,0,Alaska,AS,25.0,25.0,,75.0,https://www.alaskaair.com/content/travel-info/baggage/checked-bags.aspx
+1,1,Delta,DL,25.0,35.0,,,https://www.delta.com/content/www/en_US/traveling-with-us/baggage/before-your-trip/checked.html#DetailsRules
+2,3,JetBlue,B6,25.0,35.0,,100.0,https://www.jetblue.com/travel/baggage/?intcmp=hd_info
+3,4,American,AA,25.0,35.0,150.0,200.0,https://www.aa.com/i18n/travel-info/baggage/checked-baggage-policy.jsp
+4,5,Frontier,F9,35.0,45.0,,75.0,https://www.flyfrontier.com/travel-information/baggage/#info
+5,7,Southwest,WN,0.0,0.0,,75.0,https://www.southwest.com/html/customer-service/baggage/checked-bags-pol.html
+6,8,Hawaiian,HA,25.0,35.0,,100.0,http://hawaiianair.custhelp.com/app/answers/detail/a_id/80

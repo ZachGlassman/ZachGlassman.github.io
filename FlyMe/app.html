@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <a class="navbar-brand" href="index.html">FlyMe</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="app.html">App <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <button type="button" id="paramsBtn" style="display:none" class="btn btn-success">Parameters</button>
+            </div>
+        </div>
+        <div class="row" id="params">
+            <div class='col-sm-6'>
+                <form>
+                    <div class="form-group">
+                        <label for="source">Source City</label>
+                        <!--<input type="text" class="form-control" id="source" aria-describedby="source" placeholder="Enter source">-->
+
+                        <select class="form-control" id="source-select">
+                                    <option>Atlanta GA (Metropolitan Area)</option>
+                                    <option>Boston MA (Metropolitan Area)</option>
+                                    <option>Charlotte NC</option>
+                                    <option>Chicago IL</option>
+                                    <option>Dallas/Fort Worth TX</option>
+                                    <option>Denver CO</option>
+                                    <option>Detroit MI</option>
+                                    <option>Houston TX</option>
+                                    <option>Las Vegas NV</option>
+                                    <option>Los Angeles CA (Metropolitan Area)</option>
+                                    <option>Miami FL (Metropolitan Area)</option>
+                                    <option>Minneapolis/St. Paul MN</option>
+                                    <option>Nashville TN</option>
+                                    <option>New York City NY (Metropolitan Area)</option>
+                                    <option>Orlando FL</option>
+                                    <option>Philadelphia PA</option>
+                                    <option>Phoenix AZ</option>
+                                    <option>Portland OR</option>
+                                    <option>Salt Lake City UT</option>
+                                    <option>San Diego CA</option>
+                                    <option>San Francisco CA (Metropolitan Area)</option>
+                                    <option>Seattle WA</option>
+                                    <option>St. Louis MO</option>
+                                    <option>Tampa FL (Metropolitan Area)</option>
+                                    <option>Washington DC (Metropolitan Area)</option>
+                                </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dest">Destination City</label>
+                        <!--<input type="text" class="form-control" id="dest" aria-describedby="destination" placeholder="Enter destination">-->
+                        <select class="form-control" id="dest-select">
+                                    <option>Albuquerque NM</option>
+                                    <option>Anchorage AK</option>
+                                    <option>Atlanta GA (Metropolitan Area)</option>
+                                    <option>Austin TX</option>
+                                    <option>Boise ID</option>
+                                    <option>Boston MA (Metropolitan Area)</option>
+                                    <option>Bozeman MT</option>
+                                    <option>Buffalo NY</option>
+                                    <option>Charlotte Amalie VI</option>
+                                    <option>Charlotte NC</option>
+                                    <option>Chicago IL</option>
+                                    <option>Cleveland OH (Metropolitan Area)</option>
+                                    <option>Columbus OH</option>
+                                    <option>Dallas/Fort Worth TX</option>
+                                    <option>Denver CO</option>
+                                    <option>Detroit MI</option>
+                                    <option>Fairbanks AK</option>
+                                    <option>Fort Myers FL</option>
+                                    <option>Fresno CA</option>
+                                    <option>Harlingen/San Benito TX</option>
+                                    <option>Hartford CT</option>
+                                    <option>Honolulu HI</option>
+                                    <option>Houston TX</option>
+                                    <option>Idaho Falls ID</option>
+                                    <option>Indianapolis IN</option>
+                                    <option>Jacksonville FL</option>
+                                    <option>Kahului HI</option>
+                                    <option>Kansas City MO</option>
+                                    <option>Las Vegas NV</option>
+                                    <option>Los Angeles CA (Metropolitan Area)</option>
+                                    <option>Madison WI</option>
+                                    <option>Miami FL (Metropolitan Area)</option>
+                                    <option>Milwaukee WI</option>
+                                    <option>Minneapolis/St. Paul MN</option>
+                                    <option>Nashville TN</option>
+                                    <option>New Orleans LA</option>
+                                    <option>New York City NY (Metropolitan Area)</option>
+                                    <option>Oklahoma City OK</option>
+                                    <option>Omaha NE</option>
+                                    <option>Orlando FL</option>
+                                    <option>Palm Springs CA</option>
+                                    <option>Philadelphia PA</option>
+                                    <option>Phoenix AZ</option>
+                                    <option>Pittsburgh PA</option>
+                                    <option>Portland OR</option>
+                                    <option>Raleigh/Durham NC</option>
+                                    <option>Reno NV</option>
+                                    <option>Richmond VA</option>
+                                    <option>Sacramento CA</option>
+                                    <option>Salt Lake City UT</option>
+                                    <option>San Antonio TX</option>
+                                    <option>San Diego CA</option>
+                                    <option>San Francisco CA (Metropolitan Area)</option>
+                                    <option>San Juan PR</option>
+                                    <option>Santa Barbara CA</option>
+                                    <option>Seattle WA</option>
+                                    <option>Sioux Falls SD</option>
+                                    <option>South Bend IN</option>
+                                    <option>Spokane WA</option>
+                                    <option>St. George UT</option>
+                                    <option>St. Louis MO</option>
+                                    <option>Tampa FL (Metropolitan Area)</option>
+                                    <option>Tucson AZ</option>
+                                    <option>Tulsa OK</option>
+                                    <option>Washington DC (Metropolitan Area)</option>
+                                    <option>West Palm Beach/Palm Beach FL</option>
+                                    <option>Wichita KS</option>
+                                </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="month-select">Select Month</label>
+                                <select class="form-control" id="month-select">
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="day-select">Select Day</label>
+                                <select class="form-control" id="day-select">
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                    <option>Sunday</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="flex">Flex Days</label>
+                        <input type="text" class="form-control" id="flex" aria-describedby="flex" placeholder="Enter flex days">
+                    </div>
+
+                </form>
+            </div>
+            <div class='col-sm-6'>
+                <form>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="flightType" id="directCheck" value="direct"> Direct
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="flightType" id="connectingCheck" value="connecting"> Connecting
+                      </label>
+                    </div>
+                    <div class="form-group row">
+                        <label for="onTime" class="col-sm-8 col-form-label">On Time Flight</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="onTime">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="connectLength" class="col-sm-8 col-form-label">Connection Length</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="connectLength">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="flexTime" class="col-sm-8 col-form-label">Flexible Times</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="flexTime">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="shortFlightTime" class="col-sm-8 col-form-label">Short Flight Time</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="shortFlightTime">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="airportQuality" class="col-sm-8 col-form-label">Airport Quality</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="airportQuality">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="airlineQuality" class="col-sm-8 col-form-label">Airline Quality</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="airlineQuality">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="nBags" class="col-sm-8 col-form-label">Number of Bags</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="nBags">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4+</option>
+                                </select>
+                        </div>
+                    </div>
+
+                </form>
+                <button id='submit' class="btn btn-primary">Submit</button>
+
+            </div>
+        </div>
+
+        <div id="tableSpace"></div>
+        <svg width="500" height="400"></svg>
+
+    </div>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    -->
+    <script src="assets/js/jquery-3.1.1.slim.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/d3.v4.min.js"></script>
+    <script src="delay_metric.js"></script>
+    <script src="airports.js"></script>
+    <script src="cities.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
