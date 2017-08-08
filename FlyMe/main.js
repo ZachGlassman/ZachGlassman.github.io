@@ -6,20 +6,31 @@
         var dest = CITIES[inputs['dest-select']];
         var database = firebase.database();
         var ref = database.ref();
+        var ansSpace = document.getElementById('ansSpace');
+        var progress = document.createElement("div");
+        progress.className = "progress";
+        var bar = document.createElement("div");
+        bar.className = "progress-bar";
+        bar.setAttribute('role', 'progressbar');
+        bar.setAttribute('aria-valuenow', "0");
+        bar.setAttribute('aria-valuemin', "0");
+        bar.setAttribute('aria-valuemax', "100");
+        progress.appendChild(bar)
+        ansSpace.appendChild(progress);
         ref.orderByChild('origin_dest')
             .equalTo(origin + '_' + dest).once("value", function (snap) {
+                bar.setAttribute('aria-valuenow', "50");
                 var ans = run(info, snap.val(), inputs)
                 var ansSpace = document.getElementById('ansSpace');
                 ansSpace.innerHTML = ans['message'];
-
+                if (ans['direct']) {
+                    var barData = transformBarData(ans['return'])
+                    //generateBarGraph(barData[0], barData[1]);
+                }
             })
 
         hideParams();
 
-        //var tableEle = document.getElementById('tableSpace');
-        //airportDayTable(rel_data, 'delay_data', tableEle);
-        //var barData = transformBarData(rel_data['delay_data'])
-        //generateBarGraph(barData[0], barData[1]);
     }
     // Run the algorithm to get an answer
     // keep it simple and transparent at first
@@ -57,11 +68,14 @@
                 "message": "No flights processed for that route"
             }
         } else {
-            var bagCosts = computeBaggage(info['nBags']);
+            var bagCosts = computeBaggage(inputs['nBags']);
             //we will compute optimal airline for the day chosen
             var month = MONTHS[inputs['month-select']];
             var day = DAYS[inputs['day-select']];
             var procRes = processComputedData(data, day, month);
+            for (j in procRes) {
+                procRes[j]['calc']['bagCosts'] = bagCosts[procRes[j]['airline']]
+            }
             if (info['direct']) {
                 var relData = [];
                 for (var i in procRes) {
@@ -71,33 +85,45 @@
                 }
 
                 var opt = computeDirect(relData,
-                    info['nBags'],
+                    info['price'],
+                    info['shortFlightTime'],
+                    info['onTime'],
+                    info['flexTime']);
+                var message = 'Optimal airline is ' + CARRIERS[opt[0]['airline']];
+                return {
+                    "error": false,
+                    "message": message,
+                    'direct': true,
+                    'return': opt[1]
+                }
+            } else {
+                var opt = computeConnect(procRes,
+                    info['price'],
                     info['shortFlightTime'],
                     info['onTime'],
                     info['flexTime']);
                 var message = 'Optimal airline is ' + CARRIERS[opt['airline']];
+                message += '  Optimal connection is through ' + AIRPORTS[opt['mid_airport']];
                 return {
                     "error": false,
-                    "message": message
+                    "message": message,
+                    "direct": false
                 }
             }
-            return {
-                "error": false,
-                "message": 'none'
-            }
+
         }
     }
 
-    function computeDirect(relData, nBags, flightTime, onTime, flexTimes) {
+    function computeConnect(relData, price, flightTime, onTime, flexTimes) {
         //going to normalize each calculation
         var normedData = normalizeCalcs(relData)
         var ind = 0;
         var min_score = 0;
-        console.log(normedData);
         for (var i = 0; i < normedData.length; i++) {
             var score = 0;
             score += (6 - flightTime) * normedData[i]['calc']['flightTime_data'];
             score += (6 - onTime) * normedData[i]['calc']['delay'];
+            score += (6 - price) * normedData[i]['calc']['bagCosts'];
             score += -1 * (6 - flexTimes) * normedData[i]['calc']['nFlights_data'];
             if (i == 0) {
                 min_score = score;
@@ -110,6 +136,38 @@
         }
 
         return normedData[ind];
+
+    }
+
+    function computeDirect(relData, price, flightTime, onTime, flexTimes) {
+        //going to normalize each calculation       
+        var normedData = normalizeCalcs(relData)
+        var ind = 0;
+        var min_score = 0;
+        var ind_scores = {}
+        for (var i = 0; i < normedData.length; i++) {
+            var score = 0;
+            var temp = {};
+            score += (6 - flightTime) * normedData[i]['calc']['flightTime_data'];
+            temp['Flight Time'] = (6 - flightTime) * normedData[i]['calc']['flightTime_data'];
+            score += (6 - onTime) * normedData[i]['calc']['delay'];
+            temp['On Time'] = (6 - onTime) * normedData[i]['calc']['delay'];
+            score += (6 - price) * normedData[i]['calc']['bagCosts'];
+            temp['Baggage'] = (6 - price) * normedData[i]['calc']['bagCosts'];
+            score += -1 * (6 - flexTimes) * normedData[i]['calc']['nFlights_data'];
+            temp['Flex'] = 1 * (6 - flexTimes) * normedData[i]['calc']['nFlights_data'];
+            temp['Score'] = score
+            if (i == 0) {
+                min_score = score;
+            } else {
+                if (score < min_score) {
+                    min_score = score;
+                    ind = i;
+                }
+            }
+            ind_scores[normedData[i]['airline']] = temp;
+        }
+        return [normedData[ind], ind_scores];
 
     }
 
@@ -140,7 +198,11 @@
     }
 
     function normPoint(val, min, max) {
-        return (val - min) / (max - min)
+        if (min != max) {
+            return (val - min) / (max - min)
+        } else {
+            return min
+        }
     }
     //process computed data which has delay data and
     //time data
@@ -160,38 +222,6 @@
             ans[airline] = BAGGAGE[airline][nBags]
         }
         return ans
-    }
-
-    function transformBarData(data) {
-        var barData = [];
-        var names = [];
-        for (var j in data) {
-            var temp_list = [];
-            names.push(AIRPORTS[j]);
-            for (var i in data[j]) {
-                temp_list.push({
-                    'x': (i - 1) * 3,
-                    'y': parseFloat(data[j][i])
-                });
-            }
-            barData.push(temp_list);
-        }
-        return [barData, names];
-    }
-
-    function airportDayTable(rel_data, key, tableEle) {
-        var toTable = [
-            ['City', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun']
-        ];
-        for (var i in rel_data[key]) {
-            var row = [AIRPORTS[i]];
-            for (var j in rel_data[key][i]) {
-                row.push(rel_data[key][i][j]);
-            }
-            toTable.push(row);
-        }
-
-        generateTable(toTable, singleDecimal, tableEle);
     }
 
     function singleDecimal(string) {
@@ -214,7 +244,6 @@
         return ans;
     }
 
-
     var paramsBtn = document.getElementById('paramsBtn')
     paramsBtn.onclick = function () {
         showParams();
@@ -233,7 +262,7 @@
     }
 
     function parseInformation() {
-        cats = ['onTime', 'connectLength', 'flexTime', 'shortFlightTime', 'airportQuality', 'airlineQuality', 'nBags'];
+        cats = ['onTime', 'connectLength', 'flexTime', 'shortFlightTime', 'airportQuality', 'airlineQuality', 'price'];
         cat_ans = {}
         for (var i = 0; i < cats.length; i++) {
             cat_ans[cats[i]] = parseInt(document.getElementById(cats[i]).value)
@@ -255,10 +284,31 @@
                 return false
             }
         }
+        valid_inputs['nBags'] = parseInt(document.getElementById('nBags').value)
         return valid_inputs
     }
 
+    function transformBarData(data) {
+        var barData = [];
+        var names = [];
+        for (var j in data) {
+            var temp_list = [];
+            names.push(CARRIERS[j]);
+            var k = 0;
+            for (var i in data[j]) {
+                temp_list.push({
+                    'x': k,
+                    'y': parseFloat(data[j][i])
+                });
+                k++;
+            }
+            barData.push(temp_list);
+        }
+        return [barData, names];
+    }
+
     function generateBarGraph(dataList, names) {
+        console.log(dataList);
         var delta = 3;
         var svg = d3.select("svg"),
             margin = {
