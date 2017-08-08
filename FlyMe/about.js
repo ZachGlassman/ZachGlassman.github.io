@@ -2,6 +2,7 @@
     window.onload = function () {
         delayPlot();
         baggagePlot();
+        diagramPlot();
     }
     var margin = {
         top: 20,
@@ -9,7 +10,117 @@
         bottom: 150,
         left: 140
     };
-    var COLORS = ['#c43a64', '#ce7c46', "#ccce5c"];
+    var COLORS = ['#c43a64', '#ce7c46', "#ccce5c", '#2fc68d'];
+
+    function diagramPlot() {
+        var radius = 50;
+        var diagramDATA = [{
+            'x': 200,
+            'y': 50,
+            'r': radius,
+            'color': COLORS[0],
+            'text': 'You'
+        }, {
+            'x': 200,
+            'y': 250,
+            'r': radius,
+            'color': COLORS[1],
+            'text': 'Data'
+        }, {
+            'x': 550,
+            'y': 150,
+            'r': radius,
+            'color': COLORS[2],
+            'text': 'Value'
+        }, {
+            'x': 350,
+            'y': 150,
+            'r': radius,
+            'color': COLORS[3],
+            'text': 'FlyMe'
+        }];
+
+        var lineData = [{
+                'x1': 200,
+                'y1': 50,
+                'x2': 350,
+                'y2': 150
+            }, {
+                'x1': 200,
+                'y1': 250,
+                'x2': 350,
+                'y2': 150
+            },
+            {
+                'x1': 350,
+                'y1': 150,
+                'x2': 550,
+                'y2': 150
+            }
+        ]
+        var svg = d3.select("#diagramSvg");
+        var g = svg.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        var width = +svg.attr("width") - margin.left - margin.right;
+        var height = +svg.attr("height") - margin.top - margin.bottom;
+        var line = d3.line()
+            .x(function (d) {
+                return d.x;
+            })
+            .y(function (d) {
+                return d.y
+            })
+
+        var lines = g.selectAll("line")
+            .data(lineData)
+            .enter().append("line")
+            .attr("x1", function (d) {
+                return d.x1;
+            })
+            .attr("y1", function (d) {
+                return d.y1;
+            })
+            .attr("x2", function (d) {
+                return d.x2;
+            })
+            .attr("y2", function (d) {
+                return d.y2;
+            })
+            .attr("stroke-width", 2)
+            .attr("stroke", "black");
+
+        var circle = g.selectAll("circle")
+            .data(diagramDATA)
+            .enter().append("circle")
+            .style("fill", function (d) {
+                return d.color;
+            })
+            .attr("cx", function (d) {
+                return d.x;
+            })
+            .attr("cy", function (d) {
+                return d.y;
+            })
+            .attr("r", function (d) {
+                return d.r;
+            });
+
+        var text = g.selectAll("text")
+            .data(diagramDATA)
+            .enter().append("text")
+            .attr("x", function (d) {
+                return d.x;
+            })
+            .attr("y", function (d) {
+                return d.y + d.r / 5;
+            })
+            .text(function (d) {
+                return d.text;
+            })
+            .style("text-anchor", "middle")
+            .style('font-size', "21px");
+
+    }
 
     function delayPlot() {
         var DAYS = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
@@ -45,7 +156,8 @@
                     .tickValues([0, 1, 2, 3, 4, 5, 6])
                     .tickFormat(function (d, i) {
                         return DAYS[i]
-                    }));
+                    }))
+                .style('font-size', "21px");
 
             var airlines = ['UA', 'DL'];
             for (var i = 0; i < airlines.length; i++) {
@@ -104,11 +216,13 @@
                     .tickValues(tickValues)
                     .tickFormat(function (d, i) {
                         return data[i]['airline']
-                    }));
+                    }))
+                .style('font-size', "21px");
 
             g.append("g")
                 .attr("class", "axis axis--y")
-                .call(d3.axisLeft(y));
+                .call(d3.axisLeft(y))
+                .style('font-size', "21px");
 
             g.selectAll(".bar2")
                 .data(data)
@@ -158,10 +272,7 @@
                     return height - y(d.bagOne);
                 })
                 .attr("fill", COLORS[0]);
-
-
         });
-
     }
 
 })()
