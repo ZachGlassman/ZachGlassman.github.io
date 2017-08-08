@@ -304,11 +304,25 @@
         <script src="assets/js/tether.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/d3.v4.min.js"></script>
-        <script src="delay_metric.js"></script>
         <script src="airports.js"></script>
+        <script src="carriers.js"></script>
         <script src="cities.js"></script>
         <script src="bag_fees.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyC8xNGUcof1R3bHlVK5IIpxvhwxOqgzhYE",
+                authDomain: "flyme-a1336.firebaseapp.com",
+                databaseURL: "https://flyme-a1336.firebaseio.com",
+                projectId: "flyme-a1336",
+                storageBucket: "flyme-a1336.appspot.com",
+                messagingSenderId: "296688544794"
+            };
+            firebase.initializeApp(config);
+        </script>
         <script src="main.js"></script>
+
 </body>
 
 </html>

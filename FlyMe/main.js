@@ -4,19 +4,18 @@
         var inputs = validateInputs();
         var origin = CITIES[inputs['source-select']];
         var dest = CITIES[inputs['dest-select']];
-        for (var i = 0; i < DATA.length; i++) {
-            if (DATA[i]['origin'] == origin && DATA[i]['dest'] == dest) {
-                var rel_data = DATA[i];
-                break;
-            }
-        }
+        var database = firebase.database();
+        var ref = database.ref();
+        ref.orderByChild('origin_dest')
+            .equalTo(origin + '_' + dest).once("value", function (snap) {
+                var ans = run(info, snap.val(), inputs)
+                var ansSpace = document.getElementById('ansSpace');
+                ansSpace.innerHTML = ans['message'];
+
+            })
 
         hideParams();
-        var ans = run(info, rel_data, inputs);
-        var ansSpace = document.getElementById('ansSpace');
-        if (ans['error']) {
-            ansSpace.innerHTML = ans['message']
-        }
+
         //var tableEle = document.getElementById('tableSpace');
         //airportDayTable(rel_data, 'delay_data', tableEle);
         //var barData = transformBarData(rel_data['delay_data'])
@@ -63,26 +62,93 @@
             var month = MONTHS[inputs['month-select']];
             var day = DAYS[inputs['day-select']];
             var procRes = processComputedData(data, day, month);
-            var delayRes = procRes['delay_data'];
-            var flightTimeRes = procRes['flightTime_data'];
-            console.log(procRes, bagCosts)
+            if (info['direct']) {
+                var relData = [];
+                for (var i in procRes) {
+                    if (procRes[i]['direct'] == "true") {
+                        relData.push(procRes[i])
+                    }
+                }
 
+                var opt = computeDirect(relData,
+                    info['nBags'],
+                    info['shortFlightTime'],
+                    info['onTime'],
+                    info['flexTime']);
+                var message = 'Optimal airline is ' + CARRIERS[opt['airline']];
+                return {
+                    "error": false,
+                    "message": message
+                }
+            }
             return {
                 "error": false,
                 "message": 'none'
             }
         }
     }
+
+    function computeDirect(relData, nBags, flightTime, onTime, flexTimes) {
+        //going to normalize each calculation
+        var normedData = normalizeCalcs(relData)
+        var ind = 0;
+        var min_score = 0;
+        console.log(normedData);
+        for (var i = 0; i < normedData.length; i++) {
+            var score = 0;
+            score += (6 - flightTime) * normedData[i]['calc']['flightTime_data'];
+            score += (6 - onTime) * normedData[i]['calc']['delay'];
+            score += -1 * (6 - flexTimes) * normedData[i]['calc']['nFlights_data'];
+            if (i == 0) {
+                min_score = score;
+            } else {
+                if (score < min_score) {
+                    min_score = score;
+                    ind = i;
+                }
+            }
+        }
+
+        return normedData[ind];
+
+    }
+
+    function normalizeCalcs(data) {
+        minMax = {};
+        for (var calc in data[0]['calc']) {
+            minMax[calc] = {};
+            minMax[calc]['data'] = [];
+        }
+        for (var d = 0; d < data.length; d++) {
+            for (var calc in data[d]['calc']) {
+                minMax[calc]['data'].push(parseFloat(data[d]['calc'][calc]));
+            }
+        }
+        for (calc in minMax) {
+            minMax[calc]['min'] = Math.min.apply(null, minMax[calc]['data'])
+            minMax[calc]['max'] = Math.max.apply(null, minMax[calc]['data'])
+        }
+        var normData = data;
+        for (d = 0; d < data.length; d++) {
+            for (calc in data[d]['calc']) {
+                normData[d]['calc'][calc] = normPoint(parseFloat(data[d]['calc'][calc]),
+                    minMax[calc]['min'],
+                    minMax[calc]['max']);
+            }
+        }
+        return normData;
+    }
+
+    function normPoint(val, min, max) {
+        return (val - min) / (max - min)
+    }
     //process computed data which has delay data and
     //time data
     function processComputedData(data, day, month) {
-        var results = {};
-        for (var calculation in data) {
-            results[calculation] = {};
-            for (var city in data[calculation]) {
-                results[calculation][city] = {}
-                for (var airline in data[calculation][city])
-                    results[calculation][city][airline] = parseFloat(data[calculation][city][airline][day]);
+        var results = [];
+        for (var i in data) {
+            if (data[i]['day'] == day) {
+                results.push(data[i])
             }
         }
         return results;
