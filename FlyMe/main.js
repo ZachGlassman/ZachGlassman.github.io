@@ -12,7 +12,7 @@
         }
 
         hideParams();
-        var ans = run(info, rel_data);
+        var ans = run(info, rel_data, inputs);
         var ansSpace = document.getElementById('ansSpace');
         if (ans['error']) {
             ansSpace.innerHTML = ans['message']
@@ -22,21 +22,78 @@
         //var barData = transformBarData(rel_data['delay_data'])
         //generateBarGraph(barData[0], barData[1]);
     }
+    // Run the algorithm to get an answer
+    // keep it simple and transparent at first
+    // for a direct flight, we want just the airline
+    // for connecting, we want airline and connecting flight
+    // we also want the best day
+    var MONTHS = {
+        'April': 3,
+        'August': 7,
+        'December': 11,
+        'February': 1,
+        'January': 0,
+        'July': 6,
+        'June': 5,
+        'March': 2,
+        'May': 4,
+        'November': 10,
+        'October': 9,
+        'September': 8
+    };
+    var DAYS = {
+        'Monday': 1,
+        'Tuesday': 2,
+        'Wednesday': 3,
+        'Thursday': 4,
+        'Friday': 5,
+        'Saturday': 6,
+        'Sunday': 7
+    };
 
-    function run(info, data) {
+    function run(info, data, inputs) {
         if (!data) {
             return {
                 "error": true,
                 "message": "No flights processed for that route"
             }
         } else {
-            console.log(info, data)
+            var bagCosts = computeBaggage(info['nBags']);
+            //we will compute optimal airline for the day chosen
+            var month = MONTHS[inputs['month-select']];
+            var day = DAYS[inputs['day-select']];
+            var procRes = processComputedData(data, day, month);
+            var delayRes = procRes['delay_data'];
+            var flightTimeRes = procRes['flightTime_data'];
+            console.log(procRes, bagCosts)
+
             return {
                 "error": false,
                 "message": 'none'
             }
         }
+    }
+    //process computed data which has delay data and
+    //time data
+    function processComputedData(data, day, month) {
+        var results = {};
+        for (var calculation in data) {
+            results[calculation] = {};
+            for (var city in data[calculation]) {
+                results[calculation][city] = {}
+                for (var airline in data[calculation][city])
+                    results[calculation][city][airline] = parseFloat(data[calculation][city][airline][day]);
+            }
+        }
+        return results;
+    }
 
+    function computeBaggage(nBags) {
+        ans = {}
+        for (airline in BAGGAGE) {
+            ans[airline] = BAGGAGE[airline][nBags]
+        }
+        return ans
     }
 
     function transformBarData(data) {
