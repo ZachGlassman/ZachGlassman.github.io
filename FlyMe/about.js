@@ -179,6 +179,24 @@
                     .attr('opacity', '.9')
             }
         });
+        var text = g.selectAll("text")
+            .data([{
+                'x': 40,
+                'y': 20,
+                'text': 'Hello sup homie'
+            }])
+            .enter().append("text")
+            .attr("x", function (d) {
+                return x(d.x);
+            })
+            .attr("y", function (d) {
+                return y(d.y);
+            })
+            .text(function (d) {
+                return d.text;
+            })
+            .style("text-anchor", "middle")
+            .style('font-size', "21px");
 
     }
 
@@ -229,12 +247,12 @@
                 .enter().append("rect")
                 .attr("class", "bar2")
                 .attr("x", function (d) {
-                    return x(d.index);
+                    return x(d.index + .35);
                 })
                 .attr("y", function (d) {
                     return y(d.bagExtra);
                 })
-                .attr("width", x(0.5))
+                .attr("width", x(0.25))
                 .attr("height", function (d) {
                     return height - y(d.bagExtra);
                 })
@@ -245,12 +263,12 @@
                 .enter().append("rect")
                 .attr("class", "bar1")
                 .attr("x", function (d) {
-                    return x(d.index);
+                    return x(d.index + .1);
                 })
                 .attr("y", function (d) {
                     return y(d.bagTwo);
                 })
-                .attr("width", x(0.5))
+                .attr("width", x(0.25))
                 .attr("height", function (d) {
                     return height - y(d.bagTwo);
                 })
@@ -262,17 +280,66 @@
                 .enter().append("rect")
                 .attr("class", "bar")
                 .attr("x", function (d) {
-                    return x(d.index);
+                    return x(d.index - 0.15);
                 })
                 .attr("y", function (d) {
                     return y(d.bagOne);
                 })
-                .attr("width", x(0.5))
+                .attr("width", x(0.25))
                 .attr("height", function (d) {
                     return height - y(d.bagOne);
                 })
                 .attr("fill", COLORS[0]);
         });
+
+        var rect = g.append("rect")
+            .attr("x", 10)
+            .attr("y", -5)
+            .style("width", 180)
+            .style("height", 120)
+            .style("fill", 'white');
+
+        var text = g.append("text")
+            .attr("x", 50)
+            .attr("y", 15)
+            .text("First Bag")
+            .style('font-size', "21px");
+
+        var rect = g.append("rect")
+            .attr("x", 20)
+            .attr("y", 0)
+            .style("width", 10)
+            .style("height", 10)
+            .style("fill", COLORS[0]);
+
+
+        var text = g.append("text")
+            .attr("x", 50)
+            .attr("y", 55)
+            .text("Second Bag")
+            .style('font-size', "21px");
+
+        var rect = g.append("rect")
+            .attr("x", 20)
+            .attr("y", 40)
+            .style("width", 10)
+            .style("height", 10)
+            .style("fill", COLORS[1]);
+
+        var text = g.append("text")
+            .attr("x", 50)
+            .attr("y", 95)
+            .text("Third Bag")
+            .style('font-size', "21px");
+
+        var rect = g.append("rect")
+            .attr("x", 20)
+            .attr("y", 80)
+            .style("width", 10)
+            .style("height", 10)
+            .style("fill", COLORS[2]);
+
+
     }
 
 })()
