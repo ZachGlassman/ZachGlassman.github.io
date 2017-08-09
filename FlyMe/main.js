@@ -4,8 +4,9 @@
         var inputs = validateInputs();
         var origin = CITIES[inputs['source-select']];
         var dest = CITIES[inputs['dest-select']];
+        var month = MONTHS[inputs['month-select']].toString();
         var database = firebase.database();
-        var ref = database.ref();
+        var ref = database.ref().child(month);
         var ansSpace = document.getElementById('ansSpace');
         var progress = document.createElement("div");
         progress.className = "progress";
@@ -20,7 +21,7 @@
         ref.orderByChild('origin_dest')
             .equalTo(origin + '_' + dest).once("value", function (snap) {
                 bar.setAttribute('aria-valuenow', "50");
-                var ans = run(info, snap.val(), inputs)
+                var ans = run(info, snap.val(), inputs);
                 var ansSpace = document.getElementById('ansSpace');
                 ansSpace.innerHTML = ans['message'];
                 if (ans['direct']) {
