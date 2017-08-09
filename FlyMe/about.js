@@ -198,6 +198,41 @@
             .style("text-anchor", "middle")
             .style('font-size', "21px");
 
+
+        var rect = g.append("rect")
+            .attr("x", 10)
+            .attr("y", -5)
+            .style("width", 250)
+            .style("height", 70)
+            .style("fill", "#bec7d6");
+
+        var text = g.append("text")
+            .attr("x", 50)
+            .attr("y", 15)
+            .text("United Delay Metric")
+            .style('font-size', "21px");
+
+        var rect = g.append("rect")
+            .attr("x", 20)
+            .attr("y", 0)
+            .style("width", 10)
+            .style("height", 10)
+            .style("fill", COLORS[0]);
+
+
+        var text = g.append("text")
+            .attr("x", 50)
+            .attr("y", 55)
+            .text("Delta Delay Metric")
+            .style('font-size', "21px");
+
+        var rect = g.append("rect")
+            .attr("x", 20)
+            .attr("y", 40)
+            .style("width", 10)
+            .style("height", 10)
+            .style("fill", COLORS[1]);
+
     }
 
     function baggagePlot() {
@@ -297,7 +332,7 @@
             .attr("y", -5)
             .style("width", 180)
             .style("height", 120)
-            .style("fill", 'white');
+            .style("fill", '#bec7d6');
 
         var text = g.append("text")
             .attr("x", 50)
